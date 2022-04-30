@@ -1,26 +1,35 @@
-/* RED: #E83151 */
-/* RED 2: #FF4646 */
-/* TEAL: #00C49A */
-/* VERY DARK NAVY GOES WITH RED DARK MODE: #071013 */
-/* WHITE FOR LIGHT MODE: #FEFFF1 */
-
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap");
+@import "./Components/UI/variables.css";
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap");
 
 * {
   margin: 0;
   padding: 0;
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
 html {
-  font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 62.5%; /* 1 rem === 10px */
+}
+
+@media only screen and (max-width: 1100px) {
+  html {
+    font-size: 50%;
+  }
 }
 
 body {
-  background-color: #fefff1;
+  background-color: var(--white);
 }
 
 .App {
-  background-color: #fefff1;
-  min-height: 130vh;
+  background-color: var(--white);
+  min-height: 100vh;
   margin: 0 auto;
 }

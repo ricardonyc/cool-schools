@@ -1,0 +1,11 @@
+/* RED: #E83151 */
+/* RED 2: #FF4646 */
+/* TEAL: #00C49A */
+/* VERY DARK NAVY GOES WITH RED DARK MODE: #071013 */
+/* WHITE FOR LIGHT MODE: #FEFFF1 */
+
+:root {
+  --max-width: 1800px;
+  --white: #fefff1;
+  --teal: #00c49a;
+}

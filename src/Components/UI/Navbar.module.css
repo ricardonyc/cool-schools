@@ -1,43 +1,69 @@
+@import "./variables.css";
+
 .navbar {
   width: 100%;
-  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); */
   /* border: 1px solid red; */
 }
 
 .nav__container {
+  background-color: var(--white);
+  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); */
   display: flex;
   align-items: center;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  max-width: 1800px;
+  max-width: var(--max-width);
   margin: 0 auto;
-  /* border: 1px solid red; */
+  z-index: 99999999;
+  /* outline: 1px solid red; */
 }
 
 .logo {
   width: 310px;
   margin: 0 auto 0 0rem;
-  color: #00c49a;
+  color: var(--teal);
 }
 
 .nav__menu {
   display: flex;
   list-style: none;
-  margin-right: 1rem;
+  /* border: 1px solid red; */
 }
 
 .nav__menu li {
-  margin-right: 1rem;
   padding: 0.3rem 1rem;
   cursor: pointer;
+  font-size: 1.8rem;
+  border-radius: 3px;
+}
+
+.nav__menu li:not(:last-child) {
+  margin-right: 1rem;
+}
+
+/* SELECT ONLY FIRST TWO LIST ITEMS */
+.nav__menu li:hover:nth-last-child(n + 3) {
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.nav__menu li:active:nth-last-child(n + 3) {
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 .nav__menu li a {
-  background-color: #00c49a;
-  border-radius: 15px;
-  padding: 0.3rem 0.9rem;
-  color: #fefff1;
+  background-color: var(--teal);
+  border-radius: 3px;
+  padding: 0.3rem 1rem;
+  color: var(--white);
   text-decoration: none;
+}
+
+.nav__menu li a:hover {
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.nav__menu li a:active {
+  box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.2);
 }

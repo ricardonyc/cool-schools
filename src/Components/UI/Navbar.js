@@ -10,7 +10,6 @@ function Navbar(props) {
         {/* <h1 className={classes.logo}>CoolSchools</h1> */}
         <ul className={classes.nav__menu}>
           <li>Home</li>
-          <li>About</li>
           <li>Contact</li>
           <li>
             <a href="#">Sign Up</a>
