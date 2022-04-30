@@ -1,0 +1,26 @@
+/* RED: #E83151 */
+/* RED 2: #FF4646 */
+/* TEAL: #00C49A */
+/* VERY DARK NAVY GOES WITH RED DARK MODE: #071013 */
+/* WHITE FOR LIGHT MODE: #FEFFF1 */
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: #fefff1;
+}
+
+.App {
+  background-color: #fefff1;
+  min-height: 130vh;
+  margin: 0 auto;
+}
