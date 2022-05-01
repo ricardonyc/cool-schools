@@ -39,7 +39,10 @@
   border-radius: 3px;
 }
 
-.nav__menu li:not(:last-child) {
+/* .nav__menu li:not(:last-child) {
+  margin-right: 1rem;
+} */
+.nav__menu li {
   margin-right: 1rem;
 }
 
