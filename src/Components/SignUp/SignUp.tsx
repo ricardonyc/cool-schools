@@ -1,15 +1,15 @@
 import React from "react";
-import { LoginContainer } from "./LoginContainer";
-import { Button } from "../UI/misc/Button";
 import { Link } from "react-router-dom";
-import { RiGhostSmileFill } from "react-icons/ri";
+import { LoginContainer } from "../Login/LoginContainer";
+import { Button } from "../UI/misc/Button";
+import { FaPencilAlt } from "react-icons/fa";
 
-const Login = () => {
+const SignUp = () => {
   return (
     <LoginContainer>
       <div className="login__box">
-        <RiGhostSmileFill className="login__box--icon" />
-        <h1 className="login__box--h1">Login</h1>
+        <FaPencilAlt className="login__box--icon" />
+        <h1 className="login__box--h1">Sign Up</h1>
         <div className="login__box--input">
           <label htmlFor="email">Email:</label>
           <input id="email" type="email" />
@@ -18,13 +18,12 @@ const Login = () => {
           <label htmlFor="password">Password:</label>
           <input id="password" type="password" />
         </div>
-        <Button fontSize="1.8rem">Login</Button>
+        <Button fontSize="1.8rem">Sign Up</Button>
         <p>
-          Don't have an account? <Link to="/signup">Sign Up</Link>
+          Have an account? <Link to="/login">Login</Link>
         </p>
       </div>
     </LoginContainer>
   );
 };
-
-export default Login;
+export default SignUp;

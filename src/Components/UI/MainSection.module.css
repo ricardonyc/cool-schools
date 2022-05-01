@@ -17,7 +17,7 @@
     inset 0 0 15px 700px #7ed56fb4;
 }
 
-h1 {
+.main__section--h1 {
   text-align: center;
   color: white;
   font-family: "Roboto Condensed", sans-serif;

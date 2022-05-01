@@ -2,7 +2,6 @@
 
 .navbar {
   width: 100%;
-  /* border: 1px solid red; */
 }
 
 .nav__container {
@@ -22,21 +21,19 @@
 
 .logo {
   width: 310px;
-  margin: 0 auto 0 0rem;
-  color: var(--teal);
+  margin-right: auto;
 }
 
 .nav__menu {
   display: flex;
   list-style: none;
-  /* border: 1px solid red; */
 }
 
 .nav__menu li {
-  padding: 0.3rem 1rem;
+  padding: var(--btn-padding);
   cursor: pointer;
   font-size: 1.8rem;
-  border-radius: 3px;
+  border-radius: var(--border-radius);
 }
 
 /* .nav__menu li:not(:last-child) {
@@ -57,8 +54,8 @@
 
 .nav__menu li a {
   background-color: var(--teal);
-  border-radius: 3px;
-  padding: 0.3rem 1rem;
+  border-radius: var(--border-radius);
+  padding: var(--btn-padding);
   color: var(--white);
   text-decoration: none;
 }

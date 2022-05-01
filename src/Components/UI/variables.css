@@ -5,7 +5,16 @@
 /* WHITE FOR LIGHT MODE: #FEFFF1 */
 
 :root {
+  /* COLORS */
   --max-width: 1800px;
   --white: #fefff1;
   --teal: #00c49a;
+  --teal-active: #00b991;
+  --darkmode-navy: #071013;
+  --error-red: #ff4646;
+  --button-blue: #2196f3;
+  --button-blue-clicked: #1e88e5;
+
+  --border-radius: 2px;
+  --btn-padding: 0.3rem 1rem;
 }

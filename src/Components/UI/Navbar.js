@@ -8,7 +8,6 @@ function Navbar(props) {
     <nav className={classes.navbar}>
       <div className={classes.nav__container}>
         <img className={classes.logo} src={CoolSchoolsSVG} alt="" />
-        {/* <h1 className={classes.logo}>CoolSchools</h1> */}
         <ul className={classes.nav__menu}>
           <li>Home</li>
           <li>Contact</li>
