@@ -1,6 +1,7 @@
 import React from "react";
 import classes from "./Navbar.module.css";
 import CoolSchoolsSVG from "../assets/CoolSchools.svg";
+import { Link } from "react-router-dom";
 
 function Navbar(props) {
   return (
@@ -15,7 +16,7 @@ function Navbar(props) {
             <a href="#">Sign Up</a>
           </li>
           <li>
-            <a href="#">Login</a>
+            <Link to="/login">Login</Link>
           </li>
         </ul>
       </div>
