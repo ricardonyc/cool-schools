@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { InputContainer } from "./Login/InputContainer";
 import Input from "./Input";
 import { RiGhostSmileFill } from "react-icons/ri";
@@ -6,6 +6,8 @@ import { FaPencilAlt } from "react-icons/fa";
 import { Button } from "./UI/misc/Button";
 import { Link } from "react-router-dom";
 import { FormProps } from "../model";
+import LightDarkMode from "./UI/LightDarkMode";
+import { ThemeContext } from "../darkmode-context";
 
 const FormInputs = ({
   submitForm,
@@ -19,8 +21,10 @@ const FormInputs = ({
   linkText,
   h1Text,
 }: FormProps) => {
+  const { darkMode } = useContext(ThemeContext);
+
   return (
-    <InputContainer>
+    <InputContainer bgColor={darkMode} clr={darkMode}>
       <form onSubmit={submitForm} className="login__box">
         {linkText === "Sign Up" ? (
           <RiGhostSmileFill className="login__box--icon" />
@@ -64,6 +68,7 @@ const FormInputs = ({
           <Link to="/">Go Back Home</Link>
         </p>
       </form>
+      <LightDarkMode />
     </InputContainer>
   );
 };

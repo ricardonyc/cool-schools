@@ -19,8 +19,7 @@
   box-shadow: inset 0 0 0 2000px #07101381;
 }
 
-.main__section--container--dark {
-  /* border: 1px solid red; */
+/* .main__section--container--dark {
   position: relative;
   top: 71px;
   max-width: var(--max-width);
@@ -29,12 +28,12 @@
   justify-content: center;
   align-items: center;
   min-height: 50vh;
-  /* background-image: url("../assets/schoolnight.jpg"); */
+  background-image: url("../assets/schoolnight.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   box-shadow: inset 0 0 0 2000px #0000005e;
-}
+} */
 
 .light {
   background-image: url("../assets/schoolday.png");

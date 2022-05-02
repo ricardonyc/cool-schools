@@ -1,5 +1,10 @@
 @import "./variables.css";
 
+.main__boxes--container {
+  width: 100%;
+  background: transparent;
+}
+
 .boxes__container {
   position: relative;
   top: 71px;
@@ -10,7 +15,7 @@
   align-items: center;
   flex-wrap: wrap;
   max-width: var(--max-width);
-  min-height: 40vh;
+  min-height: 50vh;
 }
 
 .box {
@@ -19,7 +24,7 @@
   /* border: 1px solid red; */
   max-width: 300px;
   width: 100%;
-  margin: 0 5rem;
+  margin: 3rem 5rem;
   /* color: var(--darkmode-navy); */
 }
 

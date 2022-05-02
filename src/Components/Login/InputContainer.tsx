@@ -1,9 +1,17 @@
+import { useContext } from "react";
 import "../UI/variables.css";
 import styled from "styled-components";
+import { ThemeContext } from "../../darkmode-context";
 
-export const InputContainer = styled.div`
-  background-color: var(--white);
-  min-height: 80vh;
+interface InputProps {
+  bgColor?: boolean;
+  clr?: boolean;
+}
+
+export const InputContainer = styled.div<InputProps>`
+  background-color: ${(props) =>
+    props.bgColor ? "var(--darkmode-navy)" : "var(--white)"};
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -12,7 +20,7 @@ export const InputContainer = styled.div`
     max-width: 100%;
     border-radius: var(--border-radius);
     padding: 3rem;
-    color: var(--darkmode-navy);
+    color: ${(props) => (props.clr ? "var(--white)" : "var(--darkmode-navy)")};
 
     &--icon {
       width: 100%;
@@ -49,6 +57,11 @@ export const InputContainer = styled.div`
       margin-top: 1.5rem;
       font-size: 2rem;
       text-align: center;
+
+      a {
+        color: ${(props) =>
+          props.clr ? "var(--white)" : "var(--darkmode-navy)"};
+      }
     }
   }
 `;
