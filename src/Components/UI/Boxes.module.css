@@ -23,10 +23,12 @@
   /* color: var(--darkmode-navy); */
 }
 
-.light {
-  color: var(--white);
+.box h1 {
+  background-color: transparent;
 }
 
-.dark {
-  color: var(--darkmode-navy);
+@media only screen and (max-width: 1100px) {
+  .box {
+    margin: 3rem 0;
+  }
 }

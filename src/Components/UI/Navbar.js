@@ -3,6 +3,7 @@ import css from "./Navbar.module.css";
 import CoolSchoolsSVG from "../assets/CoolSchools.svg";
 import { Link } from "react-router-dom";
 import { ThemeContext } from "../../darkmode-context";
+import LD from "./Modes.module.css";
 
 function Navbar(props) {
   const { darkMode } = useContext(ThemeContext);
@@ -12,16 +13,16 @@ function Navbar(props) {
       <div
         className={
           darkMode
-            ? `${css.nav__container} ${css.background__dark}`
-            : `${css.nav__container} ${css.background__light}`
+            ? `${css.nav__container} ${LD.dark__bg}`
+            : `${css.nav__container} ${LD.light__bg}`
         }
       >
         <img className={css.logo} src={CoolSchoolsSVG} alt="" />
         <ul
           className={
             darkMode
-              ? `${css["nav__menu"]} ${css["nav__menu--dark"]}`
-              : `${css["nav__menu"]} ${css["nav__menu--light"]}`
+              ? `${css["nav__menu"]} ${LD.dark__bg}`
+              : `${css["nav__menu"]} ${LD.light}`
           }
         >
           <li>Home</li>

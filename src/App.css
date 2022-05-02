@@ -30,6 +30,7 @@ html {
 } */
 
 .App {
+  background-color: transparent;
   min-height: 100vh;
   margin: 0 auto;
 }

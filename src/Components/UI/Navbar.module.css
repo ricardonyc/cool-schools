@@ -5,7 +5,6 @@
 }
 
 .nav__container {
-  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); */
   display: flex;
   align-items: center;
   position: fixed;
@@ -15,16 +14,15 @@
   max-width: var(--max-width);
   margin: 0 auto;
   z-index: 99999999;
-  /* outline: 1px solid red; */
 }
 
-.background__light {
+/* .background__light {
   background-color: var(--white);
 }
 
 .background__dark {
   background-color: var(--darkmode-navy);
-}
+} */
 
 .logo {
   width: 310px;
@@ -37,7 +35,7 @@
 }
 
 .nav__menu--dark {
-  color: white;
+  color: var(--white);
 }
 
 .nav__menu--light {

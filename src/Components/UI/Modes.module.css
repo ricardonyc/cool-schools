@@ -1,0 +1,21 @@
+@import "./variables.css";
+
+/* .light__bg {
+  color: var(--white);
+  background-color: var(--darkmode-navy);
+}
+
+.dark__bg {
+  color: var(--darkmode-navy);
+  background-color: var(--white);
+} */
+
+.light__bg {
+  color: var(--darkmode-navy);
+  background-color: var(--white);
+}
+
+.dark__bg {
+  color: var(--white);
+  background-color: var(--darkmode-navy);
+}
