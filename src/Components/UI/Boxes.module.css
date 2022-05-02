@@ -20,5 +20,13 @@
   max-width: 300px;
   width: 100%;
   margin: 0 5rem;
+  /* color: var(--darkmode-navy); */
+}
+
+.light {
+  color: var(--white);
+}
+
+.dark {
   color: var(--darkmode-navy);
 }
