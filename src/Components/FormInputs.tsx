@@ -19,10 +19,6 @@ const FormInputs = ({
   linkText,
   h1Text,
 }: FormProps) => {
-
-    console.log(linkText)
-
-
   return (
     <InputContainer>
       <form onSubmit={submitForm} className="login__box">
@@ -63,6 +59,9 @@ const FormInputs = ({
               Don't have an account? <Link to={path}>{linkText}</Link>
             </>
           )}
+        </p>
+        <p>
+          <Link to="/">Go Back Home</Link>
         </p>
       </form>
     </InputContainer>
