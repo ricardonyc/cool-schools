@@ -1,7 +1,7 @@
 import "../UI/variables.css";
 import styled from "styled-components";
 
-export const LoginContainer = styled.div`
+export const InputContainer = styled.div`
   background-color: var(--white);
   min-height: 80vh;
   display: flex;
