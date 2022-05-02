@@ -5,11 +5,6 @@ import React, {
   useState,
   useEffect,
 } from "react";
-// import { Link } from "react-router-dom";
-// import { InputContainer } from "../Login/InputContainer";
-// import { Button } from "../UI/misc/Button";
-// import { FaPencilAlt } from "react-icons/fa";
-// import Input from "../Input";
 import { StateType, ActionType } from "../../model";
 import FormInputs from "../FormInputs";
 

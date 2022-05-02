@@ -5,7 +5,6 @@
 }
 
 .nav__container {
-  background-color: var(--white);
   /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); */
   display: flex;
   align-items: center;
@@ -19,6 +18,14 @@
   /* outline: 1px solid red; */
 }
 
+.background__light {
+  background-color: var(--white);
+}
+
+.background__dark {
+  background-color: var(--darkmode-navy);
+}
+
 .logo {
   width: 310px;
   margin-right: auto;
@@ -27,6 +34,14 @@
 .nav__menu {
   display: flex;
   list-style: none;
+}
+
+.nav__menu--dark {
+  color: white;
+}
+
+.nav__menu--light {
+  color: var(--darkmode-navy);
 }
 
 .nav__menu li {
@@ -58,6 +73,16 @@
   padding: var(--btn-padding);
   color: var(--white);
   text-decoration: none;
+}
+
+/* .nav__menu::nth-last-child(n + 5) {
+  border: 1px solid red;
+  background-color: var(--yellow);
+} */
+
+#login {
+  color: black;
+  background-color: #ffe251 !important;
 }
 
 .nav__menu li a:hover {

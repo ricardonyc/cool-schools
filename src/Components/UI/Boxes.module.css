@@ -1,0 +1,24 @@
+@import "./variables.css";
+
+.boxes__container {
+  position: relative;
+  top: 71px;
+  margin: auto;
+  /* border: 1px solid red; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: var(--max-width);
+  min-height: 40vh;
+}
+
+.box {
+  font-size: 1.5rem;
+  text-align: center;
+  /* border: 1px solid red; */
+  max-width: 300px;
+  width: 100%;
+  margin: 0 5rem;
+  color: var(--darkmode-navy);
+}

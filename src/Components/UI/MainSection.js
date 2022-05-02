@@ -1,10 +1,19 @@
-import React from "react";
-import classes from "./MainSection.module.css";
+import React, { useContext } from "react";
+import css from "./MainSection.module.css";
+import { ThemeContext } from "../../darkmode-context";
 
 function MainSection(props) {
+  const { darkMode } = useContext(ThemeContext);
+
   return (
-    <div className={classes["main__section--container"]}>
-      <h1 className={classes["main__section--h1"]}>
+    <div
+      className={
+        darkMode
+          ? `${css["main__section--container"]} ${css.dark}`
+          : `${css["main__section--container"]} ${css.light}`
+      }
+    >
+      <h1 className={css["main__section--h1"]}>
         Find and Review Your Favorite <br /> (and Not-so-Favorite) Universities
       </h1>
     </div>

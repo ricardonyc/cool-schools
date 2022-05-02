@@ -1,21 +1,39 @@
-import React from "react";
-import classes from "./Navbar.module.css";
+import React, { useContext } from "react";
+import css from "./Navbar.module.css";
 import CoolSchoolsSVG from "../assets/CoolSchools.svg";
 import { Link } from "react-router-dom";
+import { ThemeContext } from "../../darkmode-context";
 
 function Navbar(props) {
+  const { darkMode } = useContext(ThemeContext);
+
   return (
-    <nav className={classes.navbar}>
-      <div className={classes.nav__container}>
-        <img className={classes.logo} src={CoolSchoolsSVG} alt="" />
-        <ul className={classes.nav__menu}>
+    <nav className={css.navbar}>
+      <div
+        className={
+          darkMode
+            ? `${css.nav__container} ${css.background__dark}`
+            : `${css.nav__container} ${css.background__light}`
+        }
+      >
+        <img className={css.logo} src={CoolSchoolsSVG} alt="" />
+        <ul
+          className={
+            darkMode
+              ? `${css["nav__menu"]} ${css["nav__menu--dark"]}`
+              : `${css["nav__menu"]} ${css["nav__menu--light"]}`
+          }
+        >
           <li>Home</li>
+          <li>Search</li>
           <li>Contact</li>
           <li>
-            <a href="#">Sign Up</a>
+            <Link to="/signup">Sign Up</Link>
           </li>
           <li>
-            <Link to="/login">Login</Link>
+            <Link id={css.login} to="/login">
+              Login
+            </Link>
           </li>
         </ul>
       </div>

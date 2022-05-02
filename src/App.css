@@ -24,12 +24,20 @@ html {
   }
 }
 
-body {
+/* body {
   background-color: var(--white);
-}
+  background-color: var(--darkmode-navy);
+} */
 
 .App {
-  background-color: var(--white);
   min-height: 100vh;
   margin: 0 auto;
+}
+
+.dark {
+  background-color: var(--darkmode-navy);
+}
+
+.light {
+  background-color: var(--white);
 }

@@ -5,11 +5,6 @@ import React, {
   useEffect,
   FormEvent,
 } from "react";
-// import { InputContainer } from "./InputContainer";
-// import { Button } from "../UI/misc/Button";
-// import { Link } from "react-router-dom";
-// import { RiGhostSmileFill } from "react-icons/ri";
-// import Input from "../Input";
 import { StateType, ActionType } from "../../model";
 import FormInputs from "../FormInputs";
 
