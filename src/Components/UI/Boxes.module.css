@@ -1,21 +1,23 @@
 @import "./variables.css";
 
 .main__boxes--container {
+  position: relative;
+  top: 71px;
   width: 100%;
-  background: transparent;
+  /* border: 3px solid red; */
 }
 
 .boxes__container {
-  position: relative;
-  top: 71px;
+  /* position: relative;
+  top: 71px; */
   margin: auto;
-  /* border: 1px solid red; */
+  /* border: 2px solid red; */
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
   max-width: var(--max-width);
-  min-height: 50vh;
+  min-height: 44vh;
 }
 
 .box {

@@ -1,7 +1,7 @@
 @import "./variables.css";
 
 .main__section--container {
-  /* border: 1px solid red; */
+  /* border: 3px solid red; */
   position: relative;
   top: 71px;
   max-width: var(--max-width);

@@ -24,17 +24,17 @@ html {
   }
 }
 
-/* body {
+body {
   background-color: var(--white);
   background-color: var(--darkmode-navy);
-} */
+}
 
 .App {
   background-color: transparent;
   min-height: 100vh;
   margin: 0 auto;
   /* REMOVED WHITE SPACE FROM BOTTOM OF PAGE */
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 .dark {

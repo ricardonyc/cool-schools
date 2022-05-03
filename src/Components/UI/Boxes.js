@@ -4,6 +4,8 @@ import Working from "../assets/working.svg";
 import { ThemeContext } from "../../darkmode-context";
 import { useContext } from "react";
 import LD from "./Modes.module.css";
+import Typewriter from "../assets/Typewriter.svg";
+import TypewriterDark from "../assets/TypewriterDARK.svg";
 
 const Boxes = () => {
   const { darkMode } = useContext(ThemeContext);
@@ -18,7 +20,7 @@ const Boxes = () => {
         }
       >
         <div className={css.box}>
-          <img src={Working} alt="man using laptop in a forest" />
+          <img src={Typewriter} alt="man using laptop in a forest" />
           <h1>Leave Reviews</h1>
         </div>
         <div className={css.box}>
