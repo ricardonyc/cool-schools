@@ -16,6 +16,8 @@ function App() {
     setDarkMode,
   };
 
+  console.log("App.TSX component darkMode: ", darkMode);
+
   return (
     <UserAuthContextProvider>
       <DarkmodeProvider value={values}>

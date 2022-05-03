@@ -11,6 +11,8 @@ function Navbar() {
   const { darkMode } = useContext(ThemeContext);
   const navigate = useNavigate();
 
+  console.log("AUTH NAVBAR COMPONENT");
+
   const handleLogOut = async () => {
     try {
       await logOut();
@@ -38,8 +40,8 @@ function Navbar() {
           }
         >
           <li>Home</li>
-          <li>Search</li>
-          <li className={css.logout} onClick={handleLogOut}>
+          <li className={css.search__btn}>Search</li>
+          <li className={css.logout__btn} onClick={handleLogOut}>
             Log Out
           </li>
         </ul>

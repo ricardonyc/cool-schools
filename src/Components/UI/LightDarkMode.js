@@ -7,6 +7,8 @@ import "./variables.css";
 const LightDarkMode = () => {
   const { darkMode, setDarkMode } = useContext(ThemeContext);
 
+  console.log('LIGHT DARK MODE COMPONENT')
+
   const styling = {
     fontSize: "3.5rem",
     position: "fixed",

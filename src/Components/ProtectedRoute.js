@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 import { Navigate } from "react-router-dom";
 import { useUserAuth } from "../context/UserAuthContext";
@@ -8,9 +8,15 @@ const ProtectedRoute = ({ children }) => {
   //   let { user } = useUserAuth();
   const [user, setUser] = useState({});
 
-  onAuthStateChanged(auth, (currentUser) => {
-    setUser(currentUser);
-  });
+  console.log("PROTECTED ROUTE COMPONENT");
+
+  // ! PROTECTED ROUTE RENDERS INFINITELY BECAUSE OF STATE CHANGE
+  // ! APP CRASHES WHEN DARK MODE IS TOGGLED, 'useEffect' FIXES PROBLEM
+  useEffect(() => {
+    onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+    });
+  }, []);
 
   //   console.log("user: ", user.uid);
 
