@@ -1,7 +1,5 @@
-import { useContext } from "react";
 import "../UI/variables.css";
 import styled from "styled-components";
-import { ThemeContext } from "../../darkmode-context";
 
 interface InputProps {
   bgColor?: boolean;

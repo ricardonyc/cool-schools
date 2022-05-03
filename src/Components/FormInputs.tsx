@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { InputContainer } from "./Login/InputContainer";
 import Input from "./Input";
 import { RiGhostSmileFill } from "react-icons/ri";
@@ -7,7 +7,7 @@ import { Button } from "./UI/misc/Button";
 import { Link } from "react-router-dom";
 import { FormProps } from "../model";
 import LightDarkMode from "./UI/LightDarkMode";
-import { ThemeContext } from "../darkmode-context";
+import { ThemeContext } from "../context/darkmode-context";
 
 const FormInputs = ({
   submitForm,
@@ -20,8 +20,17 @@ const FormInputs = ({
   path,
   linkText,
   h1Text,
+  error,
 }: FormProps) => {
   const { darkMode } = useContext(ThemeContext);
+
+  const styling = {
+    backgroundColor: "pink",
+    fontSize: "1.5rem",
+    margin: "1rem 0",
+    padding: "1rem 0",
+    textAlign: "center" as "center",
+  };
 
   return (
     <InputContainer bgColor={darkMode} clr={darkMode}>
@@ -33,6 +42,7 @@ const FormInputs = ({
         )}
         <h1 className="login__box--h1">{h1Text}</h1>
         <div className="login__box--input">
+          {error && <h3 style={styling}>{error}</h3>}
           <Input
             validity={emailIsValid}
             placeholder={"Email"}

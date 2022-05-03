@@ -1,12 +1,24 @@
 import React, { useContext } from "react";
 import css from "./Navbar.module.css";
-import CoolSchoolsSVG from "../assets/CoolSchools.svg";
-import { Link } from "react-router-dom";
-import { ThemeContext } from "../../darkmode-context";
-import LD from "./Modes.module.css";
+import CoolSchoolsSVG from "../../assets/CoolSchools.svg";
+import { ThemeContext } from "../../../context/darkmode-context";
+import LD from "./../Modes.module.css";
+import { useUserAuth } from "../../../context/UserAuthContext";
+import { useNavigate } from "react-router-dom";
 
-function Navbar(props) {
+function Navbar() {
+  const { logOut } = useUserAuth();
   const { darkMode } = useContext(ThemeContext);
+  const navigate = useNavigate();
+
+  const handleLogOut = async () => {
+    try {
+      await logOut();
+      navigate("/");
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   return (
     <nav className={css.navbar}>
@@ -27,14 +39,8 @@ function Navbar(props) {
         >
           <li>Home</li>
           <li>Search</li>
-          <li>Contact</li>
-          <li>
-            <Link to="/signup">Sign Up</Link>
-          </li>
-          <li>
-            <Link id={css.login} to="/login">
-              Login
-            </Link>
+          <li className={css.logout} onClick={handleLogOut}>
+            Log Out
           </li>
         </ul>
       </div>

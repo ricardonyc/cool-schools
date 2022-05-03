@@ -19,7 +19,11 @@ export interface StateType {
 }
 
 export type FormProps = {
-  submitForm: (e: React.FormEvent<HTMLFormElement>) => void;
+  submitForm: (
+    e: React.FormEvent<HTMLFormElement>,
+    email?: string,
+    password?: string
+  ) => void;
   emailIsValid: null | boolean;
   blurredHandler: (e: React.FormEvent<HTMLInputElement>) => void;
   inputsHandler: (e: React.FormEvent<HTMLInputElement>) => void;
@@ -29,4 +33,5 @@ export type FormProps = {
   path: string;
   linkText: string;
   h1Text: string;
+  error: string;
 };

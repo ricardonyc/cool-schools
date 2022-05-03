@@ -1,11 +1,9 @@
 import css from "./Boxes.module.css";
 import AnonBro from "../assets/bro2.svg";
-import Working from "../assets/working.svg";
-import { ThemeContext } from "../../darkmode-context";
+import { ThemeContext } from "../../context/darkmode-context";
 import { useContext } from "react";
 import LD from "./Modes.module.css";
 import Typewriter from "../assets/Typewriter.svg";
-import TypewriterDark from "../assets/TypewriterDARK.svg";
 
 const Boxes = () => {
   const { darkMode } = useContext(ThemeContext);

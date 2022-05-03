@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
-import Layout from "./Components/UI/Layout";
+import Layout from "./Components/MainPages/Layout";
 import Login from "./Components/Login/Login";
 import SignUp from "./Components/SignUp/SignUp";
-import DarkmodeProvider from "./darkmode-context";
+import DarkmodeProvider from "./context/darkmode-context";
+import { UserAuthContextProvider } from "./context/UserAuthContext";
+import ProtectedRoute from "./Components/ProtectedRoute";
+import AuthHome from "./Components/MainPages/AuthHome";
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -14,15 +17,25 @@ function App() {
   };
 
   return (
-    <DarkmodeProvider value={values}>
-      <div className={darkMode ? "App dark" : "App light"}>
-        <Routes>
-          <Route path="/" element={<Layout />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<SignUp />} />
-        </Routes>
-      </div>
-    </DarkmodeProvider>
+    <UserAuthContextProvider>
+      <DarkmodeProvider value={values}>
+        <div className={darkMode ? "App dark" : "App light"}>
+          <Routes>
+            <Route
+              path="/home"
+              element={
+                <ProtectedRoute>
+                  <AuthHome />
+                </ProtectedRoute>
+              }
+            />
+            <Route path="/" element={<Layout />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<SignUp />} />
+          </Routes>
+        </div>
+      </DarkmodeProvider>
+    </UserAuthContextProvider>
   );
 }
 

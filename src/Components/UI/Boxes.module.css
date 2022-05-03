@@ -4,14 +4,12 @@
   position: relative;
   top: 71px;
   width: 100%;
-  /* border: 3px solid red; */
 }
 
 .boxes__container {
   /* position: relative;
   top: 71px; */
   margin: auto;
-  /* border: 2px solid red; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -23,11 +21,9 @@
 .box {
   font-size: 1.5rem;
   text-align: center;
-  /* border: 1px solid red; */
   max-width: 300px;
   width: 100%;
   margin: 3rem 5rem;
-  /* color: var(--darkmode-navy); */
 }
 
 .box h1 {
