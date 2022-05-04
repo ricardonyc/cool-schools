@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import css from "./Navbar.module.css";
-import CoolSchoolsSVG from "../../assets/CoolSchools.svg";
 import { ThemeContext } from "../../../context/darkmode-context";
 import LD from "./../Modes.module.css";
 import { useUserAuth } from "../../../context/UserAuthContext";
@@ -11,7 +10,6 @@ function Navbar() {
   const { darkMode } = useContext(ThemeContext);
   const navigate = useNavigate();
 
-  console.log("AUTH NAVBAR COMPONENT");
 
   const handleLogOut = async () => {
     try {
@@ -31,7 +29,7 @@ function Navbar() {
             : `${css.nav__container} ${LD.light__bg}`
         }
       >
-        <img className={css.logo} src={CoolSchoolsSVG} alt="" />
+        <h1 className={css.logo}>CoolSchools</h1>
         <ul
           className={
             darkMode

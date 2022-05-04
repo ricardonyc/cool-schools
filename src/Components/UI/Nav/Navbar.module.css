@@ -1,4 +1,5 @@
 @import "../variables.css";
+@import url("https://fonts.googleapis.com/css2?family=Anybody:ital,wght@1,700&display=swap");
 
 .navbar {
   width: 100%;
@@ -14,19 +15,7 @@
   max-width: var(--max-width);
   margin: 0 auto;
   z-index: 99999999;
-}
-
-/* .background__light {
-  background-color: var(--white);
-}
-
-.background__dark {
-  background-color: var(--darkmode-navy);
-} */
-
-.logo {
-  width: 310px;
-  margin-right: auto;
+  height: 65px;
 }
 
 .nav__menu {
@@ -90,4 +79,26 @@
 
 .nav__menu li a:active {
   box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.2);
+}
+
+.dark {
+  color: var(--white);
+}
+
+.light {
+  color: var(--darkmode-navy);
+}
+
+.items {
+  font-size: 2rem;
+  padding-left: 1rem;
+}
+
+.sub__items {
+  font-size: 1.7rem;
+}
+
+.items,
+.sub__items {
+  font-family: "Roboto Condensed", sans-serif;
 }

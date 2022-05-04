@@ -8,6 +8,8 @@ import DarkmodeProvider from "./context/darkmode-context";
 import { UserAuthContextProvider } from "./context/UserAuthContext";
 import ProtectedRoute from "./Components/ProtectedRoute";
 import AuthHome from "./Components/MainPages/AuthHome";
+import BootstrapNavbar from "./Components/UI/Nav/BootstrapNavbar";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);

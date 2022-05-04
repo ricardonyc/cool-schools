@@ -26,6 +26,7 @@ const FormInputs = ({
 
   const styling = {
     backgroundColor: "pink",
+    color: "black",
     fontSize: "1.5rem",
     margin: "1rem 0",
     padding: "1rem 0",
@@ -62,7 +63,7 @@ const FormInputs = ({
             ref={passwordRef}
           />
         </div>
-        <Button fontSize="1.8rem">{h1Text}</Button>
+        <Button width="100%" fontSize="1.8rem">{h1Text}</Button>
         <p>
           {linkText === "Login" ? (
             <>

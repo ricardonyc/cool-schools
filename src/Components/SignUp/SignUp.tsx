@@ -99,7 +99,7 @@ const SignUp = () => {
 
     try {
       await signUp(email, password);
-      navigate("/home");
+      navigate("/login");
     } catch (err: any) {
       setError(err.message);
     }
