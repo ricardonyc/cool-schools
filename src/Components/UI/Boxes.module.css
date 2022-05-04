@@ -2,8 +2,10 @@
 
 .main__boxes--container {
   position: relative;
-  top: 45px;
+  top: 0px;
   width: 100%;
+  /* border: 3px solid red; */
+  /* min-height: 50vh; */
 }
 
 .boxes__container {
@@ -15,7 +17,9 @@
   align-items: center;
   flex-wrap: wrap;
   max-width: var(--max-width);
-  min-height: 44vh;
+  /* min-height: 44vh; */
+  min-height: 50vh;
+  /* border: 2px solid pink; */
 }
 
 .box {
@@ -24,7 +28,7 @@
   max-width: 300px;
   width: 100%;
   margin: 3rem 5rem;
-  border: 1px solid red;
+  /* border: 1px solid blue; */
 }
 
 .box h1 {
@@ -33,6 +37,6 @@
 
 @media only screen and (max-width: 1100px) {
   .box {
-    margin: 3rem 0;
+    margin: 3rem;
   }
 }

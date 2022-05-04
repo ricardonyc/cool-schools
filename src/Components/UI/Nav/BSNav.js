@@ -1,24 +1,17 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
 import { ThemeContext } from "../../../context/darkmode-context";
 import "../variables.css";
 import css from "./Navbar.module.css";
-import { onAuthStateChanged } from "firebase/auth";
-import { auth } from "../../../firebase";
 import { useUserAuth } from "../../../context/UserAuthContext";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 const BSNav = () => {
-  const [user, setUser] = useState("");
-  const { logOut } = useUserAuth();
+  const { logOut, user } = useUserAuth();
   const { darkMode } = useContext(ThemeContext);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    onAuthStateChanged(auth, (currentUser) => {
-      setUser(currentUser?.auth.currentUser.uid);
-    });
-  }, []);
+  console.log(user);
 
   const handleLogOut = async () => {
     try {
@@ -28,8 +21,6 @@ const BSNav = () => {
       console.log(err);
     }
   };
-
-  console.log(user);
 
   const logo = {
     fontSize: "3rem",
@@ -50,18 +41,16 @@ const BSNav = () => {
   };
 
   return (
-    <Navbar fixed="top" expand="lg" style={{ padding: "0", margin: "0" }}>
+    <Navbar fixed="top" expand="md" style={{ padding: "0", margin: "0" }}>
       <Container style={navContainer}>
-        <Navbar.Brand href="#home" style={logo}>
-          CoolSchools
-        </Navbar.Brand>
+        <Navbar.Brand style={logo}>CoolSchools</Navbar.Brand>
         <Navbar.Toggle
           aria-controls="basic-navbar-nav"
           style={{ color: "var(--teal)" }}
         />
         <Navbar.Collapse id="basic-navbar-nav" className={css.items}>
           <Nav className="me-auto">
-            <Nav.Link href="#home" style={textColor}>
+            <Nav.Link href={user ? "/home" : "/"} style={textColor}>
               Home
             </Nav.Link>
             <Nav.Link href="#link" style={textColor}>
@@ -81,11 +70,19 @@ const BSNav = () => {
               </NavDropdown.Item>
               {!user && (
                 <React.Fragment>
-                  <NavDropdown.Item href="/signup" className={css.sub__items}>
+                  <NavDropdown.Item
+                    as={Link}
+                    to="/signup"
+                    className={css.sub__items}
+                  >
                     Sign Up
                   </NavDropdown.Item>
                   <NavDropdown.Divider />
-                  <NavDropdown.Item href="/login" className={css.sub__items}>
+                  <NavDropdown.Item
+                    as={Link}
+                    to="login"
+                    className={css.sub__items}
+                  >
                     Login
                   </NavDropdown.Item>
                 </React.Fragment>
@@ -105,7 +102,7 @@ const BSNav = () => {
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>
-      {/* <h1>Welcome!</h1> */}
+        {user && <h1>Welcome!</h1>}
       </Container>
     </Navbar>
   );

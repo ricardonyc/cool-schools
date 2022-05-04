@@ -33,10 +33,6 @@ const Boxes = () => {
           <img src={AnonBro} alt="Anonymous looking eyes" />
           <h1>Remain anonymous</h1>
         </div>
-
-        {/* <Button fontSize="2rem" width="300px">
-          Sign Up!
-        </Button> */}
       </div>
     </div>
   );

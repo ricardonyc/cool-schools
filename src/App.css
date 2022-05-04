@@ -30,12 +30,12 @@ body {
 }
 
 .App {
-  background-color: transparent;
   min-height: 100vh;
   margin: 0 auto;
 }
 
 .dark {
+  background-color: red;
   background-color: var(--darkmode-navy);
 }
 

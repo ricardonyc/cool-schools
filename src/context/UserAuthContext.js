@@ -3,14 +3,20 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signOut,
-//   onAuthStateChanged,
+  onAuthStateChanged,
 } from "firebase/auth";
 import { auth } from "../firebase";
 
 const userAuthContext = createContext();
 
 export function UserAuthContextProvider({ children }) {
-//   const [user, setUser] = useState("");
+  const [user, setUser] = useState("");
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser?.auth.currentUser.uid);
+    });
+  }, []);
 
   function signUp(email, password) {
     return createUserWithEmailAndPassword(auth, email, password);
@@ -29,19 +35,8 @@ export function UserAuthContextProvider({ children }) {
   //     console.log(email);
   //   }
 
-  //   useEffect(() => {
-  //     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-  //       // ! SETTING WHATEVER THE CURRENT USER IS
-  //       setUser(currentUser);
-  //     });
-
-  //     return () => {
-  //       unsubscribe();
-  //     };
-  //   }, []);
-
   return (
-    <userAuthContext.Provider value={{ /*user*/ signUp, logIn, logOut }}>
+    <userAuthContext.Provider value={{ user, signUp, logIn, logOut }}>
       {children}
     </userAuthContext.Provider>
   );

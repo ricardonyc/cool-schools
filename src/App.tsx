@@ -8,7 +8,6 @@ import DarkmodeProvider from "./context/darkmode-context";
 import { UserAuthContextProvider } from "./context/UserAuthContext";
 import ProtectedRoute from "./Components/ProtectedRoute";
 import AuthHome from "./Components/MainPages/AuthHome";
-import BootstrapNavbar from "./Components/UI/Nav/BSNav";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
@@ -17,8 +16,6 @@ function App() {
     darkMode,
     setDarkMode,
   };
-
-  console.log("App.TSX component darkMode: ", darkMode);
 
   return (
     <UserAuthContextProvider>
