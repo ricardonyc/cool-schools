@@ -1,12 +1,35 @@
-import { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
 import { ThemeContext } from "../../../context/darkmode-context";
 import "../variables.css";
 import css from "./Navbar.module.css";
-import { Link } from "react-router-dom";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "../../../firebase";
+import { useUserAuth } from "../../../context/UserAuthContext";
+import { useNavigate } from "react-router-dom";
 
 const BSNav = () => {
+  const [user, setUser] = useState("");
+  const { logOut } = useUserAuth();
   const { darkMode } = useContext(ThemeContext);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser?.auth.currentUser.uid);
+    });
+  }, []);
+
+  const handleLogOut = async () => {
+    try {
+      await logOut();
+      navigate("/");
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  console.log(user);
 
   const logo = {
     fontSize: "3rem",
@@ -56,18 +79,33 @@ const BSNav = () => {
               <NavDropdown.Item href="#action/3.2" className={css.sub__items}>
                 Another action
               </NavDropdown.Item>
-              <Link to="/signup">
-                <NavDropdown.Item href="#action/3.3" className={css.sub__items}>
-                  Sign Up
-                </NavDropdown.Item>
-              </Link>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4" className={css.sub__items}>
-                Login
-              </NavDropdown.Item>
+              {!user && (
+                <React.Fragment>
+                  <NavDropdown.Item href="/signup" className={css.sub__items}>
+                    Sign Up
+                  </NavDropdown.Item>
+                  <NavDropdown.Divider />
+                  <NavDropdown.Item href="/login" className={css.sub__items}>
+                    Login
+                  </NavDropdown.Item>
+                </React.Fragment>
+              )}
+              {user && (
+                <React.Fragment>
+                  <NavDropdown.Divider />
+                  <NavDropdown.Item
+                    onClick={handleLogOut}
+                    href="#"
+                    className={css.sub__items}
+                  >
+                    Logout
+                  </NavDropdown.Item>
+                </React.Fragment>
+              )}
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>
+      {/* <h1>Welcome!</h1> */}
       </Container>
     </Navbar>
   );
