@@ -110,7 +110,7 @@ const Login = () => {
 
     try {
       await logIn(email, password);
-      navigate("/home");
+      navigate("/");
     } catch (err: any) {
       if (err.message === "Firebase: Error (auth/user-not-found).") {
         setError("Account does not exist!");
