@@ -1,4 +1,4 @@
-import "../variables.css";
+import "./variables.css";
 import styled from "styled-components";
 
 interface ButtonProps {

@@ -1,13 +1,13 @@
 import { useContext } from "react";
-import { InputContainer } from "./Login/InputContainer";
+import { InputContainer } from "../../Login/InputContainer";
 import Input from "./Input";
 import { RiGhostSmileFill } from "react-icons/ri";
 import { FaPencilAlt } from "react-icons/fa";
-import { Button } from "./UI/misc/Button";
+import { Button } from "../styling/Button";
 import { Link } from "react-router-dom";
-import { FormProps } from "../model";
-import LightDarkMode from "./UI/LightDarkMode";
-import { ThemeContext } from "../context/darkmode-context";
+import { FormProps } from "../../../model";
+import LightDarkMode from "../LightDarkMode";
+import { ThemeContext } from "../../../context/darkmode-context";
 
 const FormInputs = ({
   submitForm,
@@ -63,7 +63,9 @@ const FormInputs = ({
             ref={passwordRef}
           />
         </div>
-        <Button width="100%" fontSize="1.8rem">{h1Text}</Button>
+        <Button width="100%" fontSize="1.8rem">
+          {h1Text}
+        </Button>
         <p>
           {linkText === "Login" ? (
             <>
@@ -75,11 +77,7 @@ const FormInputs = ({
             </>
           )}
         </p>
-        <p>
-          <Link to="/">Go Back Home</Link>
-        </p>
       </form>
-      <LightDarkMode />
     </InputContainer>
   );
 };

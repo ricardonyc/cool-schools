@@ -1,0 +1,8 @@
+@import "../UI/styling/variables.css";
+
+.container {
+  border: 3px solid red;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  min-height: 50vh;
+}

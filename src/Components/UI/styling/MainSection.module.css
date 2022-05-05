@@ -17,11 +17,11 @@
 }
 
 .light {
-  background-image: url("../assets/schoolday.png");
+  background-image: url("../../assets/schoolday.png");
 }
 
 .dark {
-  background-image: url("../assets/schoolnight.jpg");
+  background-image: url("../../assets/schoolnight.jpg");
 }
 
 .main__section--h1 {

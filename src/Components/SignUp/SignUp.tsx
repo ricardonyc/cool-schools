@@ -8,7 +8,7 @@ import React, {
 import { useNavigate } from "react-router-dom";
 import { useUserAuth } from "../../context/UserAuthContext";
 import { StateType, ActionType } from "../../model";
-import FormInputs from "../FormInputs";
+import FormInputs from "../UI/Inputs/FormInputs";
 
 const reducer = (state: StateType, action: ActionType): StateType => {
   switch (action.type) {
@@ -16,7 +16,10 @@ const reducer = (state: StateType, action: ActionType): StateType => {
       return {
         ...state,
         emailValue: action.value,
-        emailIsValid: action.value.includes("@") && !action.value.includes(" "),
+        emailIsValid:
+          action.value.includes("@") &&
+          !action.value.includes(" ") &&
+          action.value.includes("."),
       };
     case "PASSWORD_INPUT":
       return {
@@ -29,7 +32,9 @@ const reducer = (state: StateType, action: ActionType): StateType => {
         ...state,
         emailValue: state.emailValue,
         emailIsValid:
-          state.emailValue.includes("@") && !state.emailValue.includes(" "),
+          state.emailValue.includes("@") &&
+          !state.emailValue.includes(" ") &&
+          state.emailValue.includes("."),
       };
     case "PASSWORD_BLUR":
       return {
@@ -57,10 +62,10 @@ const SignUp = () => {
   const emailRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
 
-  const { emailIsValid } = state;
-  const { passwordIsValid } = state;
-  const { emailValue } = state;
-  const { passwordValue } = state;
+  const { emailIsValid, passwordIsValid, emailValue, passwordValue } = state;
+
+  console.log(emailIsValid);
+  console.log(emailValue);
 
   useEffect(() => {
     const identifier = setTimeout(() => {
@@ -91,17 +96,26 @@ const SignUp = () => {
   const submitForm = async (e: FormEvent, email: string, password: string) => {
     e.preventDefault();
     setError("");
-    if (!emailIsValid) {
+    if (!emailIsValid && !passwordIsValid) {
+      setError("Invalid Email/Password");
+      return;
+    } else if (!emailIsValid) {
       emailRef.current?.focus();
+      setError("Enter a valid Email!");
+      return;
     } else if (!passwordIsValid) {
       passwordRef.current?.focus();
+      setError("Enter a valid Password!");
+      return;
     }
 
     try {
+      // ! LOGS YOU IN AFTER SIGN UP
       await signUp(email, password);
       navigate("/login");
     } catch (err: any) {
-      setError(err.message);
+      console.log(err.message);
+      setError("Invalid Email/Password");
     }
   };
 

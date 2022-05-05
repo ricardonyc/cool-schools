@@ -6,7 +6,7 @@ import React, {
   FormEvent,
 } from "react";
 import { StateType, ActionType } from "../../model";
-import FormInputs from "../FormInputs";
+import FormInputs from "../UI/Inputs/FormInputs";
 import { useUserAuth } from "../../context/UserAuthContext";
 import { useNavigate } from "react-router-dom";
 

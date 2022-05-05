@@ -1,4 +1,4 @@
-import "../UI/variables.css";
+import "../UI/styling/variables.css";
 import styled from "styled-components";
 
 interface InputProps {

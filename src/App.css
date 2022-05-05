@@ -1,5 +1,4 @@
-@import "./Components/UI/variables.css";
-
+@import "./Components/UI/styling/variables.css";
 
 * {
   margin: 0;

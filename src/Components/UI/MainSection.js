@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import css from "./MainSection.module.css";
+import css from "./styling/MainSection.module.css";
 import { ThemeContext } from "../../context/darkmode-context";
 
 function MainSection(props) {
@@ -21,4 +21,3 @@ function MainSection(props) {
 }
 
 export default MainSection;
- 

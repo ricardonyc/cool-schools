@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
 import { ThemeContext } from "../../../context/darkmode-context";
-import "../variables.css";
+import "../styling/variables.css";
 import css from "./Navbar.module.css";
 import { useUserAuth } from "../../../context/UserAuthContext";
 import { useNavigate, Link } from "react-router-dom";
@@ -11,7 +11,7 @@ const BSNav = () => {
   const { darkMode } = useContext(ThemeContext);
   const navigate = useNavigate();
 
-  console.log(user);
+  console.log("user: ", user);
 
   const handleLogOut = async () => {
     try {
@@ -30,6 +30,7 @@ const BSNav = () => {
   };
 
   const navContainer = {
+    // border: "2px solid red",
     padding: "0 2rem",
     maxWidth: "1800px",
     backgroundColor: darkMode ? "var(--darkmode-navy)" : "var(--white)",
@@ -68,6 +69,7 @@ const BSNav = () => {
               <NavDropdown.Item href="#action/3.2" className={css.sub__items}>
                 Another action
               </NavDropdown.Item>
+              {/* IF THERE IS NO USER, DIRECT TO SIGN UP / LOGIN PAGE */}
               {!user && (
                 <React.Fragment>
                   <NavDropdown.Item
@@ -87,6 +89,7 @@ const BSNav = () => {
                   </NavDropdown.Item>
                 </React.Fragment>
               )}
+              {/* IF THERE'S A USER, SHOW LOGOUT OPTION */}
               {user && (
                 <React.Fragment>
                   <NavDropdown.Divider />
@@ -109,3 +112,5 @@ const BSNav = () => {
 };
 
 export default BSNav;
+
+// ! CREATE LOG IN / SIGN UP MODAL INSTEAD OF PATHS/COMPONENTS

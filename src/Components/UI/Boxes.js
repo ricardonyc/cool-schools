@@ -1,11 +1,11 @@
 import { useState } from "react";
-import css from "./Boxes.module.css";
+import css from "./styling/Boxes.module.css";
 import AnonBro from "../assets/bro2.svg";
 import { ThemeContext } from "../../context/darkmode-context";
 import { useContext } from "react";
-import LD from "./Modes.module.css";
+import LD from "./styling/Modes.module.css";
 import Typewriter from "../assets/Typewriter.svg";
-import { Button } from "./misc/Button";
+import { Button } from "./styling/Button";
 
 const Boxes = () => {
   const { darkMode } = useContext(ThemeContext);
