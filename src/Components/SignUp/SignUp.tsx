@@ -9,6 +9,7 @@ import { useNavigate } from "react-router-dom";
 import { useUserAuth } from "../../context/UserAuthContext";
 import { StateType, ActionType } from "../../model";
 import FormInputs from "../UI/Inputs/FormInputs";
+import { ModalProp } from "../../model";
 
 const reducer = (state: StateType, action: ActionType): StateType => {
   switch (action.type) {
@@ -47,7 +48,7 @@ const reducer = (state: StateType, action: ActionType): StateType => {
   }
 };
 
-const SignUp = () => {
+const SignUp = ({ setLoginModal }: ModalProp) => {
   const [formValid, setFormValid] = useState<boolean | null>();
   const [error, setError] = useState<string>("");
   const { signUp } = useUserAuth();
@@ -133,6 +134,7 @@ const SignUp = () => {
         linkText="Login"
         h1Text="Sign Up"
         error={error}
+        setLoginModal={setLoginModal}
       />
     </React.Fragment>
   );

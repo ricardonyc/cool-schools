@@ -12,19 +12,28 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import SchoolList from "./Components/SchoolComponents/SchoolList";
 import BSNav from "./Components/UI/Nav/BSNav";
 import LightDarkMode from "./Components/UI/LightDarkMode";
+import Modal from "./Components/UI/Modal/Modal";
 
 function App() {
-  const [darkMode, setDarkMode] = useState(false);
-  const values = {
-    darkMode,
-    setDarkMode,
+  const [darkMode, setDarkMode] = useState<boolean>(false);
+  const [modalOpen, setModalOpen] = useState<boolean>(false);
+  const [loginModal, setLoginModal] = useState<boolean>(false);
+
+  const openModal = () => {
+    setModalOpen(true);
   };
 
   return (
     <UserAuthContextProvider>
-      <DarkmodeProvider value={values}>
+      <DarkmodeProvider value={{ darkMode, setDarkMode }}>
         <div className={darkMode ? "App dark" : "App light"}>
-          <BSNav />
+          {modalOpen && (
+            <Modal onClose={() => setModalOpen(false)}>
+              {loginModal && <Login setLoginModal={setLoginModal} />}
+              {!loginModal && <SignUp setLoginModal={setLoginModal} />}
+            </Modal>
+          )}
+          <BSNav values={{ openModal, loginModal, setLoginModal }} />
           <Routes>
             {/* <Route
               path="/home"
@@ -35,9 +44,14 @@ function App() {
               }
             /> */}
             <Route path="/" element={<Layout />} />
-            {/* <Route path="/home" element={<Layout />} /> */}
-            <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<SignUp />} />
+            <Route
+              path="/login"
+              element={<Login setLoginModal={setLoginModal} />}
+            />
+            <Route
+              path="/signup"
+              element={<SignUp setLoginModal={setLoginModal} />}
+            />
             <Route path="/schools" element={<SchoolList />} />
           </Routes>
           <LightDarkMode />

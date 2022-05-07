@@ -6,12 +6,14 @@ import css from "./Navbar.module.css";
 import { useUserAuth } from "../../../context/UserAuthContext";
 import { useNavigate, Link } from "react-router-dom";
 
-const BSNav = () => {
+const BSNav = ({ values }) => {
   const { logOut, user } = useUserAuth();
   const { darkMode } = useContext(ThemeContext);
   const navigate = useNavigate();
 
   console.log("user: ", user);
+
+  const { openModal, loginModal, setLoginModal } = values;
 
   const handleLogOut = async () => {
     try {
@@ -51,7 +53,7 @@ const BSNav = () => {
         />
         <Navbar.Collapse id="basic-navbar-nav" className={css.items}>
           <Nav className="me-auto">
-            <Nav.Link href={user ? "/home" : "/"} style={textColor}>
+            <Nav.Link as={Link} to="/" style={textColor}>
               Home
             </Nav.Link>
             <Nav.Link href="#link" style={textColor}>
@@ -63,26 +65,24 @@ const BSNav = () => {
                 <span className={darkMode ? css.dark : css.light}>More</span>
               }
             >
-              <NavDropdown.Item href="#action/3.1" className={css.sub__items}>
-                Action
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2" className={css.sub__items}>
-                Another action
-              </NavDropdown.Item>
               {/* IF THERE IS NO USER, DIRECT TO SIGN UP / LOGIN PAGE */}
               {!user && (
                 <React.Fragment>
                   <NavDropdown.Item
-                    as={Link}
-                    to="/signup"
+                    onClick={() => {
+                      openModal();
+                      setLoginModal(false);
+                    }}
                     className={css.sub__items}
                   >
                     Sign Up
                   </NavDropdown.Item>
                   <NavDropdown.Divider />
                   <NavDropdown.Item
-                    as={Link}
-                    to="login"
+                    onClick={() => {
+                      openModal();
+                      setLoginModal(true);
+                    }}
                     className={css.sub__items}
                   >
                     Login

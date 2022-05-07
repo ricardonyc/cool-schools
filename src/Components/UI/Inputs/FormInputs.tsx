@@ -21,6 +21,7 @@ const FormInputs = ({
   linkText,
   h1Text,
   error,
+  setLoginModal,
 }: FormProps) => {
   const { darkMode } = useContext(ThemeContext);
 
@@ -31,6 +32,11 @@ const FormInputs = ({
     margin: "1rem 0",
     padding: "1rem 0",
     textAlign: "center" as "center",
+  };
+
+  const linkStyle = {
+    cursor: "pointer",
+    textDecoration: "underline",
   };
 
   return (
@@ -69,11 +75,17 @@ const FormInputs = ({
         <p>
           {linkText === "Login" ? (
             <>
-              Have an account? <Link to={path}>{linkText}</Link>
+              Have an account?{" "}
+              <span style={linkStyle} onClick={() => setLoginModal(true)}>
+                {linkText}
+              </span>
             </>
           ) : (
             <>
-              Don't have an account? <Link to={path}>{linkText}</Link>
+              Don't have an account?{" "}
+              <span style={linkStyle} onClick={() => setLoginModal(false)}>
+                {linkText}
+              </span>
             </>
           )}
         </p>

@@ -34,4 +34,9 @@ export type FormProps = {
   linkText: string;
   h1Text: string;
   error: string;
+  setLoginModal: React.Dispatch<React.SetStateAction<boolean>>;
 };
+
+export interface ModalProp {
+  setLoginModal: React.Dispatch<React.SetStateAction<boolean>>;
+}
