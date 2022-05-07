@@ -4,12 +4,13 @@ import React, {
   useReducer,
   useState,
   useEffect,
+  useContext,
 } from "react";
 import { useNavigate } from "react-router-dom";
 import { useUserAuth } from "../../context/UserAuthContext";
 import { StateType, ActionType } from "../../model";
 import FormInputs from "../UI/Inputs/FormInputs";
-import { ModalProp } from "../../model";
+import { ModalContext } from "../../context/ModalContext";
 
 const reducer = (state: StateType, action: ActionType): StateType => {
   switch (action.type) {
@@ -48,7 +49,7 @@ const reducer = (state: StateType, action: ActionType): StateType => {
   }
 };
 
-const SignUp = ({ setLoginModal }: ModalProp) => {
+const SignUp = () => {
   const [formValid, setFormValid] = useState<boolean | null>();
   const [error, setError] = useState<string>("");
   const { signUp } = useUserAuth();
@@ -59,14 +60,11 @@ const SignUp = ({ setLoginModal }: ModalProp) => {
     passwordIsValid: null,
   });
   const navigate = useNavigate();
-
   const emailRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
+  const { setLoginModal, closeModal, setWelcome } = useContext(ModalContext);
 
   const { emailIsValid, passwordIsValid, emailValue, passwordValue } = state;
-
-  console.log(emailIsValid);
-  console.log(emailValue);
 
   useEffect(() => {
     const identifier = setTimeout(() => {
@@ -112,11 +110,18 @@ const SignUp = ({ setLoginModal }: ModalProp) => {
 
     try {
       // ! LOGS YOU IN AFTER SIGN UP
+      // TODO: FIX THIS!
       await signUp(email, password);
-      navigate("/login");
+      // REDIRECTS USER TO LOGIN MODAL <---------------
+      setWelcome(true)
+      setTimeout(() => {
+        // setLoginModal(true);
+        closeModal();
+        navigate("/");
+      }, 800);
     } catch (err: any) {
       console.log(err.message);
-      setError("Invalid Email/Password");
+      setError(err.message.slice(10));
     }
   };
 
@@ -134,7 +139,6 @@ const SignUp = ({ setLoginModal }: ModalProp) => {
         linkText="Login"
         h1Text="Sign Up"
         error={error}
-        setLoginModal={setLoginModal}
       />
     </React.Fragment>
   );

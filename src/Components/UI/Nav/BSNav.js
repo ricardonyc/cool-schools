@@ -1,24 +1,30 @@
 import React, { useContext } from "react";
 import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
-import { ThemeContext } from "../../../context/darkmode-context";
+import { ThemeContext } from "../../../context/DarkModeContext";
 import "../styling/variables.css";
 import css from "./Navbar.module.css";
 import { useUserAuth } from "../../../context/UserAuthContext";
 import { useNavigate, Link } from "react-router-dom";
+import { ModalContext } from "../../../context/ModalContext";
 
-const BSNav = ({ values }) => {
+const BSNav = () => {
   const { logOut, user } = useUserAuth();
   const { darkMode } = useContext(ThemeContext);
   const navigate = useNavigate();
 
   console.log("user: ", user);
 
-  const { openModal, loginModal, setLoginModal } = values;
+  const { openModal, loginModal, setLoginModal, setAlert } =
+    useContext(ModalContext);
 
   const handleLogOut = async () => {
     try {
       await logOut();
-      navigate("/");
+      setAlert(true);
+      setTimeout(() => {
+        setAlert(false);
+      }, 5000);
+      // navigate("/");
     } catch (err) {
       console.log(err);
     }
@@ -43,6 +49,10 @@ const BSNav = ({ values }) => {
     fontFamily: "'Roboto Condensed', sans-serif",
   };
 
+  const refreshPage = () => {
+    window.location.reload(false);
+  };
+
   return (
     <Navbar fixed="top" expand="md" style={{ padding: "0", margin: "0" }}>
       <Container style={navContainer}>
@@ -56,7 +66,7 @@ const BSNav = ({ values }) => {
             <Nav.Link as={Link} to="/" style={textColor}>
               Home
             </Nav.Link>
-            <Nav.Link href="#link" style={textColor}>
+            <Nav.Link onClick={refreshPage} href="#link" style={textColor}>
               Search
             </Nav.Link>
             <NavDropdown
@@ -112,5 +122,3 @@ const BSNav = ({ values }) => {
 };
 
 export default BSNav;
-
-// ! CREATE LOG IN / SIGN UP MODAL INSTEAD OF PATHS/COMPONENTS

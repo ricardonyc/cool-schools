@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { BsSunFill } from "react-icons/bs";
 import { GiMoonBats } from "react-icons/gi";
-import { ThemeContext } from "../../context/darkmode-context";
+import { ThemeContext } from "../../context/DarkModeContext";
 import "./styling/variables.css";
 
 const LightDarkMode = () => {

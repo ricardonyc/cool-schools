@@ -1,7 +1,7 @@
 import { useState } from "react";
 import css from "./styling/Boxes.module.css";
 import AnonBro from "../assets/bro2.svg";
-import { ThemeContext } from "../../context/darkmode-context";
+import { ThemeContext } from "../../context/DarkModeContext";
 import { useContext } from "react";
 import LD from "./styling/Modes.module.css";
 import Typewriter from "../assets/Typewriter.svg";

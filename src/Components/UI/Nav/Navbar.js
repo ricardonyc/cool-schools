@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import css from "./Navbar.module.css";
 import { Link } from "react-router-dom";
-import { ThemeContext } from "../../../context/darkmode-context";
+import { ThemeContext } from "../../../context/DarkModeContext";
 import LD from "./../Modes.module.css";
 
 function Navbar(props) {

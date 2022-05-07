@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import css from "./styling/MainSection.module.css";
-import { ThemeContext } from "../../context/darkmode-context";
+import { ThemeContext } from "../../context/DarkModeContext";
 
 function MainSection(props) {
   const { darkMode } = useContext(ThemeContext);

@@ -4,10 +4,9 @@ import Input from "./Input";
 import { RiGhostSmileFill } from "react-icons/ri";
 import { FaPencilAlt } from "react-icons/fa";
 import { Button } from "../styling/Button";
-import { Link } from "react-router-dom";
 import { FormProps } from "../../../model";
-import LightDarkMode from "../LightDarkMode";
-import { ThemeContext } from "../../../context/darkmode-context";
+import { ThemeContext } from "../../../context/DarkModeContext";
+import { ModalContext } from "../../../context/ModalContext";
 
 const FormInputs = ({
   submitForm,
@@ -21,9 +20,9 @@ const FormInputs = ({
   linkText,
   h1Text,
   error,
-  setLoginModal,
 }: FormProps) => {
   const { darkMode } = useContext(ThemeContext);
+  const { setLoginModal, welcome } = useContext(ModalContext);
 
   const styling = {
     backgroundColor: "pink",
@@ -72,6 +71,7 @@ const FormInputs = ({
         <Button width="100%" fontSize="1.8rem">
           {h1Text}
         </Button>
+        {welcome && <h3>Logged In!</h3>}
         <p>
           {linkText === "Login" ? (
             <>

@@ -1,9 +1,11 @@
-import React, { Fragment, ReactNode } from "react";
+import React, { Fragment, ReactNode, useContext } from "react";
 import ReactDOM from "react-dom";
-import css from './Modal.module.css'
+import css from "./Modal.module.css";
+import { ModalContext } from "../../../context/ModalContext";
 
-const Backdrop = ({ onClose }: { onClose: () => void }) => {
-  return <div className={css.backdrop} onClick={onClose}></div>;
+const Backdrop = () => {
+  const { closeModal } = useContext(ModalContext);
+  return <div className={css.backdrop} onClick={closeModal}></div>;
 };
 
 const ModalOverlay = ({ children }: { children: ReactNode }) => {
@@ -16,19 +18,10 @@ const ModalOverlay = ({ children }: { children: ReactNode }) => {
 
 const portalElement = document.getElementById("overlays");
 
-const Modal = ({
-  children,
-  onClose,
-}: {
-  children: ReactNode;
-  onClose: () => void;
-}) => {
+const Modal = ({ children }: { children: ReactNode }) => {
   return (
     <Fragment>
-      {ReactDOM.createPortal(
-        <Backdrop onClose={onClose} />,
-        portalElement as HTMLElement
-      )}
+      {ReactDOM.createPortal(<Backdrop />, portalElement as HTMLElement)}
       {ReactDOM.createPortal(
         <ModalOverlay>{children}</ModalOverlay>,
         portalElement as HTMLElement
@@ -37,4 +30,4 @@ const Modal = ({
   );
 };
 
-export default Modal
+export default Modal;

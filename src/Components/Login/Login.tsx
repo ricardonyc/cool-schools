@@ -4,12 +4,13 @@ import React, {
   useReducer,
   useEffect,
   FormEvent,
+  useContext,
 } from "react";
 import { StateType, ActionType } from "../../model";
 import FormInputs from "../UI/Inputs/FormInputs";
 import { useUserAuth } from "../../context/UserAuthContext";
 import { useNavigate } from "react-router-dom";
-import { ModalProp } from "../../model";
+import { ModalContext } from "../../context/ModalContext";
 
 const reducer = (state: StateType, action: ActionType): StateType => {
   switch (action.type) {
@@ -43,10 +44,11 @@ const reducer = (state: StateType, action: ActionType): StateType => {
   }
 };
 
-const Login = ({ setLoginModal }: ModalProp) => {
+const Login = () => {
   const [formValid, setFormValid] = useState<boolean | null>();
   const [error, setError] = useState("");
   const { logIn } = useUserAuth();
+  const { closeModal } = useContext(ModalContext);
   const navigate = useNavigate();
   const [state, dispatch] = useReducer(reducer, {
     emailValue: "",
@@ -60,10 +62,7 @@ const Login = ({ setLoginModal }: ModalProp) => {
   const emailRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
 
-  const { emailIsValid } = state;
-  const { passwordIsValid } = state;
-  const { emailValue } = state;
-  const { passwordValue } = state;
+  const { emailIsValid, passwordIsValid, emailValue, passwordValue } = state;
 
   useEffect(() => {
     const identifier = setTimeout(() => {
@@ -111,6 +110,7 @@ const Login = ({ setLoginModal }: ModalProp) => {
 
     try {
       await logIn(email, password);
+      closeModal();
       navigate("/");
     } catch (err: any) {
       if (err.message === "Firebase: Error (auth/user-not-found).") {
@@ -133,7 +133,6 @@ const Login = ({ setLoginModal }: ModalProp) => {
         linkText="Sign Up"
         h1Text="Login"
         error={error}
-        setLoginModal={setLoginModal}
       />
     </React.Fragment>
   );

@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import css from "./Navbar.module.css";
-import { ThemeContext } from "../../../context/darkmode-context";
+import { ThemeContext } from "../../../context/DarkModeContext";
 import LD from "./../Modes.module.css";
 import { useUserAuth } from "../../../context/UserAuthContext";
 import { useNavigate } from "react-router-dom";
