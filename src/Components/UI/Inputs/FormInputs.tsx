@@ -7,6 +7,7 @@ import { Button } from "../styling/Button";
 import { FormProps } from "../../../model";
 import { ThemeContext } from "../../../context/DarkModeContext";
 import { ModalContext } from "../../../context/ModalContext";
+import AlertBox from "../Alert/AlertBox";
 
 const FormInputs = ({
   submitForm,
@@ -22,7 +23,7 @@ const FormInputs = ({
   error,
 }: FormProps) => {
   const { darkMode } = useContext(ThemeContext);
-  const { setLoginModal, welcome } = useContext(ModalContext);
+  const { setLoginModal, loggedIn } = useContext(ModalContext);
 
   const styling = {
     backgroundColor: "pink",
@@ -71,7 +72,8 @@ const FormInputs = ({
         <Button width="100%" fontSize="1.8rem">
           {h1Text}
         </Button>
-        {welcome && <h3>Logged In!</h3>}
+        {loggedIn && <AlertBox>Logged in!</AlertBox>}
+        {/* {welcome && <h3>Logged In!</h3>} */}
         <p>
           {linkText === "Login" ? (
             <>

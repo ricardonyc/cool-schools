@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { Alert } from "react-bootstrap";
 import { ModalContext } from "../../../context/ModalContext";
 
-const AlertBox = () => {
+const AlertBox = ({ children }) => {
   const { setAlert } = useContext(ModalContext);
 
   return (
@@ -15,12 +15,12 @@ const AlertBox = () => {
         width: "100%",
         fontSize: "1.6rem",
       }}
-      onClose={() => setAlert(false)}
-      dismissible={true}
+      // onClose={() => setAlert(false)}
+      // dismissible={true}
       key="success"
       variant="success"
     >
-      Logout Successful!
+      {children}
     </Alert>
   );
 };

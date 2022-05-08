@@ -48,7 +48,7 @@ const Login = () => {
   const [formValid, setFormValid] = useState<boolean | null>();
   const [error, setError] = useState("");
   const { logIn } = useUserAuth();
-  const { closeModal } = useContext(ModalContext);
+  const { closeModal, setLoggedIn } = useContext(ModalContext);
   const navigate = useNavigate();
   const [state, dispatch] = useReducer(reducer, {
     emailValue: "",
@@ -56,8 +56,6 @@ const Login = () => {
     passwordValue: "",
     passwordIsValid: null,
   });
-
-  console.log(error);
 
   const emailRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
@@ -110,8 +108,12 @@ const Login = () => {
 
     try {
       await logIn(email, password);
+      setLoggedIn(true);
       closeModal();
       navigate("/");
+      setTimeout(() => {
+        setLoggedIn(false);
+      }, 5000);
     } catch (err: any) {
       if (err.message === "Firebase: Error (auth/user-not-found).") {
         setError("Account does not exist!");

@@ -6,10 +6,11 @@ import Login from "../Login/Login";
 import SignUp from "../SignUp/SignUp";
 import BSNav from "../UI/Nav/BSNav";
 import { ModalContext } from "../../context/ModalContext";
-import AlertBox from "../UI/Alert/Alert";
+import AlertBox from "../UI/Alert/AlertBox";
 
 const Layout = () => {
-  const { modalOpen, loginModal, alert } = useContext(ModalContext);
+  const { modalOpen, loginModal, alert, loggedOut, loggedIn } =
+    useContext(ModalContext);
 
   return (
     <React.Fragment>
@@ -22,7 +23,10 @@ const Layout = () => {
       <BSNav />
       <MainSection />
       <Boxes />
-      {alert && <AlertBox />}
+      {/* {alert && <AlertBox />} */}
+
+      {loggedIn && <AlertBox>Logged In Successfully!</AlertBox>}
+      {loggedOut && <AlertBox>Logged Out Successfully!</AlertBox>}
     </React.Fragment>
   );
 };

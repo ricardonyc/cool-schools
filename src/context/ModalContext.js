@@ -5,7 +5,8 @@ export const ModalContext = React.createContext();
 const ModalContextProvider = ({ children }) => {
   const [modalOpen, setModalOpen] = useState(false);
   const [loginModal, setLoginModal] = useState(false);
-  const [welcome, setWelcome] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(false);
+  const [loggedOut, setLoggedOut] = useState(false);
   const [alert, setAlert] = useState(false);
 
   const openModal = () => {
@@ -24,8 +25,10 @@ const ModalContextProvider = ({ children }) => {
         modalOpen,
         loginModal,
         setLoginModal,
-        welcome,
-        setWelcome,
+        loggedIn,
+        setLoggedIn,
+        loggedOut,
+        setLoggedOut,
         alert,
         setAlert,
       }}

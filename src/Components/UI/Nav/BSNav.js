@@ -6,6 +6,7 @@ import css from "./Navbar.module.css";
 import { useUserAuth } from "../../../context/UserAuthContext";
 import { useNavigate, Link } from "react-router-dom";
 import { ModalContext } from "../../../context/ModalContext";
+import AlertBox from "../Alert/AlertBox";
 
 const BSNav = () => {
   const { logOut, user } = useUserAuth();
@@ -14,15 +15,17 @@ const BSNav = () => {
 
   console.log("user: ", user);
 
-  const { openModal, loginModal, setLoginModal, setAlert } =
+  const { openModal, loginModal, setLoginModal, setAlert, loggedOut, setLoggedOut } =
     useContext(ModalContext);
 
   const handleLogOut = async () => {
     try {
       await logOut();
-      setAlert(true);
+      // setAlert(true);
+      setLoggedOut(true)
       setTimeout(() => {
-        setAlert(false);
+        setLoggedOut(false)
+        // setAlert(false);
       }, 5000);
       // navigate("/");
     } catch (err) {
@@ -49,24 +52,20 @@ const BSNav = () => {
     fontFamily: "'Roboto Condensed', sans-serif",
   };
 
-  const refreshPage = () => {
-    window.location.reload(false);
-  };
-
   return (
     <Navbar fixed="top" expand="md" style={{ padding: "0", margin: "0" }}>
       <Container style={navContainer}>
         <Navbar.Brand style={logo}>CoolSchools</Navbar.Brand>
         <Navbar.Toggle
           aria-controls="basic-navbar-nav"
-          style={{ color: "var(--teal)" }}
+          style={{ color: "var(--teal)", backgroundColor: "white" }}
         />
         <Navbar.Collapse id="basic-navbar-nav" className={css.items}>
           <Nav className="me-auto">
             <Nav.Link as={Link} to="/" style={textColor}>
               Home
             </Nav.Link>
-            <Nav.Link onClick={refreshPage} href="#link" style={textColor}>
+            <Nav.Link href="#link" style={textColor}>
               Search
             </Nav.Link>
             <NavDropdown
@@ -110,6 +109,7 @@ const BSNav = () => {
                   >
                     Logout
                   </NavDropdown.Item>
+                  
                 </React.Fragment>
               )}
             </NavDropdown>

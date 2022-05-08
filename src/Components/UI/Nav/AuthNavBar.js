@@ -10,7 +10,7 @@ function Navbar() {
   const { darkMode } = useContext(ThemeContext);
   const navigate = useNavigate();
 
-
+ 
   const handleLogOut = async () => {
     try {
       await logOut();
