@@ -3,6 +3,7 @@ import { InputContainer } from "../../Login/InputContainer";
 import Input from "./Input";
 import { RiGhostSmileFill } from "react-icons/ri";
 import { FaPencilAlt } from "react-icons/fa";
+import { BsCheckCircleFill } from "react-icons/bs";
 import { Button } from "../styling/Button";
 import { FormProps } from "../../../model";
 import { ThemeContext } from "../../../context/DarkModeContext";
@@ -23,7 +24,7 @@ const FormInputs = ({
   error,
 }: FormProps) => {
   const { darkMode } = useContext(ThemeContext);
-  const { setLoginModal, loggedIn } = useContext(ModalContext);
+  const { setLoginModal, loggedIn, accountCreated } = useContext(ModalContext);
 
   const styling = {
     backgroundColor: "pink",
@@ -72,8 +73,6 @@ const FormInputs = ({
         <Button width="100%" fontSize="1.8rem">
           {h1Text}
         </Button>
-        {loggedIn && <AlertBox>Logged in!</AlertBox>}
-        {/* {welcome && <h3>Logged In!</h3>} */}
         <p>
           {linkText === "Login" ? (
             <>
@@ -91,6 +90,18 @@ const FormInputs = ({
             </>
           )}
         </p>
+        {accountCreated && (
+          <p
+            style={{
+              color: "black",
+              backgroundColor: "#B2FFC0",
+              padding: "1rem",
+            }}
+          >
+            <BsCheckCircleFill /> <br />
+            Account Created. Log in!
+          </p>
+        )}
       </form>
     </InputContainer>
   );

@@ -52,7 +52,7 @@ const reducer = (state: StateType, action: ActionType): StateType => {
 const SignUp = () => {
   const [formValid, setFormValid] = useState<boolean | null>();
   const [error, setError] = useState<string>("");
-  const { signUp } = useUserAuth();
+  const { signUp, logOut } = useUserAuth();
   const [state, dispatch] = useReducer(reducer, {
     emailValue: "",
     emailIsValid: null,
@@ -62,7 +62,8 @@ const SignUp = () => {
   const navigate = useNavigate();
   const emailRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
-  const { setLoginModal, closeModal, setLoggedIn } = useContext(ModalContext);
+  const { setLoginModal, closeModal, setLoggedIn, setAccountCreated } =
+    useContext(ModalContext);
 
   const { emailIsValid, passwordIsValid, emailValue, passwordValue } = state;
 
@@ -112,13 +113,19 @@ const SignUp = () => {
       // ! LOGS YOU IN AFTER SIGN UP
       // TODO: FIX THIS!
       await signUp(email, password);
+      await logOut();
       // ! REDIRECTS USER TO LOGIN MODAL <---------------
-      setLoggedIn(true)
+      // setLoggedIn(true);
       setTimeout(() => {
-        // setLoginModal(true);
-        closeModal();
+        setAccountCreated(true);
+        setLoginModal(true);
+        // closeModal();
         navigate("/");
       }, 800);
+
+      setTimeout(() => {
+        // setLoggedIn(false);
+      }, 5000);
     } catch (err: any) {
       console.log(err.message);
       setError(err.message.slice(10));

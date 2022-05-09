@@ -7,6 +7,7 @@ const ModalContextProvider = ({ children }) => {
   const [loginModal, setLoginModal] = useState(false);
   const [loggedIn, setLoggedIn] = useState(false);
   const [loggedOut, setLoggedOut] = useState(false);
+  const [accountCreated, setAccountCreated] = useState(false);
   const [alert, setAlert] = useState(false);
 
   const openModal = () => {
@@ -15,6 +16,7 @@ const ModalContextProvider = ({ children }) => {
 
   const closeModal = () => {
     setModalOpen(false);
+    setAccountCreated(false);
   };
 
   return (
@@ -29,6 +31,8 @@ const ModalContextProvider = ({ children }) => {
         setLoggedIn,
         loggedOut,
         setLoggedOut,
+        accountCreated,
+        setAccountCreated,
         alert,
         setAlert,
       }}

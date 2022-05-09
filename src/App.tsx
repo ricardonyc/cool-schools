@@ -12,6 +12,9 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import SchoolList from "./Components/SchoolComponents/SchoolList";
 import LightDarkMode from "./Components/UI/LightDarkMode";
 import ModalContextProvider from "./context/ModalContext";
+import AddSchool from "./Components/SchoolComponents/AddSchool";
+import SchoolListLayout from "./Components/MainPages/SchoolListLayout";
+import Error from "./Components/Error";
 
 function App() {
   const [darkMode, setDarkMode] = useState<boolean>(false);
@@ -22,18 +25,20 @@ function App() {
         <ModalContextProvider>
           <div className={darkMode ? "App dark" : "App light"}>
             <Routes>
-              {/* <Route
-              path="/home"
-              element={
-                <ProtectedRoute>
-                  <AuthHome />
-                </ProtectedRoute>
-              }
-            /> */}
+              <Route
+                path="/addschool"
+                element={
+                  <ProtectedRoute>
+                    {/* <AuthHome /> */}
+                    <AddSchool />
+                  </ProtectedRoute>
+                }
+              />
               <Route path="/" element={<Layout />} />
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<SignUp />} />
-              <Route path="/schools" element={<SchoolList />} />
+              <Route path="/schools" element={<SchoolListLayout />} />
+              <Route path="*" element={<Error />} />
             </Routes>
             <LightDarkMode />
           </div>

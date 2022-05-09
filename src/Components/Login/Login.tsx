@@ -18,7 +18,10 @@ const reducer = (state: StateType, action: ActionType): StateType => {
       return {
         ...state,
         emailValue: action.value,
-        emailIsValid: action.value.includes("@") && !action.value.includes(" "),
+        emailIsValid:
+          action.value.includes("@") &&
+          !action.value.includes(" ") &&
+          action.value.includes("."),
       };
     case "PASSWORD_INPUT":
       return {
@@ -31,7 +34,9 @@ const reducer = (state: StateType, action: ActionType): StateType => {
         ...state,
         emailValue: state.emailValue,
         emailIsValid:
-          state.emailValue.includes("@") && !state.emailValue.includes(" "),
+          state.emailValue.includes("@") &&
+          !state.emailValue.includes(" ") &&
+          state.emailValue.includes("."),
       };
     case "PASSWORD_BLUR":
       return {
@@ -48,7 +53,8 @@ const Login = () => {
   const [formValid, setFormValid] = useState<boolean | null>();
   const [error, setError] = useState("");
   const { logIn } = useUserAuth();
-  const { closeModal, setLoggedIn } = useContext(ModalContext);
+  const { closeModal, setLoggedIn, setAccountCreated } =
+    useContext(ModalContext);
   const navigate = useNavigate();
   const [state, dispatch] = useReducer(reducer, {
     emailValue: "",
@@ -109,6 +115,7 @@ const Login = () => {
     try {
       await logIn(email, password);
       setLoggedIn(true);
+      setAccountCreated(false);
       closeModal();
       navigate("/");
       setTimeout(() => {

@@ -1,10 +1,7 @@
-import React, { useContext } from "react";
 import { Alert } from "react-bootstrap";
-import { ModalContext } from "../../../context/ModalContext";
+import "../styling/variables.css";
 
 const AlertBox = ({ children }) => {
-  const { setAlert } = useContext(ModalContext);
-
   return (
     <Alert
       style={{
@@ -14,11 +11,14 @@ const AlertBox = ({ children }) => {
         maxWidth: "220px",
         width: "100%",
         fontSize: "1.6rem",
+        zIndex: "9999999999999999",
+        backgroundColor: "#A5FFB5",
+        color: "black",
+        border: "none",
+        boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
       }}
-      // onClose={() => setAlert(false)}
-      // dismissible={true}
       key="success"
-      variant="success"
+      // variant="success"
     >
       {children}
     </Alert>

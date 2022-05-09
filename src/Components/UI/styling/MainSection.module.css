@@ -8,11 +8,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 60vh;
+  min-height: 40vh;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-
   box-shadow: inset 0 0 0 2000px #07101381;
 }
 
