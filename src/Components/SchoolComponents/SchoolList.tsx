@@ -9,6 +9,7 @@ import HomeCardsSkeleton from "./HomeCardsSkeleton";
 import Rating from "@mui/material/Rating";
 import ThemeContext from "../../context/DarkModeContext";
 import { CgProfile } from "react-icons/cg";
+import { BsBuilding } from "react-icons/bs";
 
 interface SchoolType {
   id?: number;
@@ -48,7 +49,10 @@ const SchoolList = () => {
           numSchools?.map((school: SchoolType) => {
             return (
               <div key={school.id}>
-                <h2>{school.name}</h2>
+                <div className={css.school__name}>
+                  <BsBuilding className={css.building__icon} />
+                  <h2>{school.name}</h2>
+                </div>
                 <h4 className={css.address}>{school.address}</h4>
                 <h3 className={css.average}>
                   Average Rating <small>({school?.reviews?.length})</small> :{" "}
@@ -57,7 +61,7 @@ const SchoolList = () => {
                 <Rating
                   name="read-only"
                   size="large"
-                  precision={0.5}
+                  precision={0.1}
                   value={school?.reviews?.reduce(
                     (
                       previousValue: number,

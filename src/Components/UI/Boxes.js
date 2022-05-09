@@ -1,6 +1,7 @@
 import { useState } from "react";
 import css from "./styling/Boxes.module.css";
 import AnonBro from "../assets/bro2.svg";
+import Astronaut from "../assets/Astronaut.svg";
 import { ThemeContext } from "../../context/DarkModeContext";
 import { useContext } from "react";
 import LD from "./styling/Modes.module.css";
@@ -32,6 +33,10 @@ const Boxes = () => {
         <div className={css.box}>
           <img src={AnonBro} alt="Anonymous looking eyes" />
           <h1>Remain anonymous</h1>
+        </div>
+        <div className={css.box}>
+          <img src={Astronaut} alt="Anonymous looking eyes" />
+          <h1>Search Reviews</h1>
         </div>
       </div>
     </div>

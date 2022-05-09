@@ -15,7 +15,7 @@ function MainSection(props) {
       }
     >
       <h1 className={css["main__section--h1"]}>
-        Find and Review Your Favorite <br /> (and Not-so-Favorite) Universities
+        Search and Review Your Favorite <br /> (and Not-so-Favorite) Universities
       </h1>
       {/* TAKES USER TO SEARCH PAGE */}
       <Button width="15rem" fontSize="1.7rem">

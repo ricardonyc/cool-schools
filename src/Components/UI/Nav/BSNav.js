@@ -6,7 +6,6 @@ import css from "./Navbar.module.css";
 import { useUserAuth } from "../../../context/UserAuthContext";
 import { useNavigate, Link } from "react-router-dom";
 import { ModalContext } from "../../../context/ModalContext";
-import AlertBox from "../Alert/AlertBox";
 
 const BSNav = () => {
   const { logOut, user } = useUserAuth();
@@ -15,16 +14,22 @@ const BSNav = () => {
 
   console.log("user: ", user);
 
-  const { openModal, loginModal, setLoginModal, setAlert, loggedOut, setLoggedOut } =
-    useContext(ModalContext);
+  const {
+    openModal,
+    loginModal,
+    setLoginModal,
+    setAlert,
+    loggedOut,
+    setLoggedOut,
+  } = useContext(ModalContext);
 
   const handleLogOut = async () => {
     try {
       await logOut();
       // setAlert(true);
-      setLoggedOut(true)
+      setLoggedOut(true);
       setTimeout(() => {
-        setLoggedOut(false)
+        setLoggedOut(false);
         // setAlert(false);
       }, 5000);
       // navigate("/");
@@ -45,6 +50,12 @@ const BSNav = () => {
     padding: "0 2rem",
     maxWidth: "1800px",
     backgroundColor: darkMode ? "var(--darkmode-navy)" : "var(--white)",
+    // backgroundColor: "rgba(0,0,0,0.1)",
+    // backdropFilter: "blur(10px)",
+    boxShadow: "0 12px 20px rgba(0,0,0,0.1)",
+    webkitBoxShadow: "0 8px 6px -3px rgba(0,0,0,0.1)",
+    mozBoxShadow: "0 8px 6px -3px rgba(0,0,0,0.1)",
+    boxShadow: "0 8px 6px -3px rgba(0,0,0,0.1)",
   };
 
   const textColor = {
@@ -53,7 +64,14 @@ const BSNav = () => {
   };
 
   return (
-    <Navbar fixed="top" expand="md" style={{ padding: "0", margin: "0" }}>
+    <Navbar
+      fixed="top"
+      expand="md"
+      style={{
+        padding: "0",
+        margin: "0",
+      }}
+    >
       <Container style={navContainer}>
         <Navbar.Brand style={logo}>CoolSchools</Navbar.Brand>
         <Navbar.Toggle
@@ -109,7 +127,6 @@ const BSNav = () => {
                   >
                     Logout
                   </NavDropdown.Item>
-                  
                 </React.Fragment>
               )}
             </NavDropdown>
