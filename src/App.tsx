@@ -34,8 +34,8 @@ function App() {
                 }
               />
               <Route path="/" element={<Layout />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/signup" element={<SignUp />} />
+              {/* <Route path="/login" element={<Login />} /> */}
+              {/* <Route path="/signup" element={<SignUp />} /> */}
               <Route path="/schools" element={<SchoolListLayout />} />
               <Route path="*" element={<Error />} />
             </Routes>
