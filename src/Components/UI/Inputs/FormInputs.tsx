@@ -8,7 +8,6 @@ import { Button } from "../styling/Button";
 import { FormProps } from "../../../model";
 import { ThemeContext } from "../../../context/DarkModeContext";
 import { ModalContext } from "../../../context/ModalContext";
-import AlertBox from "../Alert/AlertBox";
 
 const FormInputs = ({
   submitForm,

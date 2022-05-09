@@ -4,6 +4,7 @@
 /* VERY DARK NAVY GOES WITH RED DARK MODE: #071013 */
 /* WHITE FOR LIGHT MODE: #FEFFF1 */
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap");
 
 :root {
   /* COLORS */
@@ -19,6 +20,7 @@
 
   --border-radius: 2px;
   --btn-padding: 0.3rem 1rem;
+  --sans-pro: "Source Sans Pro", sans-serif;
 }
 
 /* yellow FFDC2F */

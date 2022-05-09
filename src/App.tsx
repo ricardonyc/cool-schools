@@ -9,7 +9,6 @@ import { UserAuthContextProvider } from "./context/UserAuthContext";
 import ProtectedRoute from "./Components/ProtectedRoute";
 import AuthHome from "./Components/MainPages/AuthHome";
 import "bootstrap/dist/css/bootstrap.min.css";
-import SchoolList from "./Components/SchoolComponents/SchoolList";
 import LightDarkMode from "./Components/UI/LightDarkMode";
 import ModalContextProvider from "./context/ModalContext";
 import AddSchool from "./Components/SchoolComponents/AddSchool";

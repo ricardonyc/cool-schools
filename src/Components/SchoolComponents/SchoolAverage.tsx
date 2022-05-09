@@ -8,9 +8,8 @@ interface PropType {
 }
 
 const SchoolAverage = (info: PropType) => {
-  console.log(info);
   return (
-    <div>
+    <>
       {info?.reviews?.reduce(
         (
           previousValue: number,
@@ -23,7 +22,7 @@ const SchoolAverage = (info: PropType) => {
           ) / 10,
         0
       )}
-    </div>
+    </>
   );
 };
 export default SchoolAverage;
