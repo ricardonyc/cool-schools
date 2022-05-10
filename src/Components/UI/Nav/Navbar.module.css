@@ -1,84 +1,16 @@
 @import "../styling/variables.css";
 @import url("https://fonts.googleapis.com/css2?family=Anybody:ital,wght@1,700&display=swap");
 
-.navbar {
-  width: 100%;
-}
-
 .nav__container {
-  display: flex;
-  align-items: center;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  max-width: var(--max-width);
-  margin: 0 auto;
-  z-index: 999;
-  height: 65px;
+  padding: 0 2rem;
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.1);
+  webkit-box-shadow: 0 8px 6px -3px rgba(0, 0, 0, 0.1);
+  moz-box-shadow: 0 8px 6px -3px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 6px -3px rgba(0, 0, 0, 0.1);
 }
 
-.nav__menu {
-  display: flex;
-  list-style: none;
-}
-
-.nav__menu--dark {
-  color: var(--white);
-}
-
-.nav__menu--light {
-  color: var(--darkmode-navy);
-}
-
-.nav__menu li {
-  padding: var(--btn-padding);
-  cursor: pointer;
-  font-size: 1.8rem;
-  border-radius: var(--border-radius);
-}
-
-/* .nav__menu li:not(:last-child) {
-  margin-right: 1rem;
-} */
-.nav__menu li {
-  margin-right: 1rem;
-}
-
-/* SELECT ONLY FIRST TWO LIST ITEMS */
-.nav__menu li:hover:nth-last-child(n + 3) {
-  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
-}
-
-.nav__menu li:active:nth-last-child(n + 3) {
-  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
-}
-
-.nav__menu li a,
-.logout__btn {
-  background-color: var(--teal);
-  border-radius: var(--border-radius);
-  padding: var(--btn-padding);
-  color: var(--white);
-  text-decoration: none;
-}
-
-/* .nav__menu::nth-last-child(n + 5) {
-  border: 1px solid red;
-  background-color: var(--yellow);
-} */
-
-#login {
-  color: black;
-  background-color: #ffe251 !important;
-}
-
-.nav__menu li a:hover {
-  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
-}
-
-.nav__menu li a:active {
-  box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.2);
+.toggle {
+  background-color: white;
 }
 
 .dark {
@@ -101,4 +33,8 @@
 .items,
 .sub__items {
   font-family: "Roboto Condensed", sans-serif;
+}
+
+.navbar__container {
+  border: 1px solid transparent;
 }

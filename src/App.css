@@ -9,11 +9,11 @@
 *::before,
 *::after {
   box-sizing: inherit;
+  font-family: var(--poppins);
 }
 
 html {
   box-sizing: border-box;
-  font-family: "Roboto Condensed", sans-serif;
   font-size: 62.5%; /* 1 rem === 10px */
 }
 
@@ -34,10 +34,12 @@ body {
 }
 
 .dark {
+  color: white;
   background-color: red;
   background-color: var(--darkmode-navy);
 }
 
 .light {
+  color: var(--darkmode-navy);
   background-color: var(--white);
 }

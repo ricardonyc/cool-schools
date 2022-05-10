@@ -10,6 +10,7 @@ import Rating from "@mui/material/Rating";
 import ThemeContext from "../../context/DarkModeContext";
 import { CgProfile } from "react-icons/cg";
 import { BsBuilding } from "react-icons/bs";
+import RatingStars from "./RatingStars.js";
 
 interface SchoolType {
   id?: number;
@@ -17,7 +18,7 @@ interface SchoolType {
   name?: string;
   reviews?: string[];
 }
-
+ 
 const SchoolList = () => {
   const [schools, setSchools] = useState<object[]>();
   const schoolsCollectionRef = collection(db, "universities");
@@ -43,7 +44,6 @@ const SchoolList = () => {
 
   return (
     <div className={css.container}>
-      {/* <div className={css.img__container}></div> */}
       <div className={css.school__box}>
         {schools &&
           numSchools?.map((school: SchoolType) => {
@@ -58,25 +58,7 @@ const SchoolList = () => {
                   Average Rating <small>({school?.reviews?.length})</small> :{" "}
                   <SchoolAverage {...school} /> / 5{" "}
                 </h3>
-                <Rating
-                  name="read-only"
-                  size="large"
-                  precision={0.1}
-                  value={school?.reviews?.reduce(
-                    (
-                      previousValue: number,
-                      currentValue: any,
-                      _: number,
-                      { length }: any
-                    ) =>
-                      Math.round(
-                        (previousValue + currentValue?.ratingOutOf5 / length) *
-                          10
-                      ) / 10,
-                    0
-                  )}
-                  readOnly
-                />
+                <RatingStars school={school} />
               </div>
             );
           })}

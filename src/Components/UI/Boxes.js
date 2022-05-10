@@ -1,11 +1,11 @@
 import { useState } from "react";
 import css from "./styling/Boxes.module.css";
-import AnonBro from "../assets/bro2.svg";
-import Astronaut from "../assets/Astronaut.svg";
+import Anonymous from "../assets/Anonymous.png";
+import GuySitting from "../assets/guy-sitting.png";
+import KidCape from "../assets/kid-cape.png";
 import { ThemeContext } from "../../context/DarkModeContext";
 import { useContext } from "react";
 import LD from "./styling/Modes.module.css";
-import Typewriter from "../assets/Typewriter.svg";
 import { Button } from "./styling/Button";
 
 const Boxes = () => {
@@ -27,16 +27,16 @@ const Boxes = () => {
         }
       >
         <div className={css.box}>
-          <img src={Typewriter} alt="man using laptop in a forest" />
-          <h1>Leave Reviews</h1>
+          <img src={GuySitting} alt="man using laptop in a forest" />
+          <h2>Leave Reviews</h2>
         </div>
         <div className={css.box}>
-          <img src={AnonBro} alt="Anonymous looking eyes" />
-          <h1>Remain anonymous</h1>
+          <img src={Anonymous} alt="Girl and dog wearing shades" />
+          <h2>Remain anonymous</h2>
         </div>
         <div className={css.box}>
-          <img src={Astronaut} alt="Anonymous looking eyes" />
-          <h1>Search Reviews</h1>
+          <img src={KidCape} alt="Anonymous looking eyes" />
+          <h2>Search Reviews</h2>
         </div>
       </div>
     </div>

@@ -39,23 +39,15 @@ const BSNav = () => {
   };
 
   const logo = {
-    fontSize: "3rem",
-    padding: ".5rem 0 0 0",
     fontFamily: "'Anybody', cursive",
     color: "var(--teal)",
+    fontSize: "3rem",
+    padding: "0.5rem 0 0 0",
   };
 
   const navContainer = {
-    // border: "2px solid red",
-    padding: "0 2rem",
-    maxWidth: "1800px",
     backgroundColor: darkMode ? "var(--darkmode-navy)" : "var(--white)",
-    // backgroundColor: "rgba(0,0,0,0.1)",
-    // backdropFilter: "blur(10px)",
-    boxShadow: "0 12px 20px rgba(0,0,0,0.1)",
-    webkitBoxShadow: "0 8px 6px -3px rgba(0,0,0,0.1)",
-    mozBoxShadow: "0 8px 6px -3px rgba(0,0,0,0.1)",
-    boxShadow: "0 8px 6px -3px rgba(0,0,0,0.1)",
+    maxWidth: "var(--max-navbar-mainsection-width)",
   };
 
   const textColor = {
@@ -64,77 +56,79 @@ const BSNav = () => {
   };
 
   return (
-    <Navbar
-      fixed="top"
-      expand="md"
-      style={{
-        padding: "0",
-        margin: "0",
-      }}
-    >
-      <Container style={navContainer}>
-        <Navbar.Brand style={logo}>CoolSchools</Navbar.Brand>
-        <Navbar.Toggle
-          aria-controls="basic-navbar-nav"
-          style={{ color: "var(--teal)", backgroundColor: "white" }}
-        />
-        <Navbar.Collapse id="basic-navbar-nav" className={css.items}>
-          <Nav className="me-auto">
-            <Nav.Link as={Link} to="/" style={textColor}>
-              Home
-            </Nav.Link>
-            <Nav.Link href="#link" style={textColor}>
-              Search
-            </Nav.Link>
-            <NavDropdown
-              id="basic-nav-dropdown"
-              title={
-                <span className={darkMode ? css.dark : css.light}>More</span>
-              }
-            >
-              {/* IF THERE IS NO USER, DIRECT TO SIGN UP / LOGIN PAGE */}
-              {!user && (
-                <React.Fragment>
-                  <NavDropdown.Item
-                    onClick={() => {
-                      openModal();
-                      setLoginModal(false);
-                    }}
-                    className={css.sub__items}
-                  >
-                    Sign Up
-                  </NavDropdown.Item>
-                  <NavDropdown.Divider />
-                  <NavDropdown.Item
-                    onClick={() => {
-                      openModal();
-                      setLoginModal(true);
-                    }}
-                    className={css.sub__items}
-                  >
-                    Login
-                  </NavDropdown.Item>
-                </React.Fragment>
-              )}
-              {/* IF THERE'S A USER, SHOW LOGOUT OPTION */}
-              {user && (
-                <React.Fragment>
-                  <NavDropdown.Divider />
-                  <NavDropdown.Item
-                    onClick={handleLogOut}
-                    href="#"
-                    className={css.sub__items}
-                  >
-                    Logout
-                  </NavDropdown.Item>
-                </React.Fragment>
-              )}
-            </NavDropdown>
-          </Nav>
-        </Navbar.Collapse>
-        {user && <h1>Welcome!</h1>}
-      </Container>
-    </Navbar>
+    <div className={css.navbar__container}>
+      <Navbar
+        fixed="top"
+        expand="md"
+        style={{
+          padding: "0",
+          margin: "0",
+        }}
+      >
+        <Container style={navContainer} className={css.nav__container}>
+          <Navbar.Brand style={logo}>CoolSchools</Navbar.Brand>
+          <Navbar.Toggle
+            aria-controls="basic-navbar-nav"
+            className={css.toggle}
+          />
+          <Navbar.Collapse id="basic-navbar-nav" className={css.items}>
+            <Nav className="me-auto">
+              <Nav.Link as={Link} to="/" style={textColor}>
+                Home
+              </Nav.Link>
+              <Nav.Link href="#link" style={textColor}>
+                Search
+              </Nav.Link>
+              <NavDropdown
+                id="basic-nav-dropdown"
+                title={
+                  <span className={darkMode ? css.dark : css.light}>More</span>
+                }
+              >
+                {/* IF THERE IS NO USER, DIRECT TO SIGN UP / LOGIN PAGE */}
+                {!user && (
+                  <React.Fragment>
+                    <NavDropdown.Item
+                      onClick={() => {
+                        openModal();
+                        setLoginModal(false);
+                      }}
+                      className={css.sub__items}
+                    >
+                      Sign Up
+                    </NavDropdown.Item>
+                    <NavDropdown.Divider />
+                    <NavDropdown.Item
+                      onClick={() => {
+                        openModal();
+                        setLoginModal(true);
+                      }}
+                      className={css.sub__items}
+                    >
+                      Login
+                    </NavDropdown.Item>
+                  </React.Fragment>
+                )}
+                {/* IF THERE'S A USER, SHOW LOGOUT OPTION */}
+                {user && (
+                  <React.Fragment>
+                    <NavDropdown.Divider />
+                    <NavDropdown.Item
+                      onClick={handleLogOut}
+                      href="#"
+                      className={css.sub__items}
+                    >
+                      Logout
+                    </NavDropdown.Item>
+                  </React.Fragment>
+                )}
+              </NavDropdown>
+            </Nav>
+          </Navbar.Collapse>
+          {user && <h1>Welcome!</h1>}
+        </Container>
+      </Navbar>
+    </div>
   );
 };
 

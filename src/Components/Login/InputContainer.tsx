@@ -9,10 +9,6 @@ interface InputProps {
 export const InputContainer = styled.div<InputProps>`
   background-color: ${(props) =>
     props.bgColor ? "var(--darkmode-navy)" : "var(--white)"};
-  /* min-height: 100vh; */
-  /* display: flex;
-  align-items: center;
-  justify-content: center; */
   border-radius: var(--border-radius);
 
   .login__box {

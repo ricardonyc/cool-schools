@@ -8,6 +8,7 @@ import BSNav from "../UI/Nav/BSNav";
 import { ModalContext } from "../../context/ModalContext";
 import AlertBox from "../UI/Alert/AlertBox";
 import SchoolList from "../SchoolComponents/SchoolList";
+import Footer from "../UI/Footer";
 
 const Layout = () => {
   const { modalOpen, loginModal, alert, loggedOut, loggedIn } =
@@ -25,6 +26,7 @@ const Layout = () => {
       <MainSection />
       <Boxes />
       <SchoolList />
+      <Footer />
       {/* {alert && <AlertBox />} */}
 
       {loggedIn && <AlertBox>Logged In Successfully!</AlertBox>}

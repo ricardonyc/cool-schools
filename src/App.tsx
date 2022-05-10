@@ -14,6 +14,7 @@ import ModalContextProvider from "./context/ModalContext";
 import AddSchool from "./Components/SchoolComponents/AddSchool";
 import SchoolListLayout from "./Components/MainPages/SchoolListLayout";
 import Error from "./Components/Error";
+import BSNav from "./Components/UI/Nav/BSNav";
 
 function App() {
   const [darkMode, setDarkMode] = useState<boolean>(false);
@@ -23,6 +24,7 @@ function App() {
       <DarkmodeProvider value={{ darkMode, setDarkMode }}>
         <ModalContextProvider>
           <div className={darkMode ? "App dark" : "App light"}>
+            {/* <BSNav /> */}
             <Routes>
               <Route
                 path="/addschool"

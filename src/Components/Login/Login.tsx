@@ -117,7 +117,7 @@ const Login = () => {
       setLoggedIn(true);
       setAccountCreated(false);
       closeModal();
-      navigate("/");
+      // navigate("/");
       setTimeout(() => {
         setLoggedIn(false);
       }, 5000);
