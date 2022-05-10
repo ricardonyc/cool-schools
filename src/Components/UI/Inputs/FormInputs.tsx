@@ -8,6 +8,7 @@ import { Button } from "../styling/Button";
 import { FormProps } from "../../../model";
 import { ThemeContext } from "../../../context/DarkModeContext";
 import { ModalContext } from "../../../context/ModalContext";
+import css from "../styling/variables.css";
 
 const FormInputs = ({
   submitForm,
@@ -26,7 +27,7 @@ const FormInputs = ({
   const { setLoginModal, loggedIn, accountCreated } = useContext(ModalContext);
 
   const styling = {
-    backgroundColor: "pink",
+    backgroundColor: "#ff8181",
     color: "black",
     fontSize: "1.5rem",
     margin: "1rem 0",
@@ -69,7 +70,11 @@ const FormInputs = ({
             ref={passwordRef}
           />
         </div>
-        <Button width="100%" fontSize="1.8rem">
+        <Button
+          color={darkMode ? "var(--yellow)" : "var(--teal)"}
+          width="100%"
+          fontSize="1.8rem"
+        >
           {h1Text}
         </Button>
         <p>

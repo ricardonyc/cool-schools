@@ -19,13 +19,13 @@ export const InputContainer = styled.div<InputProps>`
     &--icon {
       width: 100%;
       font-size: 3rem;
-      color: var(--teal);
+      color: ${(props) => (props.clr ? "var(--yellow)" : "var(--teal)")};
     }
 
     &--h1 {
       font-size: 3rem;
       text-align: center;
-      color: var(--teal);
+      color: ${(props) => (props.clr ? "var(--yellow)" : "var(--teal)")};
     }
 
     &--input label {

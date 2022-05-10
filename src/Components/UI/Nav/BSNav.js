@@ -40,6 +40,8 @@ const BSNav = () => {
 
   const logo = {
     fontFamily: "'Anybody', cursive",
+    fontWeight: "700",
+    fontStyle: "italic",
     color: darkMode ? "var(--yellow)" : "var(--teal)",
     fontSize: "3rem",
     padding: "0.5rem 0 0 0",
