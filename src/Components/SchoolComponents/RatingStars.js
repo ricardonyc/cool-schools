@@ -6,10 +6,10 @@ const RatingStars = ({ school }) => {
       name="read-only"
       size="large"
       precision={0.1}
-      value={school?.reviews?.reduce(
+      value={school.reviews.reduce(
         (previousValue, currentValue, _, { length }) =>
           Math.round(
-            (previousValue + currentValue?.ratingOutOf5 / length) * 10
+            (previousValue + currentValue.ratingOutOf5 / length) * 10
           ) / 10,
         0
       )}

@@ -4,8 +4,8 @@
   position: relative;
   top: 0px;
   width: 100%;
-  /* border: 3px solid red; */
-  background-color: rgb(191, 255, 216);
+  /* border: 1px solid transparent; */
+  /* background-color: rgb(202, 255, 222); */
   /* min-height: 50vh; */
   /* min-height: 500px;
   height: 100%; */
@@ -13,10 +13,10 @@
 
 .boxes__container {
   position: relative;
-  top: 35px;
-  margin: 0 auto 10rem auto;
+  /* top: 35px; */
+  margin: 0 auto 5rem auto;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
   /* max-width: 1300px; */
@@ -39,7 +39,7 @@
   /* width: 100%; */
   /* max-height: auto; */
   /* height: 100%; */
-  margin: 3rem 5rem;
+  margin: 4rem 5rem;
   /* border: 1px solid blue; */
 }
 
@@ -53,12 +53,13 @@
   font-family: var(--poppins);
   font-weight: 700;
   font-style: italic;
-  color: var(--teal);
+  /* color: var(--teal); */
   background-color: transparent;
 }
 
 @media only screen and (max-width: 1100px) {
   .box {
-    margin: 3rem;
+    margin: 5rem 2rem;
+    /* border: 1px solid red; */
   }
 }

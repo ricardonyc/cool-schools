@@ -11,9 +11,10 @@
   /* top: 35px; */
   display: flex;
   flex-wrap: wrap;
-  /*gap: 1.5rem;
-  grid-template-columns: repeat(4, 1fr); */
   justify-content: center;
+  /* display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr; */
+
   /* height: 200px; */
 }
 
@@ -29,7 +30,7 @@
   height: 37rem;
   border-radius: var(--border-radius);
   overflow: hidden;
-  flex: 1 0 42rem;
+  flex: 3 0 42rem;
 }
 
 .school__box > * img {
@@ -56,4 +57,20 @@
   bottom: 0;
   right: 10px;
   color: rgba(0, 0, 0, 0.6);
+}
+
+.box {
+  position: relative;
+  /* border: 1px solid red; */
+}
+
+.box p {
+  position: absolute;
+  top: 52%;
+  transform: translateY(-50%);
+  font-size: 1.6rem;
+  /* border: 1px solid red; */
+  max-height: 20rem;
+  padding: 1rem 1.5rem;
+  overflow-y: scroll;
 }

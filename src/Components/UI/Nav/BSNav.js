@@ -40,7 +40,7 @@ const BSNav = () => {
 
   const logo = {
     fontFamily: "'Anybody', cursive",
-    color: "var(--teal)",
+    color: darkMode ? "var(--yellow)" : "var(--teal)",
     fontSize: "3rem",
     padding: "0.5rem 0 0 0",
   };
@@ -51,8 +51,8 @@ const BSNav = () => {
   };
 
   const textColor = {
-    color: darkMode ? "var(--white)" : "var(--darkmode-navy)",
-    fontFamily: "'Roboto Condensed', sans-serif",
+    color: darkMode ? "var(--yellow)" : "var(--darkmode-navy)",
+    // fontFamily: "'Roboto Condensed', sans-serif",
   };
 
   return (
@@ -80,6 +80,7 @@ const BSNav = () => {
                 Search
               </Nav.Link>
               <NavDropdown
+                style={{ border: "1px solid red;" }}
                 id="basic-nav-dropdown"
                 title={
                   <span className={darkMode ? css.dark : css.light}>More</span>

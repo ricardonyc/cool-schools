@@ -4,6 +4,7 @@ import { ThemeContext } from "../../context/DarkModeContext";
 import { Button } from "./styling/Button";
 import BoyMagnifier from "../assets/boy-magnifier.png";
 import SearchIcon from "../assets/search-icon.png";
+import vars from "./styling/variables.css";
 
 function MainSection(props) {
   const { darkMode } = useContext(ThemeContext);
@@ -26,6 +27,10 @@ function MainSection(props) {
   //   </div>
   // );
 
+  const textColor = {
+    color: darkMode ? "var(--yellow)" : "var(--teal)",
+  };
+
   return (
     <div
       className={
@@ -37,7 +42,9 @@ function MainSection(props) {
       <div className={css.left__box}>
         <img src={BoyMagnifier} alt="" />
         <div className={css["left__box--text"]}>
-          <h1 className={css.discover}>DISCOVER</h1>
+          <h1 style={textColor} className={css.discover}>
+            DISCOVER
+          </h1>
           <p>
             Find your favorite (and not-so-favorite) schools. Read and leave
             reviews on your school anonymously.
@@ -46,7 +53,7 @@ function MainSection(props) {
       </div>
       <div className={css.right__box}>
         <div className={css["right__box--text"]}>
-          <h1>Start Searching</h1>
+          <h1 style={textColor}>Start Searching</h1>
           <div className={css.input__container}>
             <input
               placeholder="Search a school..."

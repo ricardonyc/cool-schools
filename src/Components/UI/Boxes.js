@@ -7,6 +7,7 @@ import { ThemeContext } from "../../context/DarkModeContext";
 import { useContext } from "react";
 import LD from "./styling/Modes.module.css";
 import { Button } from "./styling/Button";
+import vars from "../UI/styling/variables.css";
 
 const Boxes = () => {
   const { darkMode } = useContext(ThemeContext);
@@ -17,15 +18,14 @@ const Boxes = () => {
   //   setWaitTime(true);
   // }, 2000);
 
+  const container = {
+    backgroundColor: darkMode ? "#f5d848" : "rgb(202, 255, 222)",
+    color: darkMode ? "var(--darkmode-navy)" : "var(--teal)",
+  };
+
   return (
-    <div className={css["main__boxes--container"]}>
-      <div
-        className={
-          darkMode
-            ? ` ${css["boxes__container"]} ${LD.dark__bg}`
-            : ` ${css["boxes__container"]} ${LD.light__bg}`
-        }
-      >
+    <div style={container} className={css["main__boxes--container"]}>
+      <div className={css["boxes__container"]}>
         <div className={css.box}>
           <img src={GuySitting} alt="man using laptop in a forest" />
           <h2>Leave Reviews</h2>

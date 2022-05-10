@@ -4,7 +4,6 @@ import { getDocs, collection } from "firebase/firestore";
 import { db } from "../../firebase";
 import { Link } from "react-router-dom";
 import SchoolAverage from "./SchoolAverage";
-import Skeleton from "@mui/material/Skeleton";
 import HomeCardsSkeleton from "./HomeCardsSkeleton";
 import Rating from "@mui/material/Rating";
 import ThemeContext from "../../context/DarkModeContext";
@@ -12,18 +11,19 @@ import { CgProfile } from "react-icons/cg";
 import { BsBuilding } from "react-icons/bs";
 import RatingStars from "./RatingStars.js";
 
-interface SchoolType {
-  id?: number;
-  address?: string;
-  name?: string;
-  reviews?: string[];
-}
- 
+// interface SchoolType {
+//   id?: number;
+//   address?: string;
+//   name?: string;
+//   reviews?: string[];
+// }
+
 const SchoolList = () => {
-  const [schools, setSchools] = useState<object[]>();
+  const [schools, setSchools] = useState();
   const schoolsCollectionRef = collection(db, "universities");
-  //   console.log(ThemeContext);
-  //   const { darkMode } = useContext(ThemeContext);
+  // console.log(ThemeContext);
+  // const { darkMode } = useContext(ThemeContext);
+  // console.log(darkMode);
 
   useEffect(() => {
     const getUsers = async () => {
@@ -39,26 +39,27 @@ const SchoolList = () => {
   }, []);
 
   // SELECT ONLY 5 SCHOOLS
-  const numSchools = schools?.slice(0, 5);
+  const numSchools = schools?.slice(0, 3);
   console.log(numSchools);
 
   return (
     <div className={css.container}>
       <div className={css.school__box}>
         {schools &&
-          numSchools?.map((school: SchoolType) => {
+          numSchools.map((school) => {
             return (
-              <div key={school.id}>
+              <div className={css.box} key={school.id}>
                 <div className={css.school__name}>
                   <BsBuilding className={css.building__icon} />
                   <h2>{school.name}</h2>
                 </div>
                 <h4 className={css.address}>{school.address}</h4>
+                <RatingStars school={school} />
+                <p>{school.reviews[0].review}</p>
                 <h3 className={css.average}>
-                  Average Rating <small>({school?.reviews?.length})</small> :{" "}
+                  Average Rating <small>({school.reviews.length})</small>:{" "}
                   <SchoolAverage {...school} /> / 5{" "}
                 </h3>
-                <RatingStars school={school} />
               </div>
             );
           })}
@@ -67,7 +68,7 @@ const SchoolList = () => {
             <HomeCardsSkeleton />
             <HomeCardsSkeleton />
             <HomeCardsSkeleton />
-            <HomeCardsSkeleton />
+            {/* <HomeCardsSkeleton /> */}
           </>
         )}
       </div>

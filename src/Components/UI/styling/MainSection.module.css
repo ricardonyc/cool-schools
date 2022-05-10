@@ -32,7 +32,7 @@
 }
 
 .left__box {
-  padding: 1rem;
+  padding: 4rem 1rem 1rem 1rem;
   /* border: 3px solid red; */
   width: 50%;
   /* width: 100%; */
@@ -45,6 +45,7 @@
 .left__box img {
   max-width: 200px;
   width: 100%;
+  padding: 2rem;
   /* border: 1px solid red; */
 }
 
@@ -57,7 +58,7 @@
 .left__box--text .discover {
   font-size: 6rem;
   font-family: var(--shrikhand);
-  color: var(--teal);
+  /* color: var(--teal); */
 }
 
 .left__box--text p {
@@ -102,7 +103,7 @@
 }
 
 .input {
-  padding: 0.3rem 0 0.3rem 3.5rem;
+  padding: 0.3rem 25px 0.3rem 35px;
   border: none;
   box-shadow: 0 0 7px rgba(0, 0, 0, 0.2);
   border-radius: 100px;

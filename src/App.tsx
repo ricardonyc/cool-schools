@@ -17,7 +17,7 @@ import Error from "./Components/Error";
 import BSNav from "./Components/UI/Nav/BSNav";
 
 function App() {
-  const [darkMode, setDarkMode] = useState<boolean>(false);
+  const [darkMode, setDarkMode] = useState(false);
 
   return (
     <UserAuthContextProvider>
