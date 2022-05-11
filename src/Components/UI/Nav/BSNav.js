@@ -57,6 +57,10 @@ const BSNav = () => {
     // fontFamily: "'Roboto Condensed', sans-serif",
   };
 
+  const toggle = {
+    backgroundColor: "white",
+  };
+
   return (
     <div className={css.navbar__container}>
       <Navbar
@@ -69,10 +73,7 @@ const BSNav = () => {
       >
         <Container style={navContainer} className={css.nav__container}>
           <Navbar.Brand style={logo}>CoolSchools</Navbar.Brand>
-          <Navbar.Toggle
-            aria-controls="basic-navbar-nav"
-            className={css.toggle}
-          />
+          <Navbar.Toggle aria-controls="basic-navbar-nav" style={toggle} />
           <Navbar.Collapse id="basic-navbar-nav" className={css.items}>
             <Nav className="me-auto">
               <Nav.Link as={Link} to="/" style={textColor}>
