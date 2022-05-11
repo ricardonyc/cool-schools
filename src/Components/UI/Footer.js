@@ -6,7 +6,7 @@ const Footer = () => {
   const { darkMode } = useContext(ThemeContext);
 
   const logo = {
-    color: darkMode ? "var(--yellow)" : "var(--teal)",
+    color: darkMode ? "var(--darkmode-navy)" : "var(--teal)",
   };
 
   const footerBg = {

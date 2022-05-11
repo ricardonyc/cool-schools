@@ -13,11 +13,11 @@ const LightDarkMode = () => {
     bottom: "3rem",
     right: "4rem",
     cursor: "pointer",
-    zIndex: "9999999999999999999g999",
+    zIndex: "9999999999999999999999",
   };
 
   const sun = {
-    color: "var(--yellow)",
+    color: "orange",
   };
 
   return (
