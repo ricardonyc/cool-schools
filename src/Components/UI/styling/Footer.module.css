@@ -14,6 +14,8 @@
 .footer__container h1 {
   font-size: var(--logo-fontSize);
   font-family: var(--anybody);
+  font-weight: 700;
+  font-style: italic;
 }
 
 .footer__container p {

@@ -55,11 +55,13 @@ const SchoolList = ({ darkMode }) => {
                   <h2>{school.name}</h2>
                 </div>
                 <h4 className={css.address}>{school.address}</h4>
-                <RatingStars school={school} />
-                <p>{school.reviews[0].review}</p>
+                <div className={css.rating__container}>
+                  <RatingStars school={school} />
+                  <h4>{school.reviews.length}</h4>
+                </div>
+                <p className={css.review}>{school.reviews[0].review}</p>
                 <h4 className={css.average}>
-                  Average Rating <small>({school.reviews.length})</small>:{" "}
-                  <SchoolAverage {...school} /> / 5{" "}
+                  Average: <SchoolAverage {...school} /> / 5{" "}
                 </h4>
               </div>
             );
