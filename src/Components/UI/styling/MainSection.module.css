@@ -106,7 +106,7 @@
 
 .input {
   padding: 0.4rem 25px 0.4rem 35px;
-  border: none;
+  border: 1px solid rgb(152, 152, 152);
   box-shadow: 0 0 7px rgba(0, 0, 0, 0.2);
   border-radius: 100px;
   font-size: 1.5rem;
@@ -115,8 +115,8 @@
 }
 
 .input:focus {
-  border: none;
   outline: none;
+  border: 1px solid rgb(152, 152, 152);
 }
 
 .input__container img {
@@ -152,7 +152,7 @@
   }
 
   .input__container {
-    width: 50%;
+    width: 90%;
   }
 
   .input {
