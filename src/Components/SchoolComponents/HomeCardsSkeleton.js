@@ -25,9 +25,16 @@ const HomeCardsSkeleton = () => {
       />
       <Skeleton
         animation="wave"
+        style={{ margin: "2rem 0" }}
+        variant="rectangular"
+        width={"100%"}
+        height={210}
+      />
+      <Skeleton
+        animation="wave"
         style={{ position: "absolute", bottom: "5px", right: "10px" }}
         variant="rectangular"
-        width={"45%"}
+        width={"25%"}
         height={23}
       />
     </div>

@@ -30,7 +30,7 @@ const SchoolList = ({ darkMode }) => {
 
     setTimeout(() => {
       getUsers();
-    }, 2900);
+    }, 5000);
   }, []);
 
   // SELECT ONLY n SCHOOLS
