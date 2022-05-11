@@ -13,7 +13,7 @@ const LightDarkMode = () => {
     bottom: "3rem",
     right: "4rem",
     cursor: "pointer",
-    zIndex: '99999999',
+    zIndex: "9999999999999999999g999",
   };
 
   const sun = {

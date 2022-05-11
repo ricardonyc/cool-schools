@@ -9,10 +9,12 @@ import { ModalContext } from "../../context/ModalContext";
 import AlertBox from "../UI/Alert/AlertBox";
 import SchoolList from "../SchoolComponents/SchoolList";
 import Footer from "../UI/Footer";
+import { ThemeContext } from "../../context/DarkModeContext";
 
 const Layout = () => {
   const { modalOpen, loginModal, alert, loggedOut, loggedIn } =
     useContext(ModalContext);
+  const { darkMode } = useContext(ThemeContext);
 
   return (
     <React.Fragment>
@@ -25,8 +27,8 @@ const Layout = () => {
       <BSNav />
       <MainSection />
       <Boxes />
-      <SchoolList />
-      <Footer />
+      <SchoolList darkMode={darkMode} />
+      {/* <Footer /> */}
       {/* {alert && <AlertBox />} */}
 
       {loggedIn && <AlertBox>Logged In Successfully!</AlertBox>}

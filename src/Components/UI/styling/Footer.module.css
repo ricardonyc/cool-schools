@@ -1,0 +1,31 @@
+@import "./variables.css";
+
+.footer__container {
+  margin-top: 5rem;
+  /* padding: 2rem 0 2rem 0; */
+  /* border: 1px solid red; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 250px;
+}
+
+.footer__container h1 {
+  font-size: var(--logo-fontSize);
+  font-family: var(--anybody);
+}
+
+.footer__container p {
+  font-size: 1.5rem;
+}
+
+.footer__container--menu {
+  /* border: 1px solid red; */
+  display: flex;
+}
+
+.menu__box {
+  margin: 0 1rem;
+  /* border: 1px solid red; */
+}

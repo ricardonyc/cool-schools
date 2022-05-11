@@ -43,7 +43,7 @@ const BSNav = () => {
     fontWeight: "700",
     fontStyle: "italic",
     color: darkMode ? "var(--yellow)" : "var(--teal)",
-    fontSize: "3rem",
+    fontSize: "var(--logo-fontSize)",
     padding: "0.5rem 0 0 0",
   };
 
@@ -83,7 +83,6 @@ const BSNav = () => {
                 Search
               </Nav.Link>
               <NavDropdown
-                style={{ border: "1px solid red;" }}
                 id="basic-nav-dropdown"
                 title={
                   <span className={darkMode ? css.dark : css.light}>More</span>

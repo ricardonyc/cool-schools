@@ -20,9 +20,14 @@
   --yellow: #f5d848;
   /* --darkmode-navy: #071013; */
   --darkmode-navy: #12242b;
+  --reviewbox-navy: #253942;
+  --reviewbox-white: #fffffb;
   --error-red: #ff4646;
   --button-blue: #2196f3;
   --button-blue-clicked: #1e88e5;
+  --section-teal: #caffde;
+
+  --logo-fontSize: 3rem;
 
   --border-radius: 2px;
   --btn-padding: 0.3rem 1rem;

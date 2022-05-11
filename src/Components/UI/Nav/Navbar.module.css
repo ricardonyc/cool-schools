@@ -10,10 +10,6 @@
   min-width: 100%;
 }
 
-.toggle {
-  background-color: white;
-}
-
 .dark {
   color: var(--yellow);
 }

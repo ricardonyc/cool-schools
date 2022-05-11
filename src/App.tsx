@@ -15,6 +15,8 @@ import AddSchool from "./Components/SchoolComponents/AddSchool";
 import SchoolListLayout from "./Components/MainPages/SchoolListLayout";
 import Error from "./Components/Error";
 import BSNav from "./Components/UI/Nav/BSNav";
+import About from "./Components/About";
+import Footer from "./Components/UI/Footer";
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -36,12 +38,14 @@ function App() {
                 }
               />
               <Route path="/" element={<Layout />} />
+              <Route path="/about" element={<About />} />
               {/* <Route path="/login" element={<Login />} /> */}
               {/* <Route path="/signup" element={<SignUp />} /> */}
               <Route path="/schools" element={<SchoolListLayout />} />
               <Route path="*" element={<Error />} />
             </Routes>
             <LightDarkMode />
+            <Footer />
           </div>
         </ModalContextProvider>
       </DarkmodeProvider>
