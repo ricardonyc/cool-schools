@@ -27,8 +27,9 @@
   --border-radius: 2px;
   --btn-padding: 0.3rem 1rem;
   --sans-pro: "Source Sans Pro", sans-serif;
-  --shrikhand: "Shrikhand", cursive;
+  --shrikhand: "Shrikhand", "Poppins", Arial, cursive;
   --poppins: "Poppins", sans-serif;
+  --anybody: "Anybody", "Poppins", Arial, cursive;
 }
 
 /* yellow FFDC2F */
