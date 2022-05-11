@@ -28,7 +28,7 @@ const HomeCardsSkeleton = () => {
         style={{ margin: "2rem 0" }}
         variant="rectangular"
         width={"100%"}
-        height={210}
+        height={200}
       />
       <Skeleton
         animation="wave"

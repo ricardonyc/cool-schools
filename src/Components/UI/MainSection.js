@@ -40,7 +40,7 @@ function MainSection(props) {
       }
     >
       <div className={css.left__box}>
-        <img src={BoyMagnifier} alt="" />
+        <img src={BoyMagnifier} alt="boy with magnifying glass" />
         <div className={css["left__box--text"]}>
           <h1 style={textColor} className={css.discover}>
             DISCOVER

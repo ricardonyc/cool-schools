@@ -19,7 +19,7 @@ const Boxes = () => {
   // }, 2000);
 
   const container = {
-    backgroundColor: darkMode ? "var(--yellow)" : "var(--section-teal)",
+    backgroundColor: darkMode ? "var(--section-yellow)" : "var(--section-teal)",
     color: darkMode ? "var(--darkmode-navy)" : "var(--teal)",
   };
 

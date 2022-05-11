@@ -20,9 +20,13 @@ const LightDarkMode = () => {
     color: "orange",
   };
 
+  const moon = {
+    color: "var(--darkmode-navy)",
+  };
+
   return (
     <div style={styling} onClick={() => setDarkMode((prev) => !prev)}>
-      {darkMode ? <BsSunFill style={sun} /> : <GiMoonBats />}
+      {darkMode ? <BsSunFill style={sun} /> : <GiMoonBats style={moon} />}
     </div>
   );
 };

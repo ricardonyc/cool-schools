@@ -10,7 +10,7 @@ const Footer = () => {
   };
 
   const footerBg = {
-    backgroundColor: darkMode ? "var(--yellow)" : "var(--section-teal)",
+    backgroundColor: darkMode ? "var(--section-yellow)" : "var(--section-teal)",
   };
 
   return (
