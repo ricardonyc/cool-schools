@@ -1,25 +1,36 @@
-import React, { useContext, useState, useRef } from "react";
+import React, { useContext, useRef } from "react";
 import css from "./styling/MainSection.module.css";
 import { ThemeContext } from "../../context/DarkModeContext";
 import { Button } from "./styling/Button";
 import BoyMagnifier from "../assets/boy-magnifier.png";
 import SearchIcon from "../assets/search-icon.png";
 import vars from "./styling/variables.css";
+import { SchoolContext } from "../../context/SchoolContext";
+import { useNavigate } from "react-router-dom";
 
 function MainSection(props) {
   const { darkMode } = useContext(ThemeContext);
+  const { setUserSearch, userSearch, schoolResults } =
+    useContext(SchoolContext);
   const searchRef = useRef();
+  const navigate = useNavigate();
 
-  console.log("searchRef: ", searchRef);
+  // console.log("searchRef: ", searchRef);
+  console.log("school results: ", schoolResults);
 
   const textColor = {
     color: darkMode ? "var(--yellow)" : "var(--teal)",
   };
 
   const submitInput = (e) => {
+    // set state here
     e.preventDefault();
+    setUserSearch(searchRef.current.value);
     console.log("the search ref is: ", searchRef.current.value);
+    navigate("/schools");
   };
+
+  console.log("user search: ", userSearch);
 
   return (
     <div
@@ -52,6 +63,22 @@ function MainSection(props) {
               ref={searchRef}
             />
             <img src={SearchIcon} alt="magnifying glass icon" />
+            <div className={css.results}>
+              {/* {schoolResults.map((school, key) => {
+                return <div>{school.name}</div>;
+              })} */}
+              <p>Baruch College</p>
+              <p>LaGuardia Community College</p>
+              <p>Hunter College</p>
+              <p>City Tech</p>
+              <p>John Jay College of Criminal Justice</p>
+              <p>State University Of New York Oswego</p>
+              <p>State University Of New York Oswego</p>
+              <p>State University Of New York Oswego</p>
+              <p>State University Of New York Oswego</p>
+              <p>State University Of New York Oswego</p>
+              <p>State University Of New York Oswego</p>
+            </div>
           </form>
         </div>
       </div>

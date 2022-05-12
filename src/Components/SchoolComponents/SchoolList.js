@@ -5,26 +5,21 @@ import { db } from "../../firebase";
 import { Link } from "react-router-dom";
 import SchoolAverage from "./SchoolAverage";
 import HomeCardsSkeleton from "./HomeCardsSkeleton";
-import { CgProfile } from "react-icons/cg";
 import { BsBuilding } from "react-icons/bs";
 import RatingStars from "./RatingStars.js";
+import { ThemeContext } from "../../context/DarkModeContext";
+import { SchoolContext } from "../../context/SchoolContext";
 
-// interface SchoolType {
-//   id?: number;
-//   address?: string;
-//   name?: string;
-//   reviews?: string[];
-// }
-
-const SchoolList = ({ darkMode }) => {
-  const [schools, setSchools] = useState();
+const SchoolList = () => {
   const schoolsCollectionRef = collection(db, "universities");
+  const { darkMode } = useContext(ThemeContext);
+  const { schoolResults, setSchoolResults } = useContext(SchoolContext);
 
   useEffect(() => {
     const getUsers = async () => {
       // ! RETURNS ALL DOCUMENTS FROM A SPECIFIC COLLECTION
       const data = await getDocs(schoolsCollectionRef);
-      setSchools(data.docs.map((doc) => ({ id: doc.id, ...doc.data() })));
+      setSchoolResults(data.docs.map((doc) => ({ id: doc.id, ...doc.data() })));
       // ! data() FUNCTION SHOULD RETURN THE OBJECT CONTAINING THE INFO OF THE SCHOOL
     };
 
@@ -34,7 +29,7 @@ const SchoolList = ({ darkMode }) => {
   }, []);
 
   // SELECT ONLY n SCHOOLS
-  const numSchools = schools?.slice(0, 3);
+  const numSchools = schoolResults?.slice(0, 3);
   console.log(numSchools);
 
   const boxBg = {
@@ -46,7 +41,7 @@ const SchoolList = ({ darkMode }) => {
   return (
     <div className={css.container}>
       <div className={css.school__box}>
-        {schools &&
+        {schoolResults &&
           numSchools.map((school) => {
             return (
               <div style={boxBg} className={css.box} key={school.id}>
@@ -66,7 +61,7 @@ const SchoolList = ({ darkMode }) => {
               </div>
             );
           })}
-        {!schools && (
+        {!schoolResults && (
           <>
             <HomeCardsSkeleton />
             <HomeCardsSkeleton />

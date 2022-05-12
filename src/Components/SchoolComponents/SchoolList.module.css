@@ -34,6 +34,8 @@
 
 .school__name {
   display: flex;
+  /* border: 1px solid white; */
+  margin-bottom: 0.3rem;
 }
 
 .school__name h2 {
