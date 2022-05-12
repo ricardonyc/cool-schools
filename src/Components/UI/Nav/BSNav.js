@@ -4,7 +4,7 @@ import { ThemeContext } from "../../../context/DarkModeContext";
 import "../styling/variables.css";
 import css from "./Navbar.module.css";
 import { useUserAuth } from "../../../context/UserAuthContext";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link, NavLink } from "react-router-dom";
 import { ModalContext } from "../../../context/ModalContext";
 
 const BSNav = () => {
@@ -44,7 +44,7 @@ const BSNav = () => {
     fontStyle: "italic",
     color: darkMode ? "var(--yellow)" : "var(--teal)",
     fontSize: "var(--logo-fontSize)",
-    padding: "0.5rem 0 0 0",
+    padding: ".5rem 0 .5rem 0",
   };
 
   const navContainer = {
@@ -59,6 +59,11 @@ const BSNav = () => {
 
   const toggle = {
     backgroundColor: "white",
+    fontSize: "1.5rem",
+  };
+
+  const active = {
+    borderBottom: `2px solid ${darkMode ? "white" : "red"}`,
   };
 
   return (
@@ -75,12 +80,22 @@ const BSNav = () => {
           <Navbar.Brand style={logo}>CoolSchools</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" style={toggle} />
           <Navbar.Collapse id="basic-navbar-nav" className={css.items}>
-            <Nav className="me-auto">
-              <Nav.Link as={Link} to="/" style={textColor}>
+            <Nav /*className="me-auto"*/ className={css.navlinks}>
+              <Nav.Link
+                className={({ isActive }) => (isActive ? "active" : null)}
+                as={NavLink}
+                to="/"
+                style={textColor}
+              >
                 Home
               </Nav.Link>
-              <Nav.Link href="#link" style={textColor}>
-                Search
+              <Nav.Link
+                as={NavLink}
+                to="/schools"
+                className={({ isActive }) => (isActive ? "active" : null)}
+                style={textColor}
+              >
+                Schools
               </Nav.Link>
               <NavDropdown
                 id="basic-nav-dropdown"

@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
 import css from "./styling/MainSection.module.css";
+import "../UI/styling/variables.css";
 import { ThemeContext } from "../../context/DarkModeContext";
 import BoyMagnifier from "../assets/boy-magnifier.png";
 import SearchIcon from "../assets/search-icon.png";
@@ -76,6 +77,7 @@ function MainSection(props) {
                 {filteredData.slice(0, 10).map((school, key) => {
                   return (
                     <NavLink
+                      activeClassName="active"
                       key={school.id}
                       to={`/schools/${school.name}`}
                       state={{ school }}

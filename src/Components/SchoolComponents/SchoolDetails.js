@@ -5,10 +5,10 @@ function SchoolDetails(props) {
   //   const cool = useParams();
 
   const location = useLocation();
-  const { school } = location.state;
+  const ratio = location.state.school;
   //   const { state } = location.state;
 
-  console.log(school);
+  console.log(ratio);
 
   return (
     <div>

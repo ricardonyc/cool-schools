@@ -39,3 +39,7 @@
 }
 
 /* yellow FFDC2F */
+
+.active {
+  border-bottom: 2px solid rgb(173, 173, 173) !important;
+}
