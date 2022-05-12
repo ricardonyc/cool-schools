@@ -27,15 +27,23 @@ const Boxes = () => {
     <div style={container} className={css["main__boxes--container"]}>
       <div className={css["boxes__container"]}>
         <div className={css.box}>
-          <img src={GuySitting} alt="man using laptop in a forest" />
+          <img
+            loading="lazy"
+            src={GuySitting}
+            alt="man using laptop in a forest"
+          />
           <h2>Leave Reviews</h2>
         </div>
         <div className={css.box}>
-          <img src={Anonymous} alt="Girl and dog wearing shades" />
+          <img
+            loading="lazy"
+            src={Anonymous}
+            alt="Girl and dog wearing shades"
+          />
           <h2>Remain anonymous</h2>
         </div>
         <div className={css.box}>
-          <img src={KidCape} alt="Anonymous looking eyes" />
+          <img loading="lazy" src={KidCape} alt="Anonymous looking eyes" />
           <h2>Search Reviews</h2>
         </div>
       </div>
