@@ -44,7 +44,7 @@ const BSNav = () => {
     fontStyle: "italic",
     color: darkMode ? "var(--yellow)" : "var(--teal)",
     fontSize: "var(--logo-fontSize)",
-    padding: ".5rem 0 .5rem 0",
+    padding: ".5rem 1rem .5rem 0",
   };
 
   const navContainer = {
@@ -54,16 +54,17 @@ const BSNav = () => {
 
   const textColor = {
     color: darkMode ? "var(--yellow)" : "var(--darkmode-navy)",
+    margin: "0 1rem .5rem 0",
+    // paddingLeft: "1rem",
+    // border: "1px solid red",
+    // margin: ".5rem 1rem",
+    // padding: "0 1rem",
     // fontFamily: "'Roboto Condensed', sans-serif",
   };
 
   const toggle = {
     backgroundColor: "white",
     fontSize: "1.5rem",
-  };
-
-  const active = {
-    borderBottom: `2px solid ${darkMode ? "white" : "red"}`,
   };
 
   return (

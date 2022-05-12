@@ -41,5 +41,11 @@
 /* yellow FFDC2F */
 
 .active {
-  border-bottom: 2px solid rgb(173, 173, 173) !important;
+  border-bottom: 2px solid !important;
+}
+
+@media only screen and (max-width: 767px) {
+  .active {
+    border: none !important;
+  }
 }
