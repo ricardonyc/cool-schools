@@ -55,11 +55,6 @@ const BSNav = () => {
   const textColor = {
     color: darkMode ? "var(--yellow)" : "var(--darkmode-navy)",
     margin: "0 1rem .5rem 0",
-    // paddingLeft: "1rem",
-    // border: "1px solid red",
-    // margin: ".5rem 1rem",
-    // padding: "0 1rem",
-    // fontFamily: "'Roboto Condensed', sans-serif",
   };
 
   const toggle = {

@@ -27,11 +27,7 @@ const Boxes = () => {
     <div style={container} className={css["main__boxes--container"]}>
       <div className={css["boxes__container"]}>
         <div className={css.box}>
-          <img
-            loading="lazy"
-            src={GuySitting}
-            alt="man using laptop in a forest"
-          />
+          <img loading="lazy" src={GuySitting} alt="man using laptop" />
           <h2>Leave Reviews</h2>
         </div>
         <div className={css.box}>
@@ -43,7 +39,7 @@ const Boxes = () => {
           <h2>Remain anonymous</h2>
         </div>
         <div className={css.box}>
-          <img loading="lazy" src={KidCape} alt="Anonymous looking eyes" />
+          <img loading="lazy" src={KidCape} alt="kid running wearing a cape" />
           <h2>Search Reviews</h2>
         </div>
       </div>
