@@ -22,7 +22,7 @@ const Layout = () => {
           {!loginModal && <SignUp />}
         </Modal>
       )}
-      <BSNav />
+      {/* <BSNav /> */}
       <MainSection />
       <Boxes />
       <SchoolList />

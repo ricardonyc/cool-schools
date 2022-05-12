@@ -1,5 +1,10 @@
 @import "./variables.css";
 
+footer {
+  border: 1px solid red;
+  margin-top: auto;
+}
+
 .footer__container {
   margin-top: 5rem;
   /* padding: 2rem 0 2rem 0; */

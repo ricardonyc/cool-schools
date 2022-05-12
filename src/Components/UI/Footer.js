@@ -14,7 +14,7 @@ const Footer = () => {
   };
 
   return (
-    <div style={footerBg} className={css.footer__container}>
+    <footer style={footerBg} className={css.footer__container}>
       <h1 style={logo}>CoolSchools</h1>
       <div className={css["footer__container--menu"]}>
         <div className={css.menu__box}>
@@ -26,7 +26,7 @@ const Footer = () => {
           <p>Sign Up</p>
         </div>
       </div>
-    </div>
+    </footer>
   );
 };
 

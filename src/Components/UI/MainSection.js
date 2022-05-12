@@ -1,32 +1,30 @@
-import React, { useContext, useRef, useState } from "react";
+import React, { useContext, useState } from "react";
 import css from "./styling/MainSection.module.css";
 import { ThemeContext } from "../../context/DarkModeContext";
-import { Button } from "./styling/Button";
 import BoyMagnifier from "../assets/boy-magnifier.png";
 import SearchIcon from "../assets/search-icon.png";
-import vars from "./styling/variables.css";
 import { SchoolContext } from "../../context/SchoolContext";
-import { useNavigate } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+import { IoMdClose } from "react-icons/io";
 
 function MainSection(props) {
   const { darkMode } = useContext(ThemeContext);
   const { setUserSearch, userSearch, schoolResults } =
     useContext(SchoolContext);
-  const searchRef = useRef();
-  const navigate = useNavigate();
   const [filteredData, setFilteredData] = useState([]);
+  const [userInput, setUserInput] = useState("");
 
   const textColor = {
     color: darkMode ? "var(--yellow)" : "var(--teal)",
   };
 
   const handleFilter = (e) => {
-    const searchWord = e.target.value;
-    const newFiltered = schoolResults.filter((school) => {
+    setUserInput(e.target.value);
+    const newFiltered = schoolResults?.filter((school) => {
       return school.name
         .toLowerCase()
         .trim()
-        .includes(searchWord.toLowerCase().trim());
+        .includes(userInput.toLowerCase().trim());
     });
 
     setFilteredData(newFiltered);
@@ -63,14 +61,28 @@ function MainSection(props) {
               placeholder="Search a school..."
               type="text"
               className={css.input}
-              ref={searchRef}
+              value={userInput}
               onChange={handleFilter}
             />
             <img src={SearchIcon} alt="magnifying glass icon" />
-            {searchRef?.current?.value.length > 0 && filteredData.length > 0 && (
+            {userInput && (
+              <IoMdClose
+                onClick={() => setUserInput("")}
+                className={css.close}
+              />
+            )}
+            {userInput?.length > 0 && filteredData?.length > 0 && (
               <div className={css.results}>
                 {filteredData.slice(0, 10).map((school, key) => {
-                  return <div>{school.name}</div>;
+                  return (
+                    <NavLink
+                      key={school.id}
+                      to={`/schools/${school.name}`}
+                      state={{ school }}
+                    >
+                      {school.name}
+                    </NavLink>
+                  );
                 })}
               </div>
             )}
