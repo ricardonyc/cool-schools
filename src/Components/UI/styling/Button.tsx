@@ -4,14 +4,13 @@ import styled from "styled-components";
 interface ButtonProps {
   fontSize: string;
   width: string;
-  color: string;
+  bgColor: string;
 }
 
 export const Button = styled.button<ButtonProps>`
   background-color: var(--button-blue);
-  background-color: ${(props) => props.color};
+  background-color: ${(props) => props.bgColor};
   border-radius: var(--border-radius);
-  border: 6px solid red;
   display: flex;
   justify-content: center;
   align-items: center;

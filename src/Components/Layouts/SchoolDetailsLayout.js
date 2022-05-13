@@ -1,16 +1,13 @@
-import MainSection from "../UI/MainSection";
 import React, { useContext } from "react";
-import Boxes from "../UI/Boxes";
-import Modal from "../UI/Modal/Modal";
+import { ModalContext } from "../../context/ModalContext";
 import Login from "../Login/Login";
 import SignUp from "../SignUp/SignUp";
 import BSNav from "../UI/Nav/BSNav";
-import { ModalContext } from "../../context/ModalContext";
+import SchoolDetails from "../SchoolComponents/SchoolDetails";
 import AlertBox from "../UI/Alert/AlertBox";
-import SchoolList from "../SchoolComponents/SchoolList";
-import Footer from "../UI/Footer";
+import Modal from "../UI/Modal/Modal";
 
-const Layout = () => {
+function SchoolDetailsLayout(props) {
   const { modalOpen, loginModal, loggedOut, loggedIn } =
     useContext(ModalContext);
 
@@ -22,17 +19,13 @@ const Layout = () => {
           {!loginModal && <SignUp />}
         </Modal>
       )}
-      {/* <BSNav /> */}
-      <MainSection />
-      <Boxes />
-      <SchoolList />
-      {/* <Footer /> */}
-      {/* {alert && <AlertBox />} */}
+      <BSNav />
+      <SchoolDetails />
 
       {loggedIn && <AlertBox>Logged In Successfully!</AlertBox>}
       {loggedOut && <AlertBox>Logged Out Successfully!</AlertBox>}
     </React.Fragment>
   );
-};
+}
 
-export default Layout;
+export default SchoolDetailsLayout;

@@ -77,7 +77,7 @@ function MainSection(props) {
                 {filteredData.slice(0, 10).map((school, key) => {
                   return (
                     <NavLink
-                      activeClassName="active"
+                      // activeClassName="active"
                       key={school.id}
                       to={`/schools/${school.name}`}
                       state={{ school }}
@@ -86,6 +86,13 @@ function MainSection(props) {
                     </NavLink>
                   );
                 })}
+                {/* THIS WONT WORK IF THE USER ISNT LOGGED IN */}
+                {/* DIRECT USER TO ANOTHER PAGE TO FILL OUT FORM BUT ON SUBMIT DIRECT THEM TO LOGIN */}
+                {userInput.length > 0 && (
+                  <Link className={css.add__school} to="/addschool">
+                    Add School
+                  </Link>
+                )}
               </div>
             )}
           </form>

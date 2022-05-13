@@ -6,10 +6,10 @@ import { Rating } from "@mui/material";
 import { ThemeContext } from "../../context/DarkModeContext";
 import vars from "../UI/styling/variables.css";
 import { IoMdArrowDropdown } from "react-icons/io";
-import GradIcon from "../assets/grad-icon.svg";
-import GradIcon2 from "../assets/grad-icon2.svg";
+import GradIcon from "../assets/grad-icon2.svg";
 import Ex from "../assets/redex.svg";
 import Check from "../assets/greencheck.svg";
+import { Button } from "../UI/styling/Button";
 
 function SchoolDetails(props) {
   const { darkMode } = useContext(ThemeContext);
@@ -35,6 +35,13 @@ function SchoolDetails(props) {
         <h1>{name}</h1>
         <h2 className={css.address}>{address}</h2>
         <RatingStars school={location.state.school} />
+        <Button
+          fontSize="1.3rem"
+          width="9rem"
+          bgColor={darkMode ? "var(--yellow)" : "var(--teal)"}
+        >
+          Add Review
+        </Button>
         <div className={css.main__content}>
           <div className={`${css.filter__container} `}>
             <h2 onClick={() => setFiltersOpen(!filtersOpen)}>
@@ -72,19 +79,19 @@ function SchoolDetails(props) {
                 <div className={css.recommended}>
                   {obj.wouldRecommend ? (
                     <>
-                      <img src={Check} alt="" />
+                      <img src={Check} alt="green check" />
                       <p>Recommended</p>
                     </>
                   ) : (
                     <>
-                      <img src={Ex} alt="" />
+                      <img src={Ex} alt="red x" />
                       <p>Not Recommended</p>
                     </>
                   )}
                 </div>
                 <div className={css.classof}>
                   <h3>Class of {obj.classOf}</h3>
-                  <img src={GradIcon2} alt="" />
+                  <img src={GradIcon} alt="graduation cap icon" />
                 </div>
               </div>
             ))}

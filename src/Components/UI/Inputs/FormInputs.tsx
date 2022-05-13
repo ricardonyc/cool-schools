@@ -71,7 +71,7 @@ const FormInputs = ({
           />
         </div>
         <Button
-          color={darkMode ? "var(--yellow)" : "var(--teal)"}
+          bgColor={darkMode ? "var(--yellow)" : "var(--teal)"}
           width="100%"
           fontSize="1.8rem"
         >

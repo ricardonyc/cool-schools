@@ -1,22 +1,22 @@
 import React, { useState } from "react";
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
-import Layout from "./Components/MainPages/Layout";
+import HomeLayout from "./Components/Layouts/HomeLayout";
 import DarkmodeProvider from "./context/DarkModeContext";
 import { UserAuthContextProvider } from "./context/UserAuthContext";
 import ProtectedRoute from "./Components/ProtectedRoute";
-import AuthHome from "./Components/MainPages/AuthHome";
+import AuthHome from "./Components/Layouts/AuthHome";
 import "bootstrap/dist/css/bootstrap.min.css";
 import LightDarkMode from "./Components/UI/LightDarkMode";
 import ModalContextProvider from "./context/ModalContext";
 import AddSchool from "./Components/SchoolComponents/AddSchool";
-import SchoolListLayout from "./Components/MainPages/SchoolListLayout";
+import SchoolListLayout from "./Components/Layouts/SchoolListLayout";
 import Error from "./Components/Error";
 import BSNav from "./Components/UI/Nav/BSNav";
 import About from "./Components/About";
 import Footer from "./Components/UI/Footer";
 import SchoolResultsProvider from "./context/SchoolContext";
-import SchoolDetails from "./Components/SchoolComponents/SchoolDetails";
+import SchoolDetailsLayout from "./Components/Layouts/SchoolDetailsLayout";
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -38,12 +38,12 @@ function App() {
                     </ProtectedRoute>
                   }
                 />
-                <Route path="/" element={<Layout />} />
+                <Route path="/" element={<HomeLayout />} />
                 <Route path="/about" element={<About />} />
                 {/* <Route path="/login" element={<Login />} /> */}
                 {/* <Route path="/signup" element={<SignUp />} /> */}
                 <Route path="/schools" element={<SchoolListLayout />} />
-                <Route path="schools/:name" element={<SchoolDetails />} />
+                <Route path="schools/:name" element={<SchoolDetailsLayout />} />
                 <Route path="*" element={<Error />} />
               </Routes>
               <LightDarkMode />
