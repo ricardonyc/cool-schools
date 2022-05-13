@@ -9,6 +9,7 @@ import { IoMdArrowDropdown } from "react-icons/io";
 import GradIcon from "../assets/grad-icon2.svg";
 import Ex from "../assets/redex.svg";
 import Check from "../assets/greencheck.svg";
+import Add from "../assets/add.svg";
 import { Button } from "../UI/styling/Button";
 
 function SchoolDetails(props) {
@@ -37,10 +38,11 @@ function SchoolDetails(props) {
         <RatingStars school={location.state.school} />
         <Button
           fontSize="1.3rem"
-          width="9rem"
+          width="12rem"
           bgColor={darkMode ? "var(--yellow)" : "var(--teal)"}
         >
           Add Review
+          <img className={css.add__icon} src={Add} alt="" />
         </Button>
         <div className={css.main__content}>
           <div className={`${css.filter__container} `}>

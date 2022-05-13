@@ -18,6 +18,11 @@
   font-size: 1.7rem;
 }
 
+.add__icon {
+  margin-left: 1rem;
+  width: 2rem;
+}
+
 /* THE ENTIRE REVIEW SECTION CONTAINER */
 .main__content {
   margin-top: 3rem;
