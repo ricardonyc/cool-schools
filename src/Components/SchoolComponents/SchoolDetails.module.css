@@ -5,7 +5,7 @@
   /* top: 50px; */
   max-width: 2000px;
   margin: 0 auto;
-  border: 3px solid red;
+  /* border: 3px solid red; */
   padding: 1rem;
   min-height: 50vh;
 }
@@ -23,33 +23,50 @@
 }
 
 .main__content .review {
-  padding: 1rem 0;
+  padding: 0.5rem 0;
   /* border: 1px solid red; */
   font-size: 1.5rem;
 }
 
 .filter__container {
-  min-width: 200px;
-  height: 600px;
-  border: 1px solid black;
-  border-radius: var(--border-radius);
+  border: 2px solid red;
+  min-width: 180px;
+  /* width: 100%; */
+  /* height: 600px; */
   flex: 0 0 10rem;
+}
+
+.filter__container h2 {
+  /* border-bottom: 1px solid; */
+  font-size: 2rem;
+  cursor: pointer;
+  margin: 0;
+  color: rgb(143, 143, 143);
+}
+
+.filter__container h2:hover {
+  color: var(--darkmode-navy);
+}
+
+.filters {
+  /* min-width: 200px; */
+  height: 600px;
+  /* border: 1px solid black; */
+  /* flex: 0 0 10rem; */
 }
 
 .reviews__section {
   margin-left: 1rem;
-  /* width: 100%; */
+  width: 100%;
   /* border: 1px solid red; */
-  flex: 3 0 80rem;
+  flex: 3 1 80rem;
 }
-
-/* .reviews__section > *:nth-child(odd) {
-  background-color: rgb(241, 241, 241);
-} */
 
 /* EACH INDIVIDUAL REVIEW */
 .review__container {
   /* border: 1px solid red; */
+  margin-bottom: 1rem;
+  padding: 1rem 1rem;
 }
 
 .tags {
@@ -62,4 +79,21 @@
   font-size: 1.3rem;
   border-radius: var(--border-radius);
   margin-right: 1rem;
+}
+
+@media only screen and (max-width: 880px) {
+  .filter__container {
+    min-width: 99%;
+    padding: 0.5rem;
+    margin: 0 0 1rem 1rem;
+    border: 1px solid rgb(194, 194, 194);
+  }
+
+  .filters.open {
+    height: 150px;
+  }
+
+  .filters.closed {
+    display: none;
+  }
 }

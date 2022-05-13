@@ -1,18 +1,26 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import css from "./SchoolDetails.module.css";
-
 import { useLocation } from "react-router-dom";
 import RatingStars from "./RatingStars";
-import { GiOverlordHelm } from "react-icons/gi";
+import { ThemeContext } from "../../context/DarkModeContext";
+import vars from "../UI/styling/variables.css";
+import { IoMdArrowDropdown, IoMdArrowDropup } from "react-icons/io";
 
 function SchoolDetails(props) {
-  //   const cool = useParams();
+  const { darkMode } = useContext(ThemeContext);
+  const [filtersOpen, setFiltersOpen] = useState(false);
+
+  console.log("filters open: ", filtersOpen);
 
   const location = useLocation();
   const details = location.state.school;
   const { name, address, reviews } = details;
   console.log(reviews);
-  //   const { state } = location.state;
+
+  const reviewSection = {
+    backgroundColor: darkMode ? "var(--reviewbox-navy)" : "",
+    borderRadius: "var(--border-radius)",
+  };
 
   return (
     <div className={css.details__container}>
@@ -21,14 +29,26 @@ function SchoolDetails(props) {
         <h3>{address}</h3>
         <RatingStars school={location.state.school} />
         <div className={css.main__content}>
-          <div className={css.filter__container}>
-            <h4>filter one</h4>
-            <h4>filter two</h4>
-            <h4>filter three</h4>
-            <h4>filter four</h4>
+          <div style={reviewSection} className={`${css.filter__container} `}>
+            <h2 onClick={() => setFiltersOpen(!filtersOpen)}>
+              Filters <IoMdArrowDropdown />{" "}
+            </h2>
+            <div
+              className={`${css.filters} ${
+                filtersOpen ? css.open : css.closed
+              }`}
+            >
+              <label htmlFor="filter-by">
+                <input type="text" />
+              </label>
+              <h4>filter one</h4>
+              <h4>filter two</h4>
+              <h4>filter three</h4>
+              <h4>filter four</h4>
+            </div>
           </div>
 
-          <div className={css.reviews__section}>
+          <div style={reviewSection} className={css.reviews__section}>
             {reviews.map((obj) => (
               <div className={css.review__container}>
                 <div className={css.tags}>
