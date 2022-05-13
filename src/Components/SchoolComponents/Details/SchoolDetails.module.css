@@ -199,8 +199,14 @@
     margin: 0;
   }
 
+  .filter__container {
+    padding: 1rem;
+    /* border: 1px solid red; */
+  }
+
   .filters {
     display: flex;
+    /* border: 1px solid red; */
   }
 
   .filters .starfilter,
