@@ -21,6 +21,9 @@ function SchoolHeader({ name, address, darkMode, location }) {
           <AiOutlinePlusCircle className={css.review__plusicon} />
         </Button>
       </Link>
+      <Link to="/">
+        <h2>Back</h2>
+      </Link>
     </>
   );
 }

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import css from "./SchoolDetails.module.css";
 import { useLocation } from "react-router-dom";
 import { ThemeContext } from "../../../context/DarkModeContext";
@@ -8,12 +8,21 @@ import Filter from "../../assets/filter.svg";
 import Cat from "../../assets/cat.png";
 import SchoolHeader from "../SchoolHeader";
 import FilterForms from "../Filters/FilterForms";
+import ReviewSkeleton from "../ReviewSkeleton";
 
 function SchoolDetails(props) {
   const { darkMode } = useContext(ThemeContext);
   const [filtersOpen, setFiltersOpen] = useState(false);
   const [rating, setRating] = useState(0);
   const [recommended, setRecommended] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    setTimeout(() => {
+      setLoading(false);
+    }, 1000);
+  }, []);
 
   const location = useLocation();
   const details = location.state.school;
@@ -71,12 +80,12 @@ function SchoolDetails(props) {
           </div>
 
           <div className={css.reviews__section}>
-            {filteredReviews.length > 0 && (
+            {!loading && filteredReviews.length > 0 && (
               <Reviews reviews={filteredReviews} />
             )}
-            {filteredReviews.length === 0 && (
+            {!loading && filteredReviews.length === 0 && (
               <div className={css.norating}>
-                <img src={Cat} alt="yellow cat" />
+                <img className={css.cat} src={Cat} alt="yellow cat" />
                 <p>
                   NO
                   <span style={spanStyle}> {rating} </span>
@@ -84,6 +93,10 @@ function SchoolDetails(props) {
                 </p>
               </div>
             )}
+            {loading &&
+              filteredReviews.map(() => {
+                return <ReviewSkeleton darkMode={darkMode} />;
+              })}
           </div>
         </div>
       </div>

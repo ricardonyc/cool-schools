@@ -24,3 +24,4 @@ function FilterForms({ setRating, setRecommended }) {
 }
 
 export default FilterForms;
+ 
