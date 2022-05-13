@@ -3,7 +3,7 @@ import { ModalContext } from "../../context/ModalContext";
 import Login from "../Login/Login";
 import SignUp from "../SignUp/SignUp";
 import BSNav from "../UI/Nav/BSNav";
-import SchoolDetails from "../SchoolComponents/SchoolDetails";
+import SchoolDetails from "../SchoolComponents/Details/SchoolDetails";
 import AlertBox from "../UI/Alert/AlertBox";
 import Modal from "../UI/Modal/Modal";
 
