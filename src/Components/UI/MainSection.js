@@ -53,7 +53,7 @@ function MainSection(props) {
       </div>
       <div className={css.right__box}>
         <div className={css["right__box--text"]}>
-          <h1 style={textColor}>Start Searching</h1>
+          <h2 style={textColor}>Start Searching</h2>
           <form
             onSubmit={(e) => e.preventDefault()}
             className={css.input__container}

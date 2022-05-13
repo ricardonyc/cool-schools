@@ -29,6 +29,10 @@
   --section-yellow: #f1dd78;
 
   --logo-fontSize: 3rem;
+  --paragraph: 1.5rem;
+  --h2: 2.5rem;
+
+  --box-shadow: 0 1px 10px rgba(0, 0, 0, 0.15);
 
   --border-radius: 2px;
   --btn-padding: 0.3rem 1rem;

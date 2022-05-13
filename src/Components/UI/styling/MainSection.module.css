@@ -8,11 +8,6 @@
   margin: 0 auto 3.5rem auto;
   display: flex;
   flex-wrap: wrap-reverse;
-  /* display: grid;
-  grid-template-columns: repeat(2, 50vw); */
-  /* justify-content: center;
-  align-items: center;
-  flex-direction: column; */
   min-height: 50vh;
 }
 
@@ -33,7 +28,6 @@
 
 .left__box {
   padding: 4rem 1rem 1rem 1rem;
-  /* border: 3px solid red; */
   max-width: 50%;
   width: 100%;
   display: flex;
@@ -46,19 +40,16 @@
   max-width: 200px;
   width: 100%;
   padding: 2rem;
-  /* border: 1px solid red; */
 }
 
 .left__box--text {
   text-align: center;
-  /* border: 1px solid red; */
   max-width: 450px;
 }
 
 .left__box--text .discover {
   font-size: 6rem;
   font-family: var(--shrikhand);
-  /* color: var(--teal); */
 }
 
 .left__box--text p {
@@ -75,8 +66,6 @@
   justify-content: center;
   max-width: 50%;
   width: 100%;
-  /* width: 100%; */
-  /* border: 3px solid red; */
   min-height: 100%;
 }
 
@@ -87,12 +76,12 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  /* border: 1px solid red; */
   min-width: 100px;
   width: 100%;
 }
 
-.right__box--text h1 {
+.right__box--text h2 {
+  font-size: var(--h2);
   color: var(--teal);
   font-family: var(--poppins);
   font-style: italic;
@@ -101,7 +90,6 @@
 
 .input__container {
   width: 70%;
-  /* border: 1px solid orange; */
   position: relative;
 }
 
@@ -129,7 +117,6 @@
 }
 
 .input__container .results {
-  /* border: 1px solid red; */
   overflow: hidden;
   overflow-y: auto;
   max-height: 150px;
@@ -149,7 +136,6 @@
 }
 
 .input__container .results > * {
-  /* border: 1px solid blue; */
   margin: 0.4rem 0 0.4rem 0;
   padding-left: 1rem;
   font-size: 1.6rem;
@@ -166,7 +152,6 @@
   top: 50%;
   transform: translateY(-50%);
   right: 5px;
-  /* border: 1px solid red; */
   color: rgb(192, 192, 192);
   font-size: 3rem;
   cursor: pointer;
@@ -182,14 +167,11 @@
   }
 
   .left__box {
-    /* border: 1px solid red; */
     max-width: 100%;
-    /* padding-bottom: 3rem; */
     padding: 5rem 0 0 0;
   }
 
   .right__box {
-    /* border: 1px solid orange; */
     min-height: 100%;
     height: 100%;
     max-width: 100%;

@@ -14,6 +14,10 @@
   margin-top: 5rem;
 }
 
+.details__header .address {
+  font-size: 1.7rem;
+}
+
 /* THE ENTIRE REVIEW SECTION CONTAINER */
 .main__content {
   margin-top: 3rem;
@@ -23,13 +27,13 @@
 }
 
 .main__content .review {
-  padding: 0.5rem 0;
-  /* border: 1px solid red; */
-  font-size: 1.5rem;
+  /* padding: 0.5rem 0;
+  border: 1px solid red;
+  font-size: 1.5rem; */
 }
 
 .filter__container {
-  border: 2px solid red;
+  /* border: 2px solid red; */
   min-width: 180px;
   /* width: 100%; */
   /* height: 600px; */
@@ -64,9 +68,55 @@
 
 /* EACH INDIVIDUAL REVIEW */
 .review__container {
+  position: relative;
+  min-height: 200px;
   /* border: 1px solid red; */
+  box-shadow: var(--box-shadow);
   margin-bottom: 1rem;
   padding: 1rem 1rem;
+}
+
+.classof {
+  position: absolute;
+  right: 10px;
+  bottom: 5px;
+  display: flex;
+  align-items: center;
+  /* border: 1px solid red; */
+}
+
+.classof img {
+  width: 2.6rem;
+  margin-left: 0.5rem;
+}
+
+.classof h3 {
+  margin: 0;
+  font-size: var(--paragraph);
+}
+
+.review {
+  padding: 0.5rem 0 1rem 0;
+  /* border: 1px solid red; */
+  font-size: var(--paragraph);
+}
+
+.recommended {
+  /* position: absolute; */
+  bottom: 5px;
+  left: 10px;
+  /* border: 1px solid red; */
+  display: flex;
+  align-items: center;
+}
+
+.recommended p {
+  font-size: var(--paragraph);
+  margin: 0 0 0 0.5rem;
+}
+
+.recommended img {
+  width: 2.5rem;
 }
 
 .tags {
@@ -75,18 +125,33 @@
 
 .tags > * {
   border: 1px solid;
-  padding: 0.3rem 1rem;
-  font-size: 1.3rem;
+  padding: 0.3rem 0.5rem;
+  font-size: 1.2rem;
+  font-weight: 600;
   border-radius: var(--border-radius);
   margin-right: 1rem;
 }
 
+.stars {
+  /* border: 1px solid red; */
+  font-size: 2rem;
+}
+
 @media only screen and (max-width: 880px) {
   .filter__container {
-    min-width: 99%;
+    min-width: 100%;
     padding: 0.5rem;
-    margin: 0 0 1rem 1rem;
+    margin: 0 0 1rem 0rem;
     border: 1px solid rgb(194, 194, 194);
+  }
+
+  .reviews__section {
+    margin: 0;
+  }
+
+  .review__container {
+    /* padding: 1rem 0; */
+    /* border: 1px solid red; */
   }
 
   .filters.open {
