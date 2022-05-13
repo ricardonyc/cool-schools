@@ -18,9 +18,10 @@
   font-size: 1.7rem;
 }
 
-.add__icon {
-  margin-left: 1rem;
-  width: 2rem;
+.details__header .review__plusicon {
+  font-size: 2rem;
+  margin-left: 0.5rem;
+  color: rgb(61, 61, 61);
 }
 
 /* THE ENTIRE REVIEW SECTION CONTAINER */
@@ -69,6 +70,7 @@
   /* min-width: 200px; */
   height: 600px;
   /* border: 1px solid black; */
+  /* border: 1px solid red; */
   /* flex: 0 0 10rem; */
 }
 
@@ -76,23 +78,46 @@
   display: flex;
   flex-direction: column;
   margin-top: 1rem;
+  /* border: 1px solid red; */
 }
 
-.filters .starfilter h3 {
-  font-size: 1.6rem;
+.filters .starfilter h3,
+.filters .recommended h3 {
+  font-size: var(--paragraph);
 }
 
-.filters .starfilter .checkbox {
+.checkbox {
+  display: flex;
+  align-items: center;
+  padding: 0.3rem;
+}
+
+.checkbox label {
+  /* border: 1px solid red; */
+  font-size: 1.2rem;
+  margin-left: 0.5rem;
+  cursor: pointer;
+}
+
+/* .filters .starfilter .checkbox {
   display: flex;
   align-items: center;
   padding: 0.3rem;
 }
 
 .filters .starfilter .checkbox label {
-  /* border: 1px solid red; */
+  border: 1px solid red;
   font-size: 1.2rem;
   margin-left: 0.5rem;
   cursor: pointer;
+} */
+
+.filters .recommended {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 1rem;
+  /* border: 1px solid red; */
 }
 
 .reviews__section {
@@ -138,9 +163,6 @@
 }
 
 .recommended {
-  /* position: absolute; */
-  bottom: 5px;
-  left: 10px;
   /* border: 1px solid red; */
   display: flex;
   align-items: center;
@@ -206,9 +228,15 @@
     margin: 0;
   }
 
-  .review__container {
-    /* padding: 1rem 0; */
+  .filters {
+    display: flex;
+  }
+
+  .filters .starfilter,
+  .filters .recommended {
     /* border: 1px solid red; */
+    padding: 0 1rem;
+    /* margin-right: 1rem; */
   }
 
   .filters.open {

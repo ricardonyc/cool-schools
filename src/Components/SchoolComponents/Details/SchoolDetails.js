@@ -1,30 +1,24 @@
 import React, { useContext, useState } from "react";
 import css from "./SchoolDetails.module.css";
 import { useLocation } from "react-router-dom";
-import RatingStars from "../RatingStars";
 import { ThemeContext } from "../../../context/DarkModeContext";
-import vars from "../../UI/styling/variables.css";
 import "../../UI/styling/variables.css";
-import { IoMdArrowDropdown } from "react-icons/io";
-import Add from "../../assets/add.svg";
-import { Button } from "../../UI/styling/Button";
 import Reviews from "./Reviews";
 import Filter from "../../assets/filter.svg";
 import Cat from "../../assets/cat.png";
-import Stars from "../Filters/Stars";
-import { Link } from "react-router-dom";
+import SchoolHeader from "../SchoolHeader";
+import FilterForms from "../Filters/FilterForms";
 
 function SchoolDetails(props) {
   const { darkMode } = useContext(ThemeContext);
   const [filtersOpen, setFiltersOpen] = useState(false);
   const [rating, setRating] = useState(0);
-  console.log(rating);
+  const [recommended, setRecommended] = useState(null);
 
   const location = useLocation();
   const details = location.state.school;
   const { name, address, reviews } = details;
 
-  // THIS IS EMPTY INITIALLY
   let filteredReviews = reviews.filter(
     (review) => rating === review.ratingOutOf5
   );
@@ -33,6 +27,11 @@ function SchoolDetails(props) {
     filteredReviews = reviews;
   }
 
+  if (recommended === 0 || recommended === 1)
+    filteredReviews = filteredReviews.filter(
+      (review) => recommended == review.wouldRecommend
+    );
+
   const spanStyle = {
     fontFamily: "var(--shrikhand)",
     color: darkMode ? "var(--yellow)" : "var(--teal)",
@@ -40,38 +39,34 @@ function SchoolDetails(props) {
 
   console.log("filtered reviews: ", filteredReviews);
   console.log("reviews: ", reviews);
+  console.log("recommended: ", recommended);
+  console.log("rating: ", rating);
 
   return (
     <div className={css.details__container}>
       <div className={css.details__header}>
-        <h1>{name}</h1>
-        <h2 className={css.address}>{address}</h2>
-        <RatingStars school={location.state.school} />
-        <Button
-          fontSize="1.3rem"
-          width="12rem"
-          bgColor={darkMode ? "var(--yellow)" : "var(--teal)"}
-        >
-          Add Review
-          <img className={css.add__icon} src={Add} alt="" />
-        </Button>
+        <SchoolHeader
+          name={name}
+          address={address}
+          darkMode={darkMode}
+          location={location.state.school}
+        />
         <div className={css.main__content}>
           <div className={`${css.filter__container} `}>
             <h2 onClick={() => setFiltersOpen(!filtersOpen)}>
               <img src={Filter} alt="filter icon" />
               Filters
             </h2>
+
             <div
               className={`${css.filters} ${
                 filtersOpen ? css.open : css.closed
               }`}
             >
-              <form
-                onChange={(e) => setRating(Number(e.target.value))}
-                className={css.starfilter}
-              >
-                <Stars />
-              </form>
+              <FilterForms
+                setRating={setRating}
+                setRecommended={setRecommended}
+              />
             </div>
           </div>
 
@@ -81,7 +76,7 @@ function SchoolDetails(props) {
             )}
             {filteredReviews.length === 0 && (
               <div className={css.norating}>
-                <img src={Cat} alt="" />
+                <img src={Cat} alt="yellow cat" />
                 <p>
                   NO
                   <span style={spanStyle}> {rating} </span>

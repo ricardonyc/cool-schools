@@ -16,6 +16,7 @@ export const Button = styled.button<ButtonProps>`
   align-items: center;
   border: none;
   color: var(--darkmode-navy);
+  font-weight: 600;
   cursor: pointer;
   font-size: ${(props) => props.fontSize};
   margin-top: 1rem;
