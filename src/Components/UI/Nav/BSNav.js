@@ -21,6 +21,7 @@ const BSNav = () => {
     setAlert,
     loggedOut,
     setLoggedOut,
+    modalOpen,
   } = useContext(ModalContext);
 
   const handleLogOut = async () => {
@@ -139,7 +140,6 @@ const BSNav = () => {
               </NavDropdown>
             </Nav>
           </Navbar.Collapse>
-          {user && <h1>Welcome!</h1>}
         </Container>
       </Navbar>
     </div>

@@ -26,10 +26,6 @@ html {
 body {
   background-color: var(--white);
   background-color: var(--darkmode-navy);
-  /* ADDED FOR THE FOOTER TO STICK TO THE BOTTOM */
-  /* min-height: 100vh;
-  display: flex;
-  flex-direction: column; */
 }
 
 .App {

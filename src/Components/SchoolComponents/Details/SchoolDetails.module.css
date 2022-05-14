@@ -7,7 +7,7 @@
   margin: 0 auto;
   /* border: 3px solid red; */
   padding: 1rem;
-  min-height: 50vh;
+  min-height: 100vh;
 }
 
 .details__header {
@@ -16,6 +16,10 @@
 
 .details__header .address {
   font-size: 1.7rem;
+}
+
+.details__header h1 {
+  font-weight: 600;
 }
 
 .details__header .review__plusicon {
@@ -34,7 +38,7 @@
 
 .filter__container {
   border-radius: var(--border-radius);
-  outline: 1px solid rgba(216, 216, 216, 0.5);
+  outline: 2px solid rgba(216, 216, 216, 0.5);
   min-width: 180px;
   padding: 0.5rem;
   flex: 0 0 10rem;
@@ -200,7 +204,6 @@
   }
 
   .filter__container {
-    padding: 1rem;
     /* border: 1px solid red; */
   }
 
@@ -214,6 +217,10 @@
     margin: 0;
     /* border: 1px solid red; */
     padding: 1rem;
+  }
+
+  .filters .starfilter {
+    /* border: 1px solid red; */
   }
 
   .filters.open {

@@ -12,6 +12,7 @@ const ModalContextProvider = ({ children }) => {
 
   const openModal = () => {
     setModalOpen(true);
+    console.log('openModal function executed')
   };
 
   const closeModal = () => {

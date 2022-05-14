@@ -16,17 +16,17 @@ function SchoolDetails(props) {
   const [rating, setRating] = useState(0);
   const [recommended, setRecommended] = useState(null);
   const [loading, setLoading] = useState(true);
+  const location = useLocation();
+  console.log(location.state.school);
+  const details = location.state.school;
+  const { name, address, reviews } = details;
 
   useEffect(() => {
     window.scrollTo(0, 0);
     setTimeout(() => {
       setLoading(false);
-    }, 1000);
+    }, 900);
   }, []);
-
-  const location = useLocation();
-  const details = location.state.school;
-  const { name, address, reviews } = details;
 
   let filteredReviews = reviews.filter(
     (review) => rating === review.ratingOutOf5
@@ -88,14 +88,14 @@ function SchoolDetails(props) {
                 <img className={css.cat} src={Cat} alt="yellow cat" />
                 <p>
                   NO
-                  <span style={spanStyle}> {rating} </span>
-                  STAR REVIEWS.
+                  {rating > 0 && <span style={spanStyle}> {rating} STAR </span>}
+                  REVIEWS.
                 </p>
               </div>
             )}
             {loading &&
-              filteredReviews.map(() => {
-                return <ReviewSkeleton darkMode={darkMode} />;
+              filteredReviews.map((_, key) => {
+                return <ReviewSkeleton key={key} darkMode={darkMode} />;
               })}
           </div>
         </div>

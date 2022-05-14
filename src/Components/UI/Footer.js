@@ -14,16 +14,18 @@ const Footer = () => {
   };
 
   return (
-    <footer style={footerBg} className={css.footer__container}>
-      <h1 style={logo}>CoolSchools</h1>
-      <div className={css["footer__container--menu"]}>
-        <div className={css.menu__box}>
-          <p>Home</p>
-          <p>Search</p>
-        </div>
-        <div className={css.menu__box}>
-          <p>Login</p>
-          <p>Sign Up</p>
+    <footer>
+      <div style={footerBg} className={css.footer__container}>
+        <h1 style={logo}>CoolSchools</h1>
+        <div className={css["footer__container--menu"]}>
+          <div className={css.menu__box}>
+            <p>Home</p>
+            <p>Search</p>
+          </div>
+          <div className={css.menu__box}>
+            <p>Login</p>
+            <p>Sign Up</p>
+          </div>
         </div>
       </div>
     </footer>
