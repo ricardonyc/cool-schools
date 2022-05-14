@@ -15,7 +15,7 @@ function SchoolHeader({ name, address, darkMode, location }) {
       <RatingStars school={location} />
       <NavLink state={{ location }} to={`/${location.name}/addreview`}>
         <Button
-          fontSize="1.3rem" 
+          fontSize="1.3rem"
           width="12rem"
           bgColor={darkMode ? "var(--yellow)" : "var(--teal)"}
         >
