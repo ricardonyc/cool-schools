@@ -1,8 +1,10 @@
 @import "../../UI/styling/variables.css";
 
-.top__text {
-  position: relative;
-  border: 1px solid red;
+.addreview__container {
+  max-width: 1500px;
+  margin: 5rem auto 0 auto;
+  min-height: 60vh;
+  padding: 1rem;
 }
 
 .bg__img {
@@ -33,12 +35,6 @@
   font-size: 1.8rem;
 }
 
-.addreview__container {
-  max-width: var(--max-width);
-  margin: 5rem auto 0 auto;
-  min-height: 60vh;
-  padding: 1rem;
-}
 
 form h2 {
   text-align: center;
