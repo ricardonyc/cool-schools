@@ -1,22 +1,13 @@
-import { useState } from "react";
+import React from "react";
 import css from "./styling/Boxes.module.css";
 import Anonymous from "../assets/Anonymous.png";
 import GuySitting from "../assets/guy-sitting.png";
 import KidCape from "../assets/kid-cape.png";
 import { ThemeContext } from "../../context/DarkModeContext";
 import { useContext } from "react";
-import LD from "./styling/Modes.module.css";
-import { Button } from "./styling/Button";
-import vars from "../UI/styling/variables.css";
 
 const Boxes = () => {
   const { darkMode } = useContext(ThemeContext);
-  const [waitTime, setWaitTime] = useState(false);
-
-  // ! CREATE SKELETON ???
-  // setTimeout(() => {
-  //   setWaitTime(true);
-  // }, 2000);
 
   const container = {
     backgroundColor: darkMode ? "var(--section-yellow)" : "var(--section-teal)",

@@ -4,7 +4,7 @@ import { ThemeContext } from "../../../context/DarkModeContext";
 import "../styling/variables.css";
 import css from "./Navbar.module.css";
 import { useUserAuth } from "../../../context/UserAuthContext";
-import { useNavigate, Link, NavLink } from "react-router-dom";
+import { useNavigate, NavLink } from "react-router-dom";
 import { ModalContext } from "../../../context/ModalContext";
 
 const BSNav = () => {
@@ -14,15 +14,7 @@ const BSNav = () => {
 
   // console.log("user: ", user);
 
-  const {
-    openModal,
-    loginModal,
-    setLoginModal,
-    setAlert,
-    loggedOut,
-    setLoggedOut,
-    modalOpen,
-  } = useContext(ModalContext);
+  const { openModal, setLoginModal, setLoggedOut } = useContext(ModalContext);
 
   const handleLogOut = async () => {
     try {

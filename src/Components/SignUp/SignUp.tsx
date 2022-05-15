@@ -59,11 +59,11 @@ const SignUp = () => {
     passwordValue: "",
     passwordIsValid: null,
   });
+
   const navigate = useNavigate();
   const emailRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
-  const { setLoginModal, closeModal, setLoggedIn, setAccountCreated } =
-    useContext(ModalContext);
+  const { setLoginModal, setAccountCreated } = useContext(ModalContext);
 
   const { emailIsValid, passwordIsValid, emailValue, passwordValue } = state;
 
@@ -111,21 +111,12 @@ const SignUp = () => {
 
     try {
       // ! LOGS YOU IN AFTER SIGN UP
-      // TODO: FIX THIS!
       await signUp(email, password);
       await logOut();
-      // ! REDIRECTS USER TO LOGIN MODAL <---------------
-      // setLoggedIn(true);
       setTimeout(() => {
         setAccountCreated(true);
         setLoginModal(true);
-        // closeModal();
-        // navigate("/");
       }, 800);
-
-      setTimeout(() => {
-        // setLoggedIn(false);
-      }, 5000);
     } catch (err: any) {
       console.log(err.message);
       setError(err.message.slice(10));

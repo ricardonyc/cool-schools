@@ -8,7 +8,6 @@ import { Button } from "../styling/Button";
 import { FormProps } from "../../../model";
 import { ThemeContext } from "../../../context/DarkModeContext";
 import { ModalContext } from "../../../context/ModalContext";
-import css from "../styling/variables.css";
 
 const FormInputs = ({
   submitForm,
@@ -24,7 +23,7 @@ const FormInputs = ({
   error,
 }: FormProps) => {
   const { darkMode } = useContext(ThemeContext);
-  const { setLoginModal, loggedIn, accountCreated } = useContext(ModalContext);
+  const { setLoginModal, accountCreated } = useContext(ModalContext);
 
   const styling = {
     backgroundColor: "#ff8181",
