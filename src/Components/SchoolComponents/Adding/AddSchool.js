@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import css from "./AddSchool.module.css";
-import { db } from "../../../firebase";
+import { db } from "../../../fb";
 import { addDoc, collection } from "firebase/firestore";
 import { useUserAuth } from "../../../context/UserAuthContext";
 import { useNavigate } from "react-router-dom";

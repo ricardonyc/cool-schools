@@ -1,7 +1,7 @@
 import React, { useEffect, useContext } from "react";
 import css from "./SchoolList.module.css";
 import { getDocs, collection } from "firebase/firestore";
-import { db } from "../../firebase";
+import { db } from "../../fb";
 import SchoolAverage from "./SchoolAverage";
 import HomeCardsSkeleton from "./Skeletons/HomeCardsSkeleton";
 import { BsBuilding } from "react-icons/bs";

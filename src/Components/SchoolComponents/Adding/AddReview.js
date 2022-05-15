@@ -1,7 +1,7 @@
 import React, { useState, useReducer, useContext } from "react";
 import { useLocation } from "react-router-dom";
 import css from "./AddReview.module.css";
-import { db } from "../../../firebase";
+import { db } from "../../../fb";
 import { doc, updateDoc } from "firebase/firestore";
 import { useUserAuth } from "../../../context/UserAuthContext";
 import { ModalContext } from "../../../context/ModalContext";
