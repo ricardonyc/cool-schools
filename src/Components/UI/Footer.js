@@ -17,7 +17,7 @@ const Footer = () => {
   return (
     <footer>
       <div style={footerBg} className={css.footer__container}>
-        <h1 style={logo}>CoolSchools</h1>
+        <h1 style={logo}>CoolUni</h1>
         <div className={css["footer__container--menu"]}>
           <div className={css.menu__box}>
             <Link to="/">Home</Link>

@@ -37,7 +37,7 @@ const BSNav = () => {
     fontStyle: "italic",
     color: darkMode ? "var(--yellow)" : "var(--teal)",
     fontSize: "var(--logo-fontSize)",
-    padding: ".5rem 1rem .5rem 0",
+    padding: ".5rem 1rem",
   };
 
   const navContainer = {
@@ -66,7 +66,7 @@ const BSNav = () => {
         }}
       >
         <Container style={navContainer} className={css.nav__container}>
-          <Navbar.Brand style={logo}>CoolSchools</Navbar.Brand>
+          <Navbar.Brand style={logo}>CoolUni</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" style={toggle} />
           <Navbar.Collapse id="basic-navbar-nav" className={css.items}>
             <Nav /*className="me-auto"*/ className={css.navlinks}>
