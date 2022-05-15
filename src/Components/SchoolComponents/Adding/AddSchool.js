@@ -134,7 +134,7 @@ function AddSchool(props) {
           onChange={(e) => setZipcode(e.target.value)}
           htmlFor="zipcode"
         >
-          Zipcode:
+          Zip Code:
           <input
             className={css.addschool__input}
             required

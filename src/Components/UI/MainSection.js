@@ -46,7 +46,7 @@ function MainSection(props) {
           </h1>
           <p>
             Find your favorite (and not-so-favorite) Universities. Read and leave
-            reviews on your school anonymously.
+            reviews about your school anonymously.
           </p>
         </div>
       </div>
