@@ -104,6 +104,7 @@ form h2 {
 }
 
 .textarea__container {
+  position: relative;
   max-width: 90rem;
   margin: 0 auto;
   padding: 1rem;
@@ -131,6 +132,13 @@ form h2 {
   /* margin: 0 auto; */
 }
 
+.textarea__container .word__count {
+  font-style: italic;
+  font-weight: 600;
+  /* border: 1px solid red; */
+  font-size: 1.3rem;
+}
+
 select {
   width: 70%;
   padding: 0.5rem;
@@ -153,15 +161,31 @@ select {
   padding: 0.3rem 1rem;
   font-size: 1.6rem;
   font-weight: 600;
-  border: 1px solid;
+  border: none;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.4);
   border-radius: var(--border-radius);
+  color: var(--darkmode-navy);
 }
 
 .checkbox__error {
   text-align: center;
-  font-size: 1.5rem;
-  background-color: rgb(255, 175, 175);
-  padding: 0.5rem;
   width: 21rem;
+}
+
+.starrating__error {
+  width: 14.5rem;
+}
+
+.classof__error {
+  margin-top: 1rem;
+}
+
+.checkbox__error,
+.starrating__error,
+.classof__error {
+  text-align: center;
+  padding: 0.5rem;
+  background-color: rgb(255, 175, 175);
   border-radius: var(--border-radius);
+  font-size: 1.5rem;
 }

@@ -1,4 +1,4 @@
-import React, { useState, useReducer, useRef, useContext } from "react";
+import React, { useState, useReducer, useContext } from "react";
 import { useLocation } from "react-router-dom";
 import css from "./AddReview.module.css";
 import { db } from "../../firebase";
@@ -34,71 +34,74 @@ function AddReview(props) {
   const [reducerState, dispatch] = useReducer(reducer, initialState);
   const location = useLocation();
   const { id, name, address, reviews } = location.state.location;
-  const [starRating, setStarRating] = useState(1);
+  const [starRating, setStarRating] = useState(null);
+  const [starRatingError, setStarRatingError] = useState(false);
   const [recommended, setRecommended] = useState();
-  const [classOf, setClassOf] = useState("");
+  const [classOf, setClassOf] = useState(null);
+  const [classofError, setClassofError] = useState(false);
   const [checkboxSelected, setCheckboxSelected] = useState(null);
   const { openModal, setLoginModal } = useContext(ModalContext);
   const [graduationStatus, setGraduationStatus] = useState(null);
+  const [userReview, setUserReview] = useState("");
   const navigate = useNavigate();
   const { user } = useUserAuth();
-  const reviewRef = useRef();
 
-  console.log("ADD REVIEW COMPONENT CURRENT USER: ", user);
-
-  console.log("tags: ", reducerState);
-
-  // ATTACH DATE REVIEW SUBMITTED TO THE REVIEW
-
-  // e,
-  // user,
-  // id,
-  // reviewRef.current.value,
-  // tags,
-  // recommended,
-  // starRating,
-  // classOf,
-  // graduationStatus
-
-  // ATTACH THE SIGNED IN USER'S ID TO THE REVIEW
-  const addReview = async (
-    e,
-    currentUserId,
-    schoolId,
-    review,
-    tags,
-    recommended,
-    rating,
-    classOf,
-    graduationStatus
-  ) => {
+  const addReview = async (e) => {
     e.preventDefault();
 
-    if (!currentUserId) {
+    if (!user) {
       setLoginModal(true);
       openModal();
       console.log("YOU MUST BE LOGGED IN TO POST A REVIEW");
       return;
     }
 
+    if (
+      ((graduationStatus === "Yes" || graduationStatus === "Not Yet") &&
+        classOf === null) ||
+      classOf === "Select Year"
+    ) {
+      setClassofError(true);
+      return;
+    }
+    setClassofError(false);
+
+    if (graduationStatus === "No" || graduationStatus === "Transferred") {
+      setClassOf(null);
+    }
+
+    // INITIALLY, CLASS OF IS SET TO 'SELECT YEAR' SO IT RETURNS HERE
+    if (graduationStatus === "Select Year") {
+      setClassofError(true);
+      return;
+    }
+    setClassofError(false);
+
+    if (starRating === null) {
+      setStarRatingError(true);
+      return;
+    }
+    setStarRatingError(false);
+
     if (reducerState.checkedIds.length === 0) {
       setCheckboxSelected(true);
       return;
     }
-
     setCheckboxSelected(false);
-    const userDoc = doc(db, "universities", schoolId);
+
+    const userDoc = doc(db, "universities", id);
     const newReview = {
       reviews: [
         ...reviews,
         {
-          userId: currentUserId,
-          review,
-          tags,
+          userId: user,
+          review: userReview,
+          tags: selectedTags,
           wouldRecommend: recommended,
-          ratingOutOf5: rating,
-          classOf,
-          graduationStatus,
+          ratingOutOf5: starRating,
+          classOf: classOf,
+          graduationStatus: graduationStatus,
+          datePosted: date,
         },
       ],
     };
@@ -107,20 +110,13 @@ function AddReview(props) {
     navigate("/");
   };
 
-  const reviewTags = [
-    "Good Wifi",
-    "Laggy Wifi",
-    "Great Professors",
-    "Staff Needs Improvement",
-    "Expensive Location",
-    "Social Life",
-    "Fun Clubs",
-    "No Social Life",
-    "Dirty Bathrooms",
-    "Clean Bathrooms",
-    "Diverse",
-    "No Diversity",
-    "Party School",
+  const month = new Date().getMonth() + 1;
+  const day = new Date().getDate();
+  const year = new Date().getFullYear();
+  const date = `${month}/${day}/${year.toString().slice(2)}`;
+
+  // prettier-ignore
+  const reviewTags = ["Good Wifi", "Laggy Wifi", "Great Professors", "Staff Needs Improvement", "Expensive Location", "Social Life", "Fun Clubs", "No Social Life", "Dirty Bathrooms", "Clean Bathrooms", "Diverse", "No Diversity", "Party School",
   ];
 
   const wouldRecommend = (e) => {
@@ -138,21 +134,13 @@ function AddReview(props) {
     yearsOptions.push(i);
   }
 
-  const { checkedIds: tags } = reducerState;
+  const { checkedIds: selectedTags } = reducerState;
 
   const bgStyles = {
     backgroundColor: darkMode
       ? "var(--reviewbox-navy)"
       : "var(--reviewbox-white)",
   };
-
-  console.log("user: ", user);
-  console.log("school id: ", id);
-  console.log("tags: ", tags);
-  console.log("recommended: ", recommended);
-  console.log("star rating: ", starRating);
-  console.log("class of: ", classOf);
-  console.log("graduation status: ", graduationStatus);
 
   return (
     <div className={css.addreview__container}>
@@ -161,91 +149,9 @@ function AddReview(props) {
         <h3>{address}</h3>
       </div>
 
-      <form
-        onSubmit={(e) =>
-          addReview(
-            e,
-            user,
-            id,
-            reviewRef.current.value,
-            tags,
-            recommended,
-            starRating,
-            classOf,
-            graduationStatus
-          )
-        }
-      >
+      <form onSubmit={addReview}>
         <h2>Leave a Review</h2>
-        {/* ------------------------------------------------------------------------- */}
-        {/* GRADUATION STATUS */}
         <div className={css.topinputs__container}>
-          {graduationStatus !== "No" && graduationStatus !== "Transferred" && (
-            <div style={bgStyles} className={css.input__container}>
-              <label className={css.input__titles} htmlFor="classof">
-                Class Of:
-              </label>
-              <select
-                className={css.select__menu}
-                onChange={(e) => setClassOf(e.target.value)}
-                required
-                name="classof"
-                id="classof"
-              >
-                {yearsOptions.reverse().map((year, key) => {
-                  return (
-                    <option key={key} value={year}>
-                      {year}
-                    </option>
-                  );
-                })}
-              </select>
-            </div>
-          )}
-          {/* WOULD RECOMMEND */}
-          <div
-            style={bgStyles}
-            onChange={wouldRecommend}
-            className={css.input__container}
-          >
-            <h3 className={css.input__titles}>
-              Would you recommend this school?
-            </h3>
-            <label className={css.label__text} htmlFor="yes">
-              <input
-                value="yes"
-                required
-                name="recommended"
-                id="yes"
-                type="radio"
-              />
-              Yes
-            </label>
-            <label className={css.label__text} htmlFor="no">
-              <input
-                value="no"
-                required
-                name="recommended"
-                id="no"
-                type="radio"
-              />
-              No
-            </label>
-          </div>
-
-          <div style={bgStyles} className={css.input__container}>
-            <h3 className={css.input__titles}>Rating:</h3>
-            <Rating
-              style={{ fontSize: "3rem" }}
-              name="simple-controlled"
-              value={starRating}
-              onChange={(event, newValue) => setStarRating(newValue)}
-            />
-          </div>
-
-          {/* CONDITIONALLY RENDERS AN ICON */}
-          {/* CONDITIONALLY RENDER THE 'CLASS OF' */}
-          {/* IF THEY TRANSFERRED, REMOVE THE 'CLASS OF' INPUT */}
           <div
             onChange={(e) => setGraduationStatus(e.target.value)}
             style={bgStyles}
@@ -293,12 +199,85 @@ function AddReview(props) {
               Transferred
             </label>
           </div>
+          {/* ------------------------------------------------------------------------- */}
+          {/* GRADUATION STATUS */}
+          {graduationStatus !== "No" && graduationStatus !== "Transferred" && (
+            <div style={bgStyles} className={css.input__container}>
+              <label className={css.input__titles} htmlFor="classof">
+                Class Of:
+              </label>
+              <select
+                className={css.select__menu}
+                onChange={(e) => setClassOf(e.target.value)}
+                required
+                name="classof"
+                id="classof"
+              >
+                <option value={"Select Year"}>Select Year</option>
+                {yearsOptions.reverse().map((year, key) => {
+                  return (
+                    <option key={key} value={year}>
+                      {year}
+                    </option>
+                  );
+                })}
+              </select>
+              {(graduationStatus === "Yes" || graduationStatus === "Not Yet") &&
+                classofError && (
+                  <p className={css.classof__error}>
+                    Please Select Valid Option
+                  </p>
+                )}
+            </div>
+          )}
+          <div
+            style={bgStyles}
+            onChange={wouldRecommend}
+            className={css.input__container}
+          >
+            <h3 className={css.input__titles}>
+              Would you recommend this school?
+            </h3>
+            <label className={css.label__text} htmlFor="yes">
+              <input
+                value="yes"
+                required
+                name="recommended"
+                id="yes"
+                type="radio"
+              />
+              Yes
+            </label>
+            <label className={css.label__text} htmlFor="no">
+              <input
+                value="no"
+                required
+                name="recommended"
+                id="no"
+                type="radio"
+              />
+              No
+            </label>
+          </div>
+
+          <div style={bgStyles} className={css.input__container}>
+            <h3 className={css.input__titles}>Rating:</h3>
+            {starRatingError && (
+              <p className={css.starrating__error}>Must be 1 or more</p>
+            )}
+            <Rating
+              style={{ fontSize: "3rem" }}
+              name="simple-controlled"
+              value={starRating}
+              onChange={(event, newValue) => setStarRating(newValue)}
+            />
+          </div>
         </div>
         {/* ------------------------------------------------------------------------- */}
 
         <div className={css.checkboxes}>
           <h3 className={css.input__titles}>Select up to 3:</h3>
-          {!checkboxSelected && (
+          {checkboxSelected && (
             <p className={css.checkbox__error}>Please select at least ONE</p>
           )}
           {reviewTags.map((tag, key) => {
@@ -327,18 +306,18 @@ function AddReview(props) {
           <h3>Review</h3>
           <textarea
             style={bgStyles}
-            ref={reviewRef}
+            onChange={(e) => setUserReview(e.target.value)}
+            // ref={reviewRef}
             required
             minLength={150}
             maxLength={400}
             name=""
             id=""
             placeholder="Write a review..."
-          ></textarea>
+          />
+          <p className={css.word__count}>Characters: {userReview.length}</p>
           <button className={css.submit__btn}>Submit Review</button>
         </div>
-
-        {/*     OPEN THE LOG IN MODAL IF THE USER IS NOT SIGNED IN / DEFINED */}
       </form>
     </div>
   );

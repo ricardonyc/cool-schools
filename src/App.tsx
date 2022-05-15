@@ -17,6 +17,7 @@ import Footer from "./Components/UI/Footer";
 import SchoolResultsProvider from "./context/SchoolContext";
 import SchoolDetailsLayout from "./Components/Layouts/SchoolDetailsLayout";
 import AddReviewLayout from "./Components/Layouts/AddReviewLayout";
+import AddSchoolLayout from "./Components/Layouts/AddSchoolLayout";
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -31,7 +32,7 @@ function App() {
               <BSNav />
               <Routes>
                 <Route
-                  path="/addschool"
+                  path="/addschoolc"
                   element={
                     <ProtectedRoute>
                       {/* <AuthHome /> */}
@@ -43,6 +44,7 @@ function App() {
                 <Route path="/about" element={<About />} />
                 <Route path="/schools" element={<SchoolListLayout />} />
                 <Route path="schools/:name" element={<SchoolDetailsLayout />} />
+                <Route path="/addschool" element={<AddSchoolLayout />} />
                 <Route
                   path="/:schoolname/addreview"
                   element={<AddReviewLayout />}

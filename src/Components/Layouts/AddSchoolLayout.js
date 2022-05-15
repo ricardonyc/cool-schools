@@ -1,21 +1,15 @@
-import MainSection from "../UI/MainSection";
-import React, { useContext, useEffect } from "react";
-import Boxes from "../UI/Boxes";
+import React, { useContext } from "react";
 import Modal from "../UI/Modal/Modal";
 import Login from "../Login/Login";
 import SignUp from "../SignUp/SignUp";
 import BSNav from "../UI/Nav/BSNav";
 import { ModalContext } from "../../context/ModalContext";
 import AlertBox from "../UI/Alert/AlertBox";
-import SchoolList from "../SchoolComponents/SchoolList";
+import AddSchool from "../SchoolComponents/AddSchool";
 
-const Layout = () => {
+const AddSchoolLayout = () => {
   const { modalOpen, loginModal, loggedOut, loggedIn } =
     useContext(ModalContext);
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
 
   return (
     <React.Fragment>
@@ -26,15 +20,11 @@ const Layout = () => {
         </Modal>
       )}
       <BSNav />
-      <MainSection />
-      <Boxes />
-      <SchoolList />
-      {/* <Footer /> */}
-
+      <AddSchool />
       {loggedIn && <AlertBox>Logged In Successfully!</AlertBox>}
       {loggedOut && <AlertBox>Logged Out Successfully!</AlertBox>}
     </React.Fragment>
   );
 };
 
-export default Layout;
+export default AddSchoolLayout;

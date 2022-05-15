@@ -25,8 +25,8 @@ function Error(props) {
           <Link style={linkColor} to="/">
             Home
           </Link>
-          <li>Schools</li>
-          <li>Other</li>
+          {/* <Link to="/">Schools</Link> */}
+          {/* <li>Other</li> */}
         </ul>
       </div>
       <div className={css["error__container--icon"]}>

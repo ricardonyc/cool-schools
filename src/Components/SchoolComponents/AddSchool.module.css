@@ -1,0 +1,67 @@
+@import "../UI/styling/variables.css";
+
+.newschool__container {
+  margin: 10rem auto 0 auto;
+  border: 3px solid red;
+  max-width: var(--max-width);
+  min-height: 90vh;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.addschool__container {
+  border: 1px solid red;
+  max-width: 40rem;
+  width: 100%;
+}
+
+.addschool__container > * {
+  border: 1px solid red;
+  margin: 2rem 0;
+}
+
+.addschool__input {
+  border: 1px solid red;
+  width: 100%;
+}
+
+.newschool__container h1 {
+  font-size: 3.8rem;
+  font-family: var(--shrikhand);
+}
+
+.construction {
+  text-align: center;
+  font-weight: 900;
+  color: orange;
+  font-size: 3rem;
+}
+
+.location {
+  font-family: var(--shrikhand);
+  font-size: 2.2rem;
+  letter-spacing: 0.1rem;
+}
+
+.addschool__label {
+  border: 1px solid red;
+  display: flex;
+  flex-direction: column;
+  font-size: 1.9rem;
+}
+
+.addschool__select {
+  margin: 1rem 0;
+  font-size: 1.6rem;
+  width: 100%;
+}
+
+.addschool__btn {
+  border: none;
+  padding: 0.3rem 1rem;
+  font-size: 1.8rem;
+  font-weight: 600;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+}

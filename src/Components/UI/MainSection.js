@@ -5,13 +5,12 @@ import { ThemeContext } from "../../context/DarkModeContext";
 import BoyMagnifier from "../assets/boy-magnifier.png";
 import SearchIcon from "../assets/search-icon.png";
 import { SchoolContext } from "../../context/SchoolContext";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { IoMdClose } from "react-icons/io";
 
 function MainSection(props) {
   const { darkMode } = useContext(ThemeContext);
-  const { setUserSearch, userSearch, schoolResults } =
-    useContext(SchoolContext);
+  const { schoolResults } = useContext(SchoolContext);
   const [filteredData, setFilteredData] = useState([]);
   const [userInput, setUserInput] = useState("");
 
@@ -53,7 +52,7 @@ function MainSection(props) {
       </div>
       <div className={css.right__box}>
         <div className={css["right__box--text"]}>
-          <h2 style={textColor}>Start Searching</h2>
+          <h2 style={textColor}>Search a School</h2>
           <form
             onSubmit={(e) => e.preventDefault()}
             className={css.input__container}
@@ -72,7 +71,7 @@ function MainSection(props) {
                 className={css.close}
               />
             )}
-            {userInput?.length > 0 && filteredData?.length > 0 && (
+            {userInput?.length > 0 && filteredData?.length >= 0 && (
               <div className={css.results}>
                 {filteredData.slice(0, 10).map((school, key) => {
                   return (
@@ -88,11 +87,14 @@ function MainSection(props) {
                 })}
                 {/* THIS WONT WORK IF THE USER ISNT LOGGED IN */}
                 {/* DIRECT USER TO ANOTHER PAGE TO FILL OUT FORM BUT ON SUBMIT DIRECT THEM TO LOGIN */}
-                {userInput.length > 0 && (
+                {/* {userInput.length > 0 && (
                   <Link className={css.add__school} to="/addschool">
-                    Add School
+                  Add School
                   </Link>
-                )}
+                )} */}
+                <NavLink className={css.add__school} to="/addschool">
+                  Add School
+                </NavLink>
               </div>
             )}
           </form>

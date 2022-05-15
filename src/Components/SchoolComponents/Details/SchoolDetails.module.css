@@ -18,8 +18,10 @@
   font-size: 1.7rem;
 }
 
-.details__header h1 {
+.details__header .school__name {
+  /* border: 1px solid red; */
   font-weight: 600;
+  font-size: 3rem;
 }
 
 .details__header .review__plusicon {
@@ -37,11 +39,15 @@
 }
 
 .filter__container {
+  position: sticky;
+  height: 50%;
+  top: 7rem;
   border-radius: var(--border-radius);
   outline: 2px solid rgba(216, 216, 216, 0.5);
   min-width: 180px;
   padding: 0.5rem;
   flex: 0 0 10rem;
+  /* border: 2px solid red; */
 }
 
 .filter__container h2 {
@@ -113,6 +119,15 @@
   padding: 1rem 1rem;
 }
 
+.date__posted {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 1.3rem;
+  font-weight: 600;
+  opacity: 0.7;
+}
+
 .classof {
   position: absolute;
   right: 10px;
@@ -133,24 +148,27 @@
 }
 
 .review {
-  padding: 0.5rem 0 1rem 0;
+  padding: 0.5rem 0 2rem 0;
   /* border: 1px solid red; */
   font-size: var(--paragraph);
 }
 
-.recommended {
+.wouldRecommend {
   /* border: 1px solid red; */
+  position: absolute;
+  left: 10px;
+  bottom: 5px;
   display: flex;
   align-items: center;
 }
 
-.recommended p {
+.wouldRecommend p {
   font-size: var(--paragraph);
   margin: 0 0 0 0.5rem;
 }
 
-.recommended img {
-  width: 2.5rem;
+.wouldRecommend img {
+  width: 2.4rem;
 }
 
 .tags {
@@ -191,8 +209,26 @@
   font-size: 4rem;
 }
 
+.paginationbtn__container {
+  /* border: 1px solid red; */
+  text-align: center;
+}
+
+.pagination__btn {
+  border-radius: var(--border-radius);
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
+  border: none;
+  /* border: 1px solid red; */
+  width: 200px;
+  padding: 0.3rem 1rem;
+  font-size: 1.8rem;
+}
+
 @media only screen and (max-width: 880px) {
   .filter__container {
+    position: relative;
+    /* height: 50%; */
+    top: 0;
     min-width: 100%;
     padding: 0.5rem;
     margin: 0 0 1rem 0rem;

@@ -13,7 +13,15 @@ const SchoolListLayout = () => {
 
   return (
     <React.Fragment>
-      {modalOpen && (
+      <h2>/schools</h2>
+      <h2>/schools</h2>
+      <h2>/schools</h2>
+      <h2>/schools</h2>
+      <h2>/schools</h2>
+      <h2>/schools</h2>
+      <h2>/schools</h2>
+      <h2>/schools</h2>
+      {/* {modalOpen && (
         <Modal>
           {loginModal && <Login />}
           {!loginModal && <SignUp />}
@@ -22,7 +30,7 @@ const SchoolListLayout = () => {
       <BSNav />
       <SchoolList />
       {loggedIn && <AlertBox>Logged In Successfully!</AlertBox>}
-      {loggedOut && <AlertBox>Logged Out Successfully!</AlertBox>}
+      {loggedOut && <AlertBox>Logged Out Successfully!</AlertBox>} */}
     </React.Fragment>
   );
 };

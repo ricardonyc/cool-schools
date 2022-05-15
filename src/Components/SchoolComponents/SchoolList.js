@@ -29,7 +29,7 @@ const SchoolList = () => {
   }, []);
 
   // SELECT ONLY n SCHOOLS
-  const numSchools = schoolResults?.slice(0, 3);
+  const numSchools = schoolResults?.slice(0, 2);
   console.log(numSchools);
 
   const boxBg = {

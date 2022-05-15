@@ -94,7 +94,7 @@ function SchoolDetails(props) {
               </div>
             )}
             {loading &&
-              filteredReviews.map((_, key) => {
+              filteredReviews.slice(0, 4).map((_, key) => {
                 return <ReviewSkeleton key={key} darkMode={darkMode} />;
               })}
           </div>
