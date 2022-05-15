@@ -39,6 +39,7 @@ const SchoolList = () => {
 
   return (
     <div className={css.container}>
+      <h2 className={css.reviews__title}>School Reviews</h2>
       <div className={css.school__box}>
         {schoolResults &&
           numSchools.map((school) => {

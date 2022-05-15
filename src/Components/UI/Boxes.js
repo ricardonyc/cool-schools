@@ -24,11 +24,19 @@ const Boxes = () => {
           <h2>Leave Reviews</h2>
         </div>
         <div className={css.box}>
-          <img loading="lazy" src={Anonymous} alt={"Girl and dog wearing shades"} />
+          <img
+            loading="lazy"
+            src={Anonymous}
+            alt={"Girl and dog wearing shades"}
+          />
           <h2>Remain anonymous</h2>
         </div>
         <div className={css.box}>
-          <img loading="lazy" src={KidCape} alt={"kid running wearing a cape"} />
+          <img
+            loading="lazy"
+            src={KidCape}
+            alt={"kid running wearing a cape"}
+          />
           <h2>Search Reviews</h2>
         </div>
       </div>
@@ -37,4 +45,3 @@ const Boxes = () => {
 };
 
 export default Boxes;
- 

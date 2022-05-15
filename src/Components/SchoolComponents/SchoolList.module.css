@@ -5,6 +5,14 @@
   margin: 0 auto;
 }
 
+.container .reviews__title {
+  font-size: 3.3rem;
+  text-align: center;
+  font-family: var(--shrikhand);
+  margin-bottom: 1rem;
+  /* border: 1px solid red; */
+}
+
 .school__box {
   position: relative;
   display: flex;
