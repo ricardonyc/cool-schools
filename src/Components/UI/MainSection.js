@@ -45,14 +45,14 @@ function MainSection(props) {
             DISCOVER
           </h1>
           <p>
-            Find your favorite (and not-so-favorite) schools. Read and leave
+            Find your favorite (and not-so-favorite) Universities. Read and leave
             reviews on your school anonymously.
           </p>
         </div>
       </div>
       <div className={css.right__box}>
         <div className={css["right__box--text"]}>
-          <h2 style={textColor}>Search a School</h2>
+          <h2 style={textColor}>Search a University</h2>
           <form
             onSubmit={(e) => e.preventDefault()}
             className={css.input__container}

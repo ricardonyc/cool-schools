@@ -312,7 +312,7 @@ function AddReview(props) {
             onChange={(e) => setUserReview(e.target.value)}
             required
             minLength={150}
-            maxLength={400}
+            maxLength={500}
             name=""
             id=""
             placeholder="Write a review..."

@@ -29,7 +29,7 @@ const SchoolList = () => {
   const numSchools = schoolResults
     ?.filter((school) => school.reviews.length > 0)
     .slice(0, 3);
-  console.log(numSchools);
+  // console.log(numSchools);
 
   const boxBg = {
     backgroundColor: darkMode
