@@ -1,10 +1,9 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useContext } from "react";
 import css from "./SchoolList.module.css";
 import { getDocs, collection } from "firebase/firestore";
 import { db } from "../../firebase";
-import { Link } from "react-router-dom";
 import SchoolAverage from "./SchoolAverage";
-import HomeCardsSkeleton from "./HomeCardsSkeleton";
+import HomeCardsSkeleton from "./Skeletons/HomeCardsSkeleton";
 import { BsBuilding } from "react-icons/bs";
 import RatingStars from "./RatingStars.js";
 import { ThemeContext } from "../../context/DarkModeContext";
@@ -17,10 +16,8 @@ const SchoolList = () => {
 
   useEffect(() => {
     const getUsers = async () => {
-      // ! RETURNS ALL DOCUMENTS FROM A SPECIFIC COLLECTION
       const data = await getDocs(schoolsCollectionRef);
       setSchoolResults(data.docs.map((doc) => ({ id: doc.id, ...doc.data() })));
-      // ! data() FUNCTION SHOULD RETURN THE OBJECT CONTAINING THE INFO OF THE SCHOOL
     };
 
     setTimeout(() => {
@@ -29,7 +26,9 @@ const SchoolList = () => {
   }, []);
 
   // SELECT ONLY n SCHOOLS
-  const numSchools = schoolResults?.slice(0, 2);
+  const numSchools = schoolResults
+    ?.filter((school) => school.reviews.length > 0)
+    .slice(0, 3);
   console.log(numSchools);
 
   const boxBg = {

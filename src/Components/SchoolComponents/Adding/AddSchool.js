@@ -1,15 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import css from "./AddSchool.module.css";
-import { db } from "../../firebase";
+import { db } from "../../../firebase";
 import { addDoc, collection } from "firebase/firestore";
-import { useUserAuth } from "../../context/UserAuthContext";
+import { useUserAuth } from "../../../context/UserAuthContext";
 import { useNavigate } from "react-router-dom";
+import { ModalContext } from "../../../context/ModalContext";
 
 function AddSchool(props) {
+  const { openModal, setLoginModal, setSchoolAdded } = useContext(ModalContext);
   const { user } = useUserAuth();
-  console.log("user in add school: ", user);
   const schoolCollectionRef = collection(db, "universities");
-  console.log(schoolCollectionRef);
   const [schoolName, setSchoolName] = useState("");
   const [street, setStreet] = useState("");
   const [city, setCity] = useState("");
@@ -17,9 +17,6 @@ function AddSchool(props) {
   const [zipcode, setZipcode] = useState("");
 
   const navigate = useNavigate();
-
-  const schoolAddress = `${street}, ${city}, ${state}, ${zipcode}`;
-  console.log(schoolAddress);
 
   const capitalize = (word) => {
     return word
@@ -34,15 +31,25 @@ function AddSchool(props) {
   const addSchool = async (e) => {
     e.preventDefault();
 
-    if (!user) return;
+    if (!user) {
+      setLoginModal(true);
+      openModal();
+      return;
+    }
 
     await addDoc(schoolCollectionRef, {
       createdUserId: user,
       name: capitalize(schoolName),
-      address: capitalize(schoolAddress),
+      address: `${capitalize(street)}, ${capitalize(
+        city
+      )}, ${state}, ${zipcode}`,
       reviews: [],
     });
 
+    setSchoolAdded(true);
+    setTimeout(() => {
+      setSchoolAdded(false);
+    }, 5000);
     setSchoolName("");
     setStreet("");
     setCity("");
@@ -102,21 +109,25 @@ function AddSchool(props) {
           />
         </label>
 
-        <select
-          className={css.addschool__select}
-          onChange={(e) => setState(e.target.value)}
-          required
-          name="states"
-          id="states"
-        >
-          {states.map((state, key) => {
-            return (
-              <option key={key} value={state}>
-                {state}
-              </option>
-            );
-          })}
-        </select>
+        <label className={css.addschool__label} htmlFor="states">
+          State:
+          <select
+            className={css.addschool__select}
+            onChange={(e) => setState(e.target.value)}
+            required
+            name="states"
+            id="states"
+          >
+            <option value="Select State">Select State</option>
+            {states.map((state, key) => {
+              return (
+                <option key={key} value={state}>
+                  {state}
+                </option>
+              );
+            })}
+          </select>
+        </label>
 
         <label
           className={css.addschool__label}

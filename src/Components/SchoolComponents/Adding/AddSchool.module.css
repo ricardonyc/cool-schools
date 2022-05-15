@@ -1,8 +1,7 @@
-@import "../UI/styling/variables.css";
+@import "../../UI/styling/variables.css";
 
 .newschool__container {
   margin: 10rem auto 0 auto;
-  border: 3px solid red;
   max-width: var(--max-width);
   min-height: 90vh;
   padding: 1rem;
@@ -12,18 +11,15 @@
 }
 
 .addschool__container {
-  border: 1px solid red;
   max-width: 40rem;
   width: 100%;
 }
 
 .addschool__container > * {
-  border: 1px solid red;
   margin: 2rem 0;
 }
 
 .addschool__input {
-  border: 1px solid red;
   width: 100%;
 }
 
@@ -46,7 +42,6 @@
 }
 
 .addschool__label {
-  border: 1px solid red;
   display: flex;
   flex-direction: column;
   font-size: 1.9rem;

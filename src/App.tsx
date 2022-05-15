@@ -4,12 +4,9 @@ import { Routes, Route } from "react-router-dom";
 import HomeLayout from "./Components/Layouts/HomeLayout";
 import DarkmodeProvider from "./context/DarkModeContext";
 import { UserAuthContextProvider } from "./context/UserAuthContext";
-import ProtectedRoute from "./Components/ProtectedRoute";
-import AuthHome from "./Components/Layouts/AuthHome";
 import "bootstrap/dist/css/bootstrap.min.css";
 import LightDarkMode from "./Components/UI/LightDarkMode";
 import ModalContextProvider from "./context/ModalContext";
-import SchoolListLayout from "./Components/Layouts/SchoolListLayout";
 import Error from "./Components/Error";
 import BSNav from "./Components/UI/Nav/BSNav";
 import About from "./Components/About";
@@ -31,18 +28,8 @@ function App() {
             <div className={darkMode ? "App dark" : "App light"}>
               <BSNav />
               <Routes>
-                <Route
-                  path="/addschoolc"
-                  element={
-                    <ProtectedRoute>
-                      {/* <AuthHome /> */}
-                      {/* <AddSchool /> */}
-                    </ProtectedRoute>
-                  }
-                />
                 <Route path="/" element={<HomeLayout />} />
                 <Route path="/about" element={<About />} />
-                <Route path="/schools" element={<SchoolListLayout />} />
                 <Route path="schools/:name" element={<SchoolDetailsLayout />} />
                 <Route path="/addschool" element={<AddSchoolLayout />} />
                 <Route

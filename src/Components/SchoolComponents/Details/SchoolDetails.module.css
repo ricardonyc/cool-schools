@@ -2,10 +2,8 @@
 
 .details__container {
   position: relative;
-  /* top: 50px; */
   max-width: 2000px;
   margin: 0 auto;
-  /* border: 3px solid red; */
   padding: 1rem;
   min-height: 100vh;
 }
@@ -19,7 +17,6 @@
 }
 
 .details__header .school__name {
-  /* border: 1px solid red; */
   font-weight: 600;
   font-size: 3rem;
 }
@@ -35,7 +32,6 @@
   margin-top: 3rem;
   display: flex;
   flex-wrap: wrap;
-  /* border: 1px solid blue; */
 }
 
 .filter__container {
@@ -47,17 +43,14 @@
   min-width: 180px;
   padding: 0.5rem;
   flex: 0 0 10rem;
-  /* border: 2px solid red; */
 }
 
 .filter__container h2 {
-  /* border-bottom: 1px solid; */
   font-size: 2rem;
   cursor: pointer;
   margin: 0;
   display: flex;
   align-items: center;
-  /* color: rgb(143, 143, 143); */
 }
 
 .filter__container h2 img {
@@ -73,7 +66,6 @@
   display: flex;
   flex-direction: column;
   margin-top: 1rem;
-  /* border: 1px solid red; */
 }
 
 .filters .starfilter h3,
@@ -88,7 +80,6 @@
 }
 
 .checkbox label {
-  /* border: 1px solid red; */
   font-size: 1.2rem;
   margin-left: 0.5rem;
   cursor: pointer;
@@ -99,21 +90,17 @@
   flex-direction: column;
   align-items: flex-start;
   margin-top: 1rem;
-  /* border: 1px solid red; */
 }
 
 .reviews__section {
   margin-left: 1rem;
   width: 100%;
-  /* border: 1px solid red; */
   flex: 3 1 80rem;
 }
 
-/* EACH INDIVIDUAL REVIEW */
 .review__container {
   position: relative;
   min-height: 200px;
-  /* border: 1px solid red; */
   box-shadow: var(--box-shadow);
   margin-bottom: 1rem;
   padding: 1rem 1rem;
@@ -134,7 +121,6 @@
   bottom: 5px;
   display: flex;
   align-items: center;
-  /* border: 1px solid red; */
 }
 
 .classof img {
@@ -149,12 +135,10 @@
 
 .review {
   padding: 0.5rem 0 2rem 0;
-  /* border: 1px solid red; */
   font-size: var(--paragraph);
 }
 
 .wouldRecommend {
-  /* border: 1px solid red; */
   position: absolute;
   left: 10px;
   bottom: 5px;
@@ -185,12 +169,10 @@
 }
 
 .stars {
-  /* border: 1px solid red; */
   font-size: 2rem;
 }
 
 .norating {
-  /* border: 1px solid red; */
   padding: 1rem;
   height: 100%;
   display: flex;
@@ -210,7 +192,6 @@
 }
 
 .paginationbtn__container {
-  /* border: 1px solid red; */
   text-align: center;
 }
 
@@ -218,45 +199,40 @@
   border-radius: var(--border-radius);
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
   border: none;
-  /* border: 1px solid red; */
   width: 200px;
   padding: 0.3rem 1rem;
   font-size: 1.8rem;
 }
 
+.back__btn {
+  font-size: 1.6rem;
+  border-radius: var(--border-radius);
+  margin: 2rem 1rem 1rem 0;
+  padding: 0.5rem;
+  max-width: 7.5rem;
+}
+
 @media only screen and (max-width: 880px) {
   .filter__container {
     position: relative;
-    /* height: 50%; */
     top: 0;
     min-width: 100%;
     padding: 0.5rem;
     margin: 0 0 1rem 0rem;
-    /* border: 1px solid rgb(194, 194, 194); */
   }
 
   .reviews__section {
     margin: 0;
   }
 
-  .filter__container {
-    /* border: 1px solid red; */
-  }
-
   .filters {
     display: flex;
-    /* border: 1px solid red; */
   }
 
   .filters .starfilter,
   .filters .recommended {
     margin: 0;
-    /* border: 1px solid red; */
     padding: 1rem;
-  }
-
-  .filters .starfilter {
-    /* border: 1px solid red; */
   }
 
   .filters.open {

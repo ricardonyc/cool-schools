@@ -120,7 +120,7 @@ const SignUp = () => {
         setAccountCreated(true);
         setLoginModal(true);
         // closeModal();
-        navigate("/");
+        // navigate("/");
       }, 800);
 
       setTimeout(() => {

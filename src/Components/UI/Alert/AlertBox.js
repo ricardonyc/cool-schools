@@ -8,7 +8,7 @@ const AlertBox = ({ children }) => {
         position: "fixed",
         bottom: "20px",
         left: "25px",
-        maxWidth: "220px",
+        maxWidth: "270px",
         width: "100%",
         fontSize: "1.6rem",
         zIndex: "9999999999999999",

@@ -8,7 +8,7 @@ import Filter from "../../assets/filter.svg";
 import Cat from "../../assets/cat.png";
 import SchoolHeader from "../SchoolHeader";
 import FilterForms from "../Filters/FilterForms";
-import ReviewSkeleton from "../ReviewSkeleton";
+import ReviewSkeleton from "../Skeletons/ReviewSkeleton";
 
 function SchoolDetails(props) {
   const { darkMode } = useContext(ThemeContext);
@@ -17,7 +17,6 @@ function SchoolDetails(props) {
   const [recommended, setRecommended] = useState(null);
   const [loading, setLoading] = useState(true);
   const location = useLocation();
-  console.log(location.state.school);
   const details = location.state.school;
   const { name, address, reviews } = details;
 
@@ -45,11 +44,6 @@ function SchoolDetails(props) {
     fontFamily: "var(--shrikhand)",
     color: darkMode ? "var(--yellow)" : "var(--teal)",
   };
-
-  console.log("filtered reviews: ", filteredReviews);
-  console.log("reviews: ", reviews);
-  console.log("recommended: ", recommended);
-  console.log("rating: ", rating);
 
   return (
     <div className={css.details__container}>

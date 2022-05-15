@@ -10,8 +10,14 @@ import AlertBox from "../UI/Alert/AlertBox";
 import SchoolList from "../SchoolComponents/SchoolList";
 
 const Layout = () => {
-  const { modalOpen, loginModal, loggedOut, loggedIn } =
-    useContext(ModalContext);
+  const {
+    modalOpen,
+    loginModal,
+    loggedOut,
+    loggedIn,
+    reviewPosted,
+    schoolAdded,
+  } = useContext(ModalContext);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -29,8 +35,9 @@ const Layout = () => {
       <MainSection />
       <Boxes />
       <SchoolList />
-      {/* <Footer /> */}
 
+      {schoolAdded && <AlertBox>School Added Successfully</AlertBox>}
+      {reviewPosted && <AlertBox>Review Posted Successfully!</AlertBox>}
       {loggedIn && <AlertBox>Logged In Successfully!</AlertBox>}
       {loggedOut && <AlertBox>Logged Out Successfully!</AlertBox>}
     </React.Fragment>

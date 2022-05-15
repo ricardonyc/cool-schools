@@ -12,7 +12,7 @@ const BSNav = () => {
   const { darkMode } = useContext(ThemeContext);
   const navigate = useNavigate();
 
-  console.log("user: ", user);
+  // console.log("user: ", user);
 
   const {
     openModal,
@@ -86,14 +86,23 @@ const BSNav = () => {
               >
                 Home
               </Nav.Link>
-              <Nav.Link
+              {/* <Nav.Link
                 as={NavLink}
                 to="/schools"
                 className={({ isActive }) => (isActive ? "active" : null)}
                 style={textColor}
               >
                 Schools
+              </Nav.Link> */}
+              <Nav.Link
+                as={NavLink}
+                to="/addschool"
+                className={({ isActive }) => (isActive ? "active" : null)}
+                style={textColor}
+              >
+                Add School
               </Nav.Link>
+
               <NavDropdown
                 id="basic-nav-dropdown"
                 title={

@@ -1,13 +1,10 @@
 @import "./variables.css";
 
 footer {
-  /* border: 1px solid red; */
 }
 
 .footer__container {
   margin-top: 5rem;
-  /* padding: 2rem 0 2rem 0; */
-  /* border: 2px solid rgb(0, 89, 255); */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -28,11 +25,19 @@ footer {
 }
 
 .footer__container--menu {
-  /* border: 1px solid red; */
   display: flex;
 }
 
 .menu__box {
   margin: 0 1rem;
-  /* border: 1px solid red; */
+  font-size: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.menu__box a {
+  margin: 0.5rem;
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--darkmode-navy);
 }

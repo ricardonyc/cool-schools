@@ -9,10 +9,11 @@ const ModalContextProvider = ({ children }) => {
   const [loggedOut, setLoggedOut] = useState(false);
   const [accountCreated, setAccountCreated] = useState(false);
   const [alert, setAlert] = useState(false);
+  const [reviewPosted, setReviewPosted] = useState(false);
+  const [schoolAdded, setSchoolAdded] = useState(false);
 
   const openModal = () => {
     setModalOpen(true);
-    console.log('openModal function executed')
   };
 
   const closeModal = () => {
@@ -36,6 +37,10 @@ const ModalContextProvider = ({ children }) => {
         setAccountCreated,
         alert,
         setAlert,
+        reviewPosted,
+        setReviewPosted,
+        schoolAdded,
+        setSchoolAdded,
       }}
     >
       {children}

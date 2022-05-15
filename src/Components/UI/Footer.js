@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import css from "./styling/Footer.module.css";
 import { ThemeContext } from "../../context/DarkModeContext";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   const { darkMode } = useContext(ThemeContext);
@@ -19,12 +20,13 @@ const Footer = () => {
         <h1 style={logo}>CoolSchools</h1>
         <div className={css["footer__container--menu"]}>
           <div className={css.menu__box}>
-            <p>Home</p>
-            <p>Search</p>
+            <Link to="/">Home</Link>
+            {/* <p>Search</p> */}
           </div>
           <div className={css.menu__box}>
-            <p>Login</p>
-            <p>Sign Up</p>
+            <Link to="/addschool">Add School</Link>
+            {/* <p>Login</p> */}
+            {/* <p>Sign Up</p> */}
           </div>
         </div>
       </div>

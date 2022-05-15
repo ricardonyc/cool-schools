@@ -1,4 +1,4 @@
-@import "../UI/styling/variables.css";
+@import "../../UI/styling/variables.css";
 
 .top__text {
   position: relative;
@@ -7,7 +7,7 @@
 
 .bg__img {
   min-height: 30vh;
-  background-image: url("../assets/classrobot.jpg");
+  background-image: url("../../assets/classrobot.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -35,7 +35,6 @@
 .addreview__container {
   max-width: var(--max-width);
   margin: 5rem auto 0 auto;
-  /* border: 2px solid red; */
   min-height: 60vh;
   padding: 1rem;
 }
@@ -50,7 +49,6 @@ form h2 {
 .topinputs__container {
   display: flex;
   flex-wrap: wrap;
-  /* border: 1px solid red; */
 }
 
 .input__titles {
@@ -62,7 +60,6 @@ form h2 {
   flex: 1 5 33rem;
   padding: 1rem;
   margin: 0.5rem;
-  /* border: 2px solid red !important; */
   display: flex;
   flex-direction: column;
 }
@@ -80,7 +77,6 @@ form h2 {
   padding: 0.3rem 1rem 0.3rem 0.6rem;
   margin: 0.2rem 0.3rem 0.2rem 0;
   font-size: 1.6rem;
-  /* background-color: rgb(207, 207, 207); */
   border-radius: var(--border-radius);
 }
 
@@ -99,7 +95,6 @@ form h2 {
 }
 
 .checkboxes {
-  /* border: 1px solid red; */
   padding: 1rem;
 }
 
@@ -108,19 +103,16 @@ form h2 {
   max-width: 90rem;
   margin: 0 auto;
   padding: 1rem;
-  /* border: 1px solid red; */
   display: flex;
   flex-direction: column;
 }
 
 .textarea__container h3 {
-  /* text-align: center; */
   font-size: 2rem;
 }
 
 .textarea__container textarea {
   resize: none;
-  /* max-width: 90rem; */
   width: 100%;
   height: 150px;
   background-color: transparent;
@@ -129,13 +121,11 @@ form h2 {
   border: 2px solid rgba(194, 194, 194, 0.274);
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
   padding: 0.5rem;
-  /* margin: 0 auto; */
 }
 
 .textarea__container .word__count {
   font-style: italic;
   font-weight: 600;
-  /* border: 1px solid red; */
   font-size: 1.3rem;
 }
 
@@ -147,13 +137,11 @@ select {
 .checkbox {
   margin: 0.3rem 0.3rem 0.3rem 0;
   transform: scale(0.8);
-  /* padding: 1rem; */
   transition: transform 300ms ease;
 }
 
 .checkbox:checked {
   transform: scale(1.1);
-  /* display: none; */
 }
 
 .submit__btn {

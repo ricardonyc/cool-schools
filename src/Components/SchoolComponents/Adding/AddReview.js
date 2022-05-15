@@ -1,13 +1,13 @@
 import React, { useState, useReducer, useContext } from "react";
 import { useLocation } from "react-router-dom";
 import css from "./AddReview.module.css";
-import { db } from "../../firebase";
+import { db } from "../../../firebase";
 import { doc, updateDoc } from "firebase/firestore";
-import { useUserAuth } from "../../context/UserAuthContext";
-import { ModalContext } from "../../context/ModalContext";
+import { useUserAuth } from "../../../context/UserAuthContext";
+import { ModalContext } from "../../../context/ModalContext";
 import { useNavigate } from "react-router-dom";
 import { Rating } from "@mui/material";
-import { ThemeContext } from "../../context/DarkModeContext";
+import { ThemeContext } from "../../../context/DarkModeContext";
 
 const reducer = (reducerState, action) => {
   // IF STATE HAS THE TAG, RETURN ORIGINAL STATE
@@ -32,6 +32,7 @@ function AddReview(props) {
   const { darkMode } = useContext(ThemeContext);
   const initialState = { checkedIds: [] };
   const [reducerState, dispatch] = useReducer(reducer, initialState);
+  const { checkedIds: selectedTags } = reducerState;
   const location = useLocation();
   const { id, name, address, reviews } = location.state.location;
   const [starRating, setStarRating] = useState(null);
@@ -40,7 +41,8 @@ function AddReview(props) {
   const [classOf, setClassOf] = useState(null);
   const [classofError, setClassofError] = useState(false);
   const [checkboxSelected, setCheckboxSelected] = useState(null);
-  const { openModal, setLoginModal } = useContext(ModalContext);
+  const { openModal, setLoginModal, setReviewPosted } =
+    useContext(ModalContext);
   const [graduationStatus, setGraduationStatus] = useState(null);
   const [userReview, setUserReview] = useState("");
   const navigate = useNavigate();
@@ -52,7 +54,6 @@ function AddReview(props) {
     if (!user) {
       setLoginModal(true);
       openModal();
-      console.log("YOU MUST BE LOGGED IN TO POST A REVIEW");
       return;
     }
 
@@ -70,7 +71,6 @@ function AddReview(props) {
       setClassOf(null);
     }
 
-    // INITIALLY, CLASS OF IS SET TO 'SELECT YEAR' SO IT RETURNS HERE
     if (graduationStatus === "Select Year") {
       setClassofError(true);
       return;
@@ -101,22 +101,28 @@ function AddReview(props) {
           ratingOutOf5: starRating,
           classOf: classOf,
           graduationStatus: graduationStatus,
-          datePosted: date,
+          datePosted: getDate(),
         },
       ],
     };
 
     await updateDoc(userDoc, newReview);
+    setReviewPosted(true);
+    setTimeout(() => {
+      setReviewPosted(false);
+    }, 5000);
     navigate("/");
   };
 
-  const month = new Date().getMonth() + 1;
-  const day = new Date().getDate();
-  const year = new Date().getFullYear();
-  const date = `${month}/${day}/${year.toString().slice(2)}`;
+  const getDate = () => {
+    const month = new Date().getMonth() + 1;
+    const day = new Date().getDate();
+    const year = new Date().getFullYear();
+    return `${month}/${day}/${year.toString().slice(2)}`;
+  };
 
   // prettier-ignore
-  const reviewTags = ["Good Wifi", "Laggy Wifi", "Great Professors", "Staff Needs Improvement", "Expensive Location", "Social Life", "Fun Clubs", "No Social Life", "Dirty Bathrooms", "Clean Bathrooms", "Diverse", "No Diversity", "Party School",
+  const reviewTags = ["Good Wifi", "Laggy Wifi", "Great Professors", "Staff Needs Improvement", "Expensive Location", "Social Life", "Fun Clubs", "No Social Life", "Dirty Bathrooms", "Clean Bathrooms", "Diverse", "No Diversity", "Party School", "Many Majors", "Beautiful Library", "Renovations Needed", 'Library Needs Work', 'Nice Campus', 'Numerous Sports', "Mid Food", "Feels Safe", "Helpful Resources"
   ];
 
   const wouldRecommend = (e) => {
@@ -133,8 +139,6 @@ function AddReview(props) {
   for (let i = 2010; i <= maxYear; i++) {
     yearsOptions.push(i);
   }
-
-  const { checkedIds: selectedTags } = reducerState;
 
   const bgStyles = {
     backgroundColor: darkMode
@@ -199,8 +203,6 @@ function AddReview(props) {
               Transferred
             </label>
           </div>
-          {/* ------------------------------------------------------------------------- */}
-          {/* GRADUATION STATUS */}
           {graduationStatus !== "No" && graduationStatus !== "Transferred" && (
             <div style={bgStyles} className={css.input__container}>
               <label className={css.input__titles} htmlFor="classof">
@@ -273,7 +275,6 @@ function AddReview(props) {
             />
           </div>
         </div>
-        {/* ------------------------------------------------------------------------- */}
 
         <div className={css.checkboxes}>
           <h3 className={css.input__titles}>Select up to 3:</h3>
@@ -307,7 +308,6 @@ function AddReview(props) {
           <textarea
             style={bgStyles}
             onChange={(e) => setUserReview(e.target.value)}
-            // ref={reviewRef}
             required
             minLength={150}
             maxLength={400}

@@ -70,7 +70,7 @@ const Login = () => {
 
   useEffect(() => {
     const identifier = setTimeout(() => {
-      console.log("identifier ran!");
+      // console.log("identifier ran!");
       setFormValid(emailIsValid && passwordIsValid);
     }, 500);
 

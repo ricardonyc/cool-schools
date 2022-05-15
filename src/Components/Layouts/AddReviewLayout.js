@@ -5,7 +5,7 @@ import SignUp from "../SignUp/SignUp";
 import BSNav from "../UI/Nav/BSNav";
 import { ModalContext } from "../../context/ModalContext";
 import AlertBox from "../UI/Alert/AlertBox";
-import AddReview from "../SchoolComponents/AddReview";
+import AddReview from "../SchoolComponents/Adding/AddReview";
 
 const AddReviewLayout = () => {
   const { modalOpen, loginModal, loggedOut, loggedIn } =
