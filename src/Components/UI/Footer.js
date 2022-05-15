@@ -21,13 +21,13 @@ const Footer = () => {
         <div className={css["footer__container--menu"]}>
           <div className={css.menu__box}>
             <Link to="/">Home</Link>
-            {/* <p>Search</p> */}
-          </div>
-          <div className={css.menu__box}>
             <Link to="/addschool">Add School</Link>
+            {/* <Link to="/about">About</Link> */}
+          </div>
+          {/* <div className={css.menu__box}> */}
             {/* <p>Login</p> */}
             {/* <p>Sign Up</p> */}
-          </div>
+          {/* </div> */}
         </div>
       </div>
     </footer>

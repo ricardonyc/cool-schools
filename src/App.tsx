@@ -36,6 +36,7 @@ function App() {
                   path="/:schoolname/addreview"
                   element={<AddReviewLayout />}
                 />
+                <Route path="/about" element={<About />} />
                 <Route path="*" element={<Error />} />
               </Routes>
               <LightDarkMode />

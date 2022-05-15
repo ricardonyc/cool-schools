@@ -78,14 +78,6 @@ const BSNav = () => {
               >
                 Home
               </Nav.Link>
-              {/* <Nav.Link
-                as={NavLink}
-                to="/schools"
-                className={({ isActive }) => (isActive ? "active" : null)}
-                style={textColor}
-              >
-                Schools
-              </Nav.Link> */}
               <Nav.Link
                 as={NavLink}
                 to="/addschool"
@@ -94,6 +86,14 @@ const BSNav = () => {
               >
                 Add School
               </Nav.Link>
+              {/* <Nav.Link
+                as={NavLink}
+                to="/about"
+                className={({ isActive }) => (isActive ? "active" : null)}
+                style={textColor}
+              >
+                About
+              </Nav.Link> */}
 
               <NavDropdown
                 id="basic-nav-dropdown"
