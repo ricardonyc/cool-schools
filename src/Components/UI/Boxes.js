@@ -20,30 +20,15 @@ const Boxes = () => {
     <div style={container} className={css["main__boxes--container"]}>
       <div className={css["boxes__container"]}>
         <div className={css.box}>
-          <LazyLoadImage
-            className={css.yeet}
-            effect="blur"
-            src={GuySitting}
-            alt={"man using laptop"}
-          />
+          <img loading="lazy" src={GuySitting} alt={"man using laptop"} />
           <h2>Leave Reviews</h2>
         </div>
         <div className={css.box}>
-          <LazyLoadImage
-            className={css.yeet}
-            effect="blur"
-            src={Anonymous}
-            alt={"Girl and dog wearing shades"}
-          />
+          <img loading="lazy" src={Anonymous} alt={"Girl and dog wearing shades"} />
           <h2>Remain anonymous</h2>
         </div>
         <div className={css.box}>
-          <LazyLoadImage
-            className={css.yeet}
-            effect="blur"
-            src={KidCape}
-            alt={"kid running wearing a cape"}
-          />
+          <img loading="lazy" src={KidCape} alt={"kid running wearing a cape"} />
           <h2>Search Reviews</h2>
         </div>
       </div>
