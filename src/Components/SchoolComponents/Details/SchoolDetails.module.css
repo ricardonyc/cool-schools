@@ -232,7 +232,7 @@
     min-width: 100%;
     padding: 0.5rem;
     margin: 0 0 1rem 0rem;
-    border: 1px solid rgb(194, 194, 194);
+    /* border: 1px solid rgb(194, 194, 194); */
   }
 
   .reviews__section {
