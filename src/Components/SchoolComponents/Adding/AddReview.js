@@ -144,7 +144,9 @@ function AddReview(props) {
     backgroundColor: darkMode
       ? "var(--reviewbox-navy)"
       : "var(--reviewbox-white)",
+    color: darkMode ? "var(--reviewbox-white)" : "var(--reviewbox-navy)",
   };
+
 
   return (
     <div className={css.addreview__container}>
