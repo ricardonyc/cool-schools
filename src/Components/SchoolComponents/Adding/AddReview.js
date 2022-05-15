@@ -122,7 +122,7 @@ function AddReview(props) {
   };
 
   // prettier-ignore
-  const reviewTags = ["Good Wifi", "Laggy Wifi", "Great Professors", "Staff Needs Improvement", "Expensive Location", "Social Life", "Fun Clubs", "No Social Life", "Dirty Bathrooms", "Clean Bathrooms", "Diverse", "No Diversity", "Party School", "Many Majors", "Beautiful Library", "Renovations Needed", 'Library Needs Work', 'Nice Campus', 'Numerous Sports', "Mid Food", "Feels Safe", "Helpful Resources"
+  const reviewTags = ["Good Wifi", "Laggy Wifi", "Great Professors", "Nice Location", "Social Life", "Fun Clubs", "No Social Life", "Dirty Bathrooms", "Clean Bathrooms", "Diverse", "Not Diverse", "Party School", "Many Majors", "Beautiful Library", "Needs Fixing", 'Nice Campus', 'Numerous Sports', "Mid Food", "Feels Safe", "Many Resources"
   ];
 
   const wouldRecommend = (e) => {
