@@ -2,6 +2,8 @@ import React, { useContext } from "react";
 import css from "./styling/Footer.module.css";
 import { ThemeContext } from "../../context/DarkModeContext";
 import { Link } from "react-router-dom";
+import { FaLinkedin } from "react-icons/fa";
+import { BsGithub } from "react-icons/bs";
 
 const Footer = () => {
   const { darkMode } = useContext(ThemeContext);
@@ -22,12 +24,16 @@ const Footer = () => {
           <div className={css.menu__box}>
             <Link to="/">Home</Link>
             <Link to="/addschool">Add School</Link>
-            {/* <Link to="/about">About</Link> */}
+            <a
+              rel="noreferrer"
+              href="https://www.linkedin.com/in/ricardo67/"
+              target="_blank"
+            >
+              <FaLinkedin style={{ fontSize: "3rem" }} />
+            </a>
           </div>
-          {/* <div className={css.menu__box}> */}
-            {/* <p>Login</p> */}
-            {/* <p>Sign Up</p> */}
-          {/* </div> */}
+          {/* <div className={css.menu__box}>
+          </div> */}
         </div>
       </div>
     </footer>
