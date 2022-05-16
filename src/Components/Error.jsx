@@ -14,20 +14,16 @@ function Error(props) {
 
   const linkColor = {
     color: darkMode ? "white" : "black",
+    fontSize: "2.2rem",
   };
 
   return (
     <div className={css.error__container}>
       <div className={css["error__container--text"]}>
-        <h1 style={textColor}>LOST?</h1>
-        <p>Find your way back!</p>
-        <ul>
-          <Link style={linkColor} to="/">
-            Home
-          </Link>
-          {/* <Link to="/">Schools</Link> */}
-          {/* <li>Other</li> */}
-        </ul>
+        <h2 style={textColor}>LOST?</h2>
+        <Link style={linkColor} to="/">
+          Home
+        </Link>
       </div>
       <div className={css["error__container--icon"]}>
         <img src={NakedGuy} alt="" />

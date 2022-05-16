@@ -20,3 +20,4 @@
 - Ability to add images along with review
 - Implement ***Redux*** for state management
 - Refactor the Login/Sign Up logic and combine the logic into one possibly using ***Redux*** or the ***useReducer*** hook
+
