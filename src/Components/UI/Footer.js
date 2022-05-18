@@ -24,13 +24,13 @@ const Footer = () => {
           <div className={css.menu__box}>
             <Link to="/">Home</Link>
             <Link to="/addschool">Add School</Link>
-            {/* <a
+            <a
               rel="noreferrer"
-              href="https://www.linkedin.com/in/ricardo67/"
+              href="https://github.com/ricardonyc/cool-schools"
               target="_blank"
             >
-              <FaLinkedin style={{ fontSize: "3rem" }} />
-            </a> */}
+              <BsGithub style={{ fontSize: "3rem" }} />
+            </a>
           </div>
           {/* <div className={css.menu__box}>
           </div> */}
