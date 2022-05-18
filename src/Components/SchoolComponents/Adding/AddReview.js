@@ -28,7 +28,7 @@ const reducer = (reducerState, action) => {
   };
 };
 
-function AddReview(props) {
+function AddReview() {
   const { darkMode } = useContext(ThemeContext);
   const initialState = { checkedIds: [] };
   const [reducerState, dispatch] = useReducer(reducer, initialState);
@@ -122,7 +122,7 @@ function AddReview(props) {
   };
 
   // prettier-ignore
-  const reviewTags = ["Good Wifi", "Laggy Wifi", "Great Professors", "Nice Location", "Social Life", "Fun Clubs", "No Social Life", "Dirty Bathrooms", "Clean Bathrooms", "Diverse", "Not Diverse", "Party School", "Many Majors", "Beautiful Library", "Needs Fixing", 'Nice Campus', 'Numerous Sports', "Mid Food", "Feels Safe", "Many Resources"
+  const reviewTags = ["Good Wifi", "Laggy Wifi", "Great Professors", "Nice Location", "Social Life", "Fun Clubs", "No Social Life", "Dirty Bathrooms", "Clean Bathrooms", "Diverse", "Not Diverse", "Party School", "Many Majors", "Beautiful Library", "Needs Repairs", 'Nice Campus', 'Numerous Sports', "Mid Food", "Feels Safe", "Many Resources"
   ];
 
   const wouldRecommend = (e) => {
@@ -136,7 +136,7 @@ function AddReview(props) {
   const maxYear = new Date().getFullYear() + 4;
   let yearsOptions = ["Not Sure"];
 
-  for (let i = 2010; i <= maxYear; i++) {
+  for (let i = 1990; i <= maxYear; i++) {
     yearsOptions.push(i);
   }
 
