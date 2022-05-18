@@ -3,10 +3,11 @@ import NakedGuy from "./assets/naked-gaze.png";
 import css from "./UI/styling/Error.module.css";
 import { ThemeContext } from "../context/DarkModeContext";
 import "./UI/styling/variables.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Error(props) {
   const { darkMode } = useContext(ThemeContext);
+  const navigate = useNavigate();
 
   const textColor = {
     color: darkMode ? "var(--yellow)" : "var(--teal)",
@@ -15,6 +16,8 @@ function Error(props) {
   const linkColor = {
     color: darkMode ? "white" : "black",
     fontSize: "2.2rem",
+    textDecoration: "underline",
+    cursor: "pointer",
   };
 
   return (
@@ -24,6 +27,13 @@ function Error(props) {
         <Link style={linkColor} to="/">
           Home
         </Link>
+        <p
+          className={css.back__btn}
+          style={linkColor}
+          onClick={() => navigate(-1)}
+        >
+          Back
+        </p>
       </div>
       <div className={css["error__container--icon"]}>
         <img src={NakedGuy} alt="" />

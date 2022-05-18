@@ -21,9 +21,6 @@ const Reviews = ({ reviews }) => {
     setPaginationCount(paginationCount + 4);
   };
 
-  console.log("reviews count: ", reviews.length);
-  console.log("pagination count: ", paginationCount);
-
   return (
     <>
       {reviews.slice(0, paginationCount).map((obj, key) => (

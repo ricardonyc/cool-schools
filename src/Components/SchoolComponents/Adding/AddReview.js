@@ -29,24 +29,27 @@ const reducer = (reducerState, action) => {
 };
 
 function AddReview() {
+  const [starRating, setStarRating] = useState(null);
+  const [starRatingError, setStarRatingError] = useState(false);
+  const [userReview, setUserReview] = useState("");
+  const [recommended, setRecommended] = useState();
+  const [classOf, setClassOf] = useState(null);
+  const [graduationStatus, setGraduationStatus] = useState(null);
+  const [classofError, setClassofError] = useState(false);
+  const [checkboxSelected, setCheckboxSelected] = useState(null);
+  const [userLeftReview, setUserLeftReview] = useState(false);
   const { darkMode } = useContext(ThemeContext);
+  const { openModal, setLoginModal, setReviewPosted } =
+    useContext(ModalContext);
   const initialState = { checkedIds: [] };
   const [reducerState, dispatch] = useReducer(reducer, initialState);
   const { checkedIds: selectedTags } = reducerState;
   const location = useLocation();
   const { id, name, address, reviews } = location.state.location;
-  const [starRating, setStarRating] = useState(null);
-  const [starRatingError, setStarRatingError] = useState(false);
-  const [recommended, setRecommended] = useState();
-  const [classOf, setClassOf] = useState(null);
-  const [classofError, setClassofError] = useState(false);
-  const [checkboxSelected, setCheckboxSelected] = useState(null);
-  const { openModal, setLoginModal, setReviewPosted } =
-    useContext(ModalContext);
-  const [graduationStatus, setGraduationStatus] = useState(null);
-  const [userReview, setUserReview] = useState("");
   const navigate = useNavigate();
   const { user } = useUserAuth();
+
+  const matchingId = reviews.find((review) => review.userId === user);
 
   const addReview = async (e) => {
     e.preventDefault();
@@ -54,6 +57,11 @@ function AddReview() {
     if (!user) {
       setLoginModal(true);
       openModal();
+      return;
+    }
+
+    if (matchingId) {
+      setUserLeftReview(true);
       return;
     }
 
@@ -146,7 +154,6 @@ function AddReview() {
       : "var(--reviewbox-white)",
     color: darkMode ? "var(--reviewbox-white)" : "var(--reviewbox-navy)",
   };
-
 
   return (
     <div className={css.addreview__container}>
@@ -270,7 +277,7 @@ function AddReview() {
               <p className={css.starrating__error}>Must be 1 or more</p>
             )}
             <Rating
-              style={{ fontSize: "3rem" }}
+              style={{ fontSize: "3.5rem" }}
               name="simple-controlled"
               value={starRating}
               onChange={(event, newValue) => setStarRating(newValue)}
@@ -318,6 +325,20 @@ function AddReview() {
             placeholder="Write a review..."
           />
           <p className={css.word__count}>Characters: {userReview.length}</p>
+          {userLeftReview && (
+            <p
+              style={{
+                borderRadius: "var(--border-radius)",
+                marginTop: "2rem",
+                padding: ".3rem 0rem",
+                textAlign: "center",
+                backgroundColor: "pink",
+                fontSize: "2rem",
+              }}
+            >
+              Only ONE Review per user, per school
+            </p>
+          )}
           <button className={css.submit__btn}>Submit Review</button>
         </div>
       </form>

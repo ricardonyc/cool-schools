@@ -11,7 +11,7 @@ import { ModalContext } from "../../context/ModalContext";
 function SchoolHeader({ name, address, darkMode, location }) {
   const { user } = useUserAuth();
   const { openModal } = useContext(ModalContext);
-
+ 
   return (
     <>
       <h1 className={css.school__name}>{name}</h1>

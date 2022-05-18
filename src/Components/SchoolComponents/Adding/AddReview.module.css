@@ -29,12 +29,12 @@
 
 .bg__img h1 {
   font-size: 3rem;
+  font-weight: 700;
 }
 
 .bg__img h3 {
   font-size: 1.8rem;
 }
-
 
 form h2 {
   text-align: center;

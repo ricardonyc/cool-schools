@@ -17,7 +17,7 @@ function SchoolDetails(props) {
   const [recommended, setRecommended] = useState(null);
   const [loading, setLoading] = useState(true);
   const location = useLocation();
-  const details = location.state.school;
+  const details = location?.state?.school;
   const { name, address, reviews } = details;
 
   useEffect(() => {
