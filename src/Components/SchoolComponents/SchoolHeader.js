@@ -12,7 +12,6 @@ function SchoolHeader({ name, address, darkMode, location }) {
   const { user } = useUserAuth();
   const { openModal } = useContext(ModalContext);
 
-  console.log("school header re-rendered");
 
   return (
     <>

@@ -4,8 +4,6 @@ import Recommended from "./Recommended";
 import css from "../Details/SchoolDetails.module.css";
 
 function FilterForms({ setRating, setRecommended }) {
-  console.log("filter forms ran!");
-
   return (
     <>
       <form

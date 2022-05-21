@@ -20,8 +20,6 @@ function SchoolDetails() {
   const details = location?.state?.school;
   const { name, address, reviews } = details;
 
-  console.log("school details rendered");
-
   useEffect(() => {
     window.scrollTo(0, 0);
     setTimeout(() => {
