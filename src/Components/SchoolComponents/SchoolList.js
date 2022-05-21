@@ -22,14 +22,13 @@ const SchoolList = () => {
 
     setTimeout(() => {
       getUsers();
-    }, 1000);
+    }, 500);
   }, []);
 
   // SELECT ONLY n SCHOOLS
   const numSchools = schoolResults
     ?.filter((school) => school.reviews.length > 0)
     .slice(0, 3);
-  // console.log(numSchools);
 
   const boxBg = {
     backgroundColor: darkMode

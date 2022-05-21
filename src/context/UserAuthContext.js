@@ -30,11 +30,6 @@ export function UserAuthContextProvider({ children }) {
     return signOut(auth);
   }
 
-  //   function resetPassword(email) {
-  //     // return sendPasswordResetEmail(email);
-  //     console.log(email);
-  //   }
-
   return (
     <userAuthContext.Provider value={{ user, signUp, logIn, logOut }}>
       {children}

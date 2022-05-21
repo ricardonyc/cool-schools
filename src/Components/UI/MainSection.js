@@ -45,8 +45,8 @@ function MainSection(props) {
             DISCOVER
           </h1>
           <p>
-            Find your favorite (and not-so-favorite) Universities. Read and leave
-            reviews about your school anonymously.
+            Find your favorite (and not-so-favorite) Universities. Read and
+            leave reviews about your school anonymously.
           </p>
         </div>
       </div>
@@ -85,13 +85,6 @@ function MainSection(props) {
                     </NavLink>
                   );
                 })}
-                {/* THIS WONT WORK IF THE USER ISNT LOGGED IN */}
-                {/* DIRECT USER TO ANOTHER PAGE TO FILL OUT FORM BUT ON SUBMIT DIRECT THEM TO LOGIN */}
-                {/* {userInput.length > 0 && (
-                  <Link className={css.add__school} to="/addschool">
-                  Add School
-                  </Link>
-                )} */}
                 <NavLink className={css.add__school} to="/addschool">
                   Add School
                 </NavLink>
