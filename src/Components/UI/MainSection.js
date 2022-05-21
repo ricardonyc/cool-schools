@@ -8,7 +8,7 @@ import { SchoolContext } from "../../context/SchoolContext";
 import { NavLink } from "react-router-dom";
 import { IoMdClose } from "react-icons/io";
 
-function MainSection(props) {
+function MainSection() {
   const { darkMode } = useContext(ThemeContext);
   const { schoolResults } = useContext(SchoolContext);
   const [filteredData, setFilteredData] = useState([]);

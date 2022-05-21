@@ -4,6 +4,8 @@ import Recommended from "./Recommended";
 import css from "../Details/SchoolDetails.module.css";
 
 function FilterForms({ setRating, setRecommended }) {
+  console.log("filter forms ran!");
+
   return (
     <>
       <form
@@ -23,5 +25,4 @@ function FilterForms({ setRating, setRecommended }) {
   );
 }
 
-export default FilterForms;
- 
+export default React.memo(FilterForms);

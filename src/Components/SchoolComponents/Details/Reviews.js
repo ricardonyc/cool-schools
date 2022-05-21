@@ -10,6 +10,8 @@ const Reviews = ({ reviews }) => {
   const { darkMode } = useContext(ThemeContext);
   const [paginationCount, setPaginationCount] = useState(4);
 
+  console.log("reviews rendered");
+
   const reviewBg = {
     backgroundColor: darkMode
       ? "var(--reviewbox-navy)"

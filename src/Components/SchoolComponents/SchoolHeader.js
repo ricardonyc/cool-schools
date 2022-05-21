@@ -11,7 +11,9 @@ import { ModalContext } from "../../context/ModalContext";
 function SchoolHeader({ name, address, darkMode, location }) {
   const { user } = useUserAuth();
   const { openModal } = useContext(ModalContext);
- 
+
+  console.log("school header re-rendered");
+
   return (
     <>
       <h1 className={css.school__name}>{name}</h1>
@@ -64,4 +66,4 @@ function SchoolHeader({ name, address, darkMode, location }) {
   );
 }
 
-export default SchoolHeader;
+export default React.memo(SchoolHeader);

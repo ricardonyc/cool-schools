@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState, useCallback } from "react";
 import css from "./SchoolDetails.module.css";
 import { useLocation } from "react-router-dom";
 import { ThemeContext } from "../../../context/DarkModeContext";
@@ -10,7 +10,7 @@ import SchoolHeader from "../SchoolHeader";
 import FilterForms from "../Filters/FilterForms";
 import ReviewSkeleton from "../Skeletons/ReviewSkeleton";
 
-function SchoolDetails(props) {
+function SchoolDetails() {
   const { darkMode } = useContext(ThemeContext);
   const [filtersOpen, setFiltersOpen] = useState(false);
   const [rating, setRating] = useState(0);
@@ -19,6 +19,8 @@ function SchoolDetails(props) {
   const location = useLocation();
   const details = location?.state?.school;
   const { name, address, reviews } = details;
+
+  console.log("school details rendered");
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -48,12 +50,14 @@ function SchoolDetails(props) {
   return (
     <div className={css.details__container}>
       <div className={css.details__header}>
-        <SchoolHeader
-          name={name}
-          address={address}
-          darkMode={darkMode}
-          location={location.state.school}
-        />
+        <div className={css.header}>
+          <SchoolHeader
+            name={name}
+            address={address}
+            darkMode={darkMode}
+            location={location.state.school}
+          />
+        </div>
         <div className={css.main__content}>
           <div className={`${css.filter__container} `}>
             <h2 onClick={() => setFiltersOpen(!filtersOpen)}>

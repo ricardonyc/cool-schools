@@ -54,17 +54,20 @@ function AddReview() {
   const addReview = async (e) => {
     e.preventDefault();
 
+    // IF USER ISNT LOGGED IN, PROMPT THEM
     if (!user) {
       setLoginModal(true);
       openModal();
       return;
     }
 
+    // IF USER LEFT A REVIEW ALREADY, DONT ALLOW TO LEAVE REVIEW AGAIN
     if (matchingId) {
       setUserLeftReview(true);
       return;
     }
 
+    // USER MUST SELECT A VALID OPTION IF GRAD STATUS IS 'YES' OR 'NOT YET'
     if (
       ((graduationStatus === "Yes" || graduationStatus === "Not Yet") &&
         classOf === null) ||
@@ -78,12 +81,6 @@ function AddReview() {
     if (graduationStatus === "No" || graduationStatus === "Transferred") {
       setClassOf(null);
     }
-
-    if (graduationStatus === "Select Year") {
-      setClassofError(true);
-      return;
-    }
-    setClassofError(false);
 
     if (starRating === null) {
       setStarRatingError(true);

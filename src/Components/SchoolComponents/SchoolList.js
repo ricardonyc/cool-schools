@@ -71,7 +71,6 @@ const SchoolList = () => {
             <HomeCardsSkeleton />
             <HomeCardsSkeleton />
             <HomeCardsSkeleton />
-            {/* <HomeCardsSkeleton /> */}
           </>
         )}
       </div>

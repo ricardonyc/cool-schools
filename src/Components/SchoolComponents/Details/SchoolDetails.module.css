@@ -209,7 +209,19 @@
   border-radius: var(--border-radius);
   margin: 2rem 1rem 1rem 0;
   padding: 0.5rem;
-  max-width: 7.5rem;
+  /* max-width: 7.5rem; */
+  /* border: 1px solid red; */
+  /* display: block; */
+}
+
+.header a {
+  width: 8rem;
+  display: inline-block;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
 }
 
 @media only screen and (max-width: 880px) {
