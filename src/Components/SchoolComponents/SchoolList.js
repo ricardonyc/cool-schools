@@ -16,8 +16,14 @@ const SchoolList = () => {
 
   useEffect(() => {
     const getUsers = async () => {
-      const data = await getDocs(schoolsCollectionRef);
-      setSchoolResults(data.docs.map((doc) => ({ id: doc.id, ...doc.data() })));
+      try {
+        const data = await getDocs(schoolsCollectionRef);
+        setSchoolResults(
+          data.docs.map((doc) => ({ id: doc.id, ...doc.data() }))
+        );
+      } catch (err) {
+        console.error(err);
+      }
     };
 
     setTimeout(() => {
