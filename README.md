@@ -1,6 +1,6 @@
 <!-- ![icon](./public/icon.svg)  -->
 
-# <img src="./public/icon.svg" style="width: 25px;" /> Cool Uni [(Live Site)](https://cool-schools.web.app/)
+# <img src="./public/icon.svg" style="width: 25px;" /> Cool Uni [(Live Site)](https://cooluni.com/)
  
 
 ## Search, Rate and Review Your University! Can't find your school? Add it and review it!
