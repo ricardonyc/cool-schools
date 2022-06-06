@@ -16,7 +16,7 @@
 - 🔥 Storing user data using the ***Firestore Database***
 - 🔥 Hosting the website using ***Firebase***
 
-### Features I can (and most likely will) improve/add:
+### Features I can improve/add:
 - Ability to add images along with review
 - Implement ***Redux*** for state management
 - Refactor the Login/Sign Up logic and combine the logic into one possibly using ***Redux*** or the ***useReducer*** hook
