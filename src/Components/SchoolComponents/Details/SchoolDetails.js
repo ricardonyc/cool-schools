@@ -25,6 +25,7 @@ function SchoolDetails() {
     setTimeout(() => {
       setLoading(false);
     }, 900);
+
   }, []);
 
   let filteredReviews = reviews.filter(

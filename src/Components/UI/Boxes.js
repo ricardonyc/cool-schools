@@ -7,6 +7,7 @@ import { ThemeContext } from "../../context/DarkModeContext";
 import { useContext } from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
+import Parallax from "react-rellax";
 
 const Boxes = () => {
   const { darkMode } = useContext(ThemeContext);
